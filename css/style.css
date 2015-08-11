@@ -1,0 +1,403 @@
+/*RESET*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,800,400);
+@import url('http://fonts.googleapis.com/css?family=Anton');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    
+    font-family: "Trebuchet MS";
+}
+
+
+
+#todo{
+    width: 100%; 
+    height: auto;
+    display: table;
+    background-color: #efefef;
+}
+
+
+#conteudo{
+    min-width: 761px;
+    margin: 0 auto;
+    max-width: 1200px;
+    
+}
+
+
+
+#topo{
+    width: 100%;
+    height: 135px;
+    background-color: #efefef;
+}
+
+#topo-cima{
+    width: 100%;
+    height: 91px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+#topo-cima-conteudo{
+    max-width: 1200px;
+    min-width: 961px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#menu{
+    height: 100%;
+    float: right;
+}
+
+#menu ul{
+    list-style: none;
+}
+
+.liMenu{
+    transition: .2s all;
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    padding-top: 38px;
+    height: 57px;
+}
+
+.liMenu:hover{
+    background-color: #efefef;
+}
+
+.liMenu a:hover{
+    color: #1c909e;
+}
+
+.liMenu a{
+    text-decoration: none;
+    font-size: 1rem;
+    color: #696969;
+}
+
+
+.icon-search{
+    width: 2.41%;
+    cursor: pointer;
+    float: right;
+    margin-top: 37px;
+    margin-left: 36px;
+}
+
+
+
+#topo-baixo{
+    width: 100%;
+    height: 43px;
+    
+}
+
+#topo-baixo-conteudo{
+    max-width: 1200px;
+    min-width: 961px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+.sociais{
+    width: 29px;
+    height: 29px;
+    border-radius: 100%;
+    background-color: #000;
+    border-style: none;
+   
+}
+
+
+#redes-sociais{
+    width: auto;
+    height: auto;
+    margin-top: 7px;
+    float: right;
+    margin-right: 28px;
+}
+
+#botoes-topo-baixo{
+    width: 225px;
+    height: 100%;
+    background-color: #ccc;
+    float: right;
+}
+
+#btnEntrar{
+    width: 76px;
+    height: 30px;
+    background-color: #176f78;
+    display: inline-block;
+    color: #80c0c7;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 13px;
+}
+
+#btnResenha{
+    width: 149px;
+    height: 30px;
+    background-color: #0d909e;
+    display: inline-block;
+    float: right;
+    font-size: 14px;
+    
+    padding-top: 13px;
+    color: #95dae1;
+    text-align: center;
+    text-decoration: none;
+}
+
+#box-logo{
+    width: 26.33%;
+    height: 142px;
+    margin-top: 16px;
+    float: left;
+}
+
+#box-logo img{
+    width: 100%;
+}
+
+
+
+//slider
+
+
+#slider{
+
+}
+
+
+.form-cadastro-home{
+    width: 25%;
+    
+    height: 481px;
+    background-color: #fff;
+    float: right;
+    
+    padding-left: 15px;
+    border: 1px solid #dadada;
+}
+
+#topo-home{
+    width: 100%;
+    display: table;
+    margin-top: 50px;
+    height: 483px;
+}
+
+#box-form-cadastro{
+    width: 90%;
+    height: auto;
+    margin-top: 32px;
+    
+}
+
+.titulo-cadastro-home{
+    font-size: 18px;
+    font-weight: normal;
+    color: #252943;
+}
+
+.linha-cadastro-home{
+    margin-top: 15px;
+    border: none;
+    height: 1px;
+    background-color: #f2f2f2;
+}
+
+//editando o formulario e cadastro da home, com padrões
+
+.lblPadrao{
+    display: inline-block;
+    width: 100%;
+    font-size: 0.75rem;
+    color: #656565;
+    margin-bottom: 7px;
+}
+
+.frm-padrao{
+    height: 31px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    outline: none;
+    padding-left: 10px;
+    color: #656565;
+}
+
+
+.input-cadastro{width: 100%;}
+
+.input-conf-senha{width: 70%; float: left; z-index: 1; margin-top: 1px;}
+.frmCadastro{
+    margin-top: 18px;
+}
+.btnEnviar{
+    width: 30%;
+    height: 33px;
+    float: right;
+    z-index: 10;
+    margin-top: 1px;
+    margin-left: -20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+    background-color: #dadada;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #656565;
+    transition: .2s all;
+}
+
+.btnEnviar:hover{
+    background-color: #86d56d;
+    color: #fff;
+}
+
+
+.btnFaceBook{
+    background-color: #082e63;
+    margin-top: 21px;
+    
+    display: inline-block;
+    width: 105%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #f1f1f1;
+    padding-top: 14px;
+    text-decoration: none;
+}
+
+
+
+
+.frmPesquisa{
+    float: right;
+    height: 90px;
+    background-color: #fff;
+}
+
+.frmPesquisa input[type=text]{
+    width: 749px;
+    height: 35px;
+    float: left;
+    margin-top: 28px;
+    border-radius: 20px;
+    margin-right: -35px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding-left: 10px;
+}
+
+.frmPesquisa input[type=image]{
+    margin-left: -10px;
+    margin-top: 35px;
+    
+    float: left;
+}
+
+#frmPesquisa{
+    width: 100%;
+    height: 50px;
+    top: 0;
+    position: absolute;
+    display: none;
+}
+
+#frmPesquisa-conteudo{
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#boxLogin{
+    width: 225px;
+    height: 250px;
+    background-color: #cecece;
+    float: right;
+}
+
+.login{
+    width: 100%;
+    height: 600px;
+    display: none;
+    position: absolute;
+}
+
+#login{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 150px;
+}
+
+.slide{
+    width: 72%;
+    height: 481px;
+    background-color: #000;
+}
+
+#imagem{
+    width: 100%;
+    height: 471px;
+    background-image: url('../imagens/imgBanner.png');
+    background-size: cover;
+}
+
+.conteudo-home{
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+#titulo-home{
+    width: 100%;
+    height: 31px;
+}
+
+.titulo-home{
+    width: 136px;
+    height: 26px;
+    background-color: #d36b17;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    padding-top: 5px;
+
+}
+
+.linha-titulo-home{
+    float: left;
+    width: 90%;
+    float: right;
+    margin-top: 15px;
+    z-index: 2;
+    border: none;
+    height: 1px;
+    background-color: #d36b17;
+}
+
+.bolinha{
+    width: 25px;
+    height: 25px;
+    background-color: #d36b17;
+    float: right;
+    border-radius: 15px;
+    margin-top: -28px;
+}
