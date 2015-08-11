@@ -401,3 +401,8 @@
     border-radius: 15px;
     margin-top: -28px;
 }
+
+.erros{
+    color:red;
+    font-size: 0.7rem;
+}
