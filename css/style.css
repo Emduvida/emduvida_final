@@ -221,10 +221,10 @@
 //editando o formulario e cadastro da home, com padrões
 
 .lblPadrao{
-    display: inline-block;
+    display: block;
     width: 100%;
     color: #656565;
-    margin-bottom: 7px;
+
 }
 
 .fonte{
@@ -236,9 +236,10 @@
     height: 31px;
     border-radius: 10px;
     margin-bottom: 20px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #b5b5b5;
     outline: none;
     padding-left: 10px;
+    margin-top: 2px;
     color: #656565;
 }
 
@@ -418,7 +419,7 @@
 
 .boxForm{
     width: 32%;
-    height: 366px;
+    height: auto;
     background-color: #fff;
     float: left;
     border: 1px solid #b3b3b3;
@@ -427,16 +428,26 @@
 
 }
 
-.bottom{width: 100%;
+.bottom{
+    width: 100%;
         height: 10px;
-        background: #0d909e;
+        background: #ccc;
         position: relative;
         bottom: 0;
 }
 
+.bottomBox1{
+    width: 0%;
+    max-width: 100%;
+    height: 100%;
+    background-color: #0d909e;
+    transition: .4s all;
+}
+
 .conteudoBox{
     width: 100%;
-    height: 356px;
+    
+    min-height: 356px;
 }
 
 .contFormBox{
@@ -463,7 +474,7 @@
 }
 
 #msgTermos{
-    width: 60%;
+    width: 70%;
     text-align: center;
     height: auto;
     padding: 5px;
@@ -480,8 +491,8 @@
     padding-right: 10px;
     background-color: #0d909e;
     color: #fff;
-    margin-top: -7px;
+    margin-top: 30px;
     border: none;
     cursor: pointer;
-    
+    outline: none;
 }

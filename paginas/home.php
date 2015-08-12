@@ -6,19 +6,19 @@
             <h3 class="titulo-cadastro-home">Cadastre-se em nosso site:</h3>
             <hr class="linha-cadastro-home"/>
             <form method="post" class="frmCadastro">
-                <label for="email" class="lblPadrao">E-mail</label>
+                <label for="email" class="lblPadrao fonte">E-mail</label>
                 <p class="erroEmail erros"></p>
                 <input type="email" name="" id="email" class="frm-padrao input-cadastro"/>  
                 
-                <label for="ConfEmail" class="lblPadrao">Confirmar e-mail</label>
+                <label for="ConfEmail" class="lblPadrao fonte">Confirmar e-mail</label>
                 <p class="erroConfEmail erros"></p>
                 <input type="email" name="" id="ConfEmail" class="frm-padrao input-cadastro"/>  
                 
-                <label for="senha" class="lblPadrao">Senha</label>
+                <label for="senha" class="lblPadrao fonte">Senha</label>
                 <p class="erroSenha erros"></p>
                 <input type="password" name="" id="senha" class="frm-padrao input-cadastro"/>  
                 
-                <label for="ConfSenha" class="lblPadrao">Confirmar senha</label>
+                <label for="ConfSenha" class="lblPadrao fonte">Confirmar senha</label>
                 <p class="erroConfSenha erros"></p>
                 <input type="password" name="" id="ConfSenha" class="frm-padrao input-conf-senha"/>
                 

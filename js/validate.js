@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    /*validando o formulario de cadastro da pagina inicial*/
+    //validando o formulario de cadastro da pagina inicial*/
 
 
     $('.frmCadastro').submit(function () {
@@ -43,6 +43,93 @@ $(document).ready(function () {
         }
 
 
+
+
+    });
+
+    //FIM DA VALIDAÇÃO DOS CAMPOS DA HOME
+
+
+    //VALIDAÇÃO DA PAGINA DE CADASTRO
+
+    nome = $('#nome');
+    sobreNome = $('#sobreNome');
+    dataNasc = $('#data');
+    cpf = $('#cpf');
+    cidade = $('#data');
+    estado = $('#estado');
+    email = $('#email');
+    senha = $('#senha');
+
+
+    nome.blur(function () {
+        if (nome.val() === "") {
+            vermelho(nome);
+            mensagem('.errNome', 'Este campo não pode estar vazio');
+            diminuiBarra('.bottomBox1', 25);
+
+        } else {
+            voltarNormal(nome);
+            removeMensagem('.errNome');
+            aumentaBarra('.bottomBox1', 25);
+        }
+    });
+    
+    
+    sobreNome.blur(function () {
+
+        if (sobreNome.val() === "") {
+            vermelho(sobreNome);
+            mensagem('.erroSobreNome', 'Este campo não pode estar vazio');
+            diminuiBarra('.bottomBox1', 25);
+        } else {
+            voltarNormal(sobreNome);
+            removeMensagem('.erroSobreNome');
+            aumentaBarra('.bottomBox1', 25);
+        }
+    });
+
+    dataNasc.blur(function(){
+        if (dataNasc.val() === "") {
+            vermelho(dataNasc);
+            mensagem('.erroNasc', 'Este campo não pode estar vazio');
+            diminuiBarra('.bottomBox1', 25);
+        } else {
+            voltarNormal(dataNasc);
+            removeMensagem('.erroNasc');
+            aumentaBarra('.bottomBox1', 25);
+
+        }
+    });
+
+
+    $('.frmCadastroPrincipal').submit(function () {
+
+
+
+
+
+        barra1 = 0;
+
+
+
+
+        
+
+
+
+
+        if (cpf.val() === "") {
+            vermelho(cpf);
+            mensagem('.erroCPF', 'Este campo não pode estar vazio');
+
+        } else {
+            voltarNormal(cpf);
+            removeMensagem('.erroCPF');
+
+        }
+
+
     });
 
 
@@ -57,10 +144,32 @@ $(document).ready(function () {
     }
 
     function voltarNormal(obj) {
-        $(obj).css('border', '1px solid #dcdcdc');
+        $(obj).css('border', '1px solid #b5b5b5');
     }
 
     function removeMensagem(obj) {
-        $(obj).fadeOut()();
+        $(obj).fadeOut();
+    }
+
+    function aumentaBarra(obj, tamanho) {
+        total = $(obj).width() / $(obj).parent().width() * 100;
+        total += tamanho;
+        barra = total;
+        $(obj).css('width', barra + '%');
+
+    }
+
+    function diminuiBarra(obj, tamanho) {
+        total = $(obj).width() / $(obj).parent().width() * 100;
+
+        total -= tamanho;
+
+        if (total < 0) {
+            barra = 0;
+        } else {
+            barra = total;
+        }
+        $(obj).css('width', barra + '%');
     }
 });
+
