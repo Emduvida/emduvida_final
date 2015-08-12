@@ -6,7 +6,7 @@
 *{
     margin: 0;
     padding: 0;
-    
+
     font-family: "Trebuchet MS";
 }
 
@@ -24,7 +24,7 @@
     min-width: 761px;
     margin: 0 auto;
     max-width: 1200px;
-    
+
 }
 
 
@@ -97,7 +97,7 @@
 #topo-baixo{
     width: 100%;
     height: 43px;
-    
+
 }
 
 #topo-baixo-conteudo{
@@ -114,7 +114,7 @@
     border-radius: 100%;
     background-color: #000;
     border-style: none;
-   
+
 }
 
 
@@ -152,7 +152,7 @@
     display: inline-block;
     float: right;
     font-size: 14px;
-    
+
     padding-top: 13px;
     color: #95dae1;
     text-align: center;
@@ -182,11 +182,11 @@
 
 .form-cadastro-home{
     width: 25%;
-    
+
     height: 481px;
     background-color: #fff;
     float: right;
-    
+
     padding-left: 15px;
     border: 1px solid #dadada;
 }
@@ -202,7 +202,7 @@
     width: 90%;
     height: auto;
     margin-top: 32px;
-    
+
 }
 
 .titulo-cadastro-home{
@@ -223,9 +223,13 @@
 .lblPadrao{
     display: inline-block;
     width: 100%;
-    font-size: 0.75rem;
     color: #656565;
     margin-bottom: 7px;
+}
+
+.fonte{
+    font-size: 12px;
+    color: #9c9c9c;
 }
 
 .frm-padrao{
@@ -272,7 +276,7 @@
 .btnFaceBook{
     background-color: #082e63;
     margin-top: 21px;
-    
+
     display: inline-block;
     width: 105%;
     height: 30px;
@@ -308,7 +312,7 @@
 .frmPesquisa input[type=image]{
     margin-left: -10px;
     margin-top: 35px;
-    
+
     float: left;
 }
 
@@ -405,4 +409,79 @@
 .erros{
     color:red;
     font-size: 0.7rem;
+}
+
+
+#containerCadastro{
+    margin-top: 50px;
+}
+
+.boxForm{
+    width: 32%;
+    height: 366px;
+    background-color: #fff;
+    float: left;
+    border: 1px solid #b3b3b3;
+    border-bottom: none;
+    margin-left: 1.65%;
+
+}
+
+.bottom{width: 100%;
+        height: 10px;
+        background: #0d909e;
+        position: relative;
+        bottom: 0;
+}
+
+.conteudoBox{
+    width: 100%;
+    height: 356px;
+}
+
+.contFormBox{
+    padding: 10px;
+}
+
+
+.cancelaLeft{margin-left: 0;}
+
+//.right{float: right;}
+
+.input-cadastro-completo{
+    width: 95%;
+}
+
+#carregaImagem{
+    width: 80px;
+    border-radius: 40px;
+    margin-top: 15px;
+    height: 80px;
+    background-color: #ccc;
+    cursor: pointer;
+    float: left;
+}
+
+#msgTermos{
+    width: 60%;
+    text-align: center;
+    height: auto;
+    padding: 5px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.btnCadastrar{
+    float: right;
+    margin-right: -10px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #0d909e;
+    color: #fff;
+    margin-top: -7px;
+    border: none;
+    cursor: pointer;
+    
 }
