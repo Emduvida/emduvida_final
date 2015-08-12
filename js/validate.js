@@ -56,7 +56,7 @@ $(document).ready(function () {
     sobreNome = $('#sobreNome');
     dataNasc = $('#data');
     cpf = $('#cpf');
-    cidade = $('#data');
+    cidade = $('#cidade');
     estado = $('#estado');
     email = $('#email');
     senha = $('#senha');
@@ -102,7 +102,46 @@ $(document).ready(function () {
         }
     });
 
+    cpf.blur(function(){
+        if (cpf.val() === "") {
+            vermelho(cpf);
+            mensagem('.erroCPF', 'Este campo não pode estar vazio');
+            diminuiBarra('.bottomBox1', 25);
+        } else {
+            voltarNormal(cpf);
+            removeMensagem('.erroCPF');
+            aumentaBarra('.bottomBox1', 25);
+        }
+    });
 
+    cidade.blur(function(){
+        if (cidade.val() === "") {
+            vermelho(cidade);
+            mensagem('.erroCidade', 'Este campo não pode estar vazio');
+            diminuiBarra('.bottomBox2', 50);
+        } else {
+            voltarNormal(cidade);
+            removeMensagem('.erroCidade');
+            aumentaBarra('.bottomBox2', 50);
+        }
+    });
+    
+    
+    estado.blur(function(){
+       
+       if (estado.val() === "") {
+            vermelho(estado);
+            mensagem('.erroEstado', 'Este campo não pode estar vazio');
+            diminuiBarra('.bottomBox2', 50);
+        } else {
+            voltarNormal(estado);
+            removeMensagem('.erroEstado');
+            aumentaBarra('.bottomBox2', 50);
+        }
+        
+    });
+    
+    
     $('.frmCadastroPrincipal').submit(function () {
 
 
@@ -119,15 +158,7 @@ $(document).ready(function () {
 
 
 
-        if (cpf.val() === "") {
-            vermelho(cpf);
-            mensagem('.erroCPF', 'Este campo não pode estar vazio');
-
-        } else {
-            voltarNormal(cpf);
-            removeMensagem('.erroCPF');
-
-        }
+        
 
 
     });

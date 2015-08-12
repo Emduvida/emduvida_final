@@ -43,17 +43,21 @@
 
 
                 <label for="cidade" class="lblPadrao fonte">Cidade:</label>
-                <p class="erros"></p>
+                <p class="erros erroCidade"></p>
                 <input type="text" name="" id="cidade" class="frm-padrao input-cadastro-completo"/>  
 
                 <label for="estado" class="lblPadrao fonte">Estado:</label>
-                <p class="erros"></p>
+                <p class="erros erroEstado"></p>
                 <input type="text" name="" id="estado" class="frm-padrao input-cadastro-completo"/>  
 
 
             </div>
         </div>
-        <div id="bottomBox2" class="bottom"></div>
+        <div id="bottomBox2" class="bottom">
+            <div class="bottomBox2">
+                
+            </div>
+        </div>
     </article>
 
     <article class="boxForm right">
