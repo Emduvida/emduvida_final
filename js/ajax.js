@@ -85,7 +85,7 @@ $(document).ready(function () {
 //PREPARAÇÃO DO CADASTRO E ENVIO DE SESSOA PARA PAGINA DE CADASTRO
 
 
-    var cad1 = $('form[name="cad1"]');
+    var cad1 = $('.frmCadastro');
     cad1.submit(function () {
         var dados = $(this).serialize();
         var acao = "&acao=cad1";
@@ -96,8 +96,9 @@ $(document).ready(function () {
             data: sender,
             success: function (resposta) {
 
+//alert(resposta);
                 if (resposta === '1') {
-
+                   
                     erroDados("Seu email já esta cadastrado!");
                     fechaErro(2000);
 
@@ -109,6 +110,7 @@ $(document).ready(function () {
                     return false;
 
                 } else {
+                    
                     //alert(resposta);
 
                     location.href = "cadastro";
@@ -120,7 +122,7 @@ $(document).ready(function () {
             },
             complete: function () {
 
-
+            //alert('aa');
 
             }
         });

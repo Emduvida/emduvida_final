@@ -4,50 +4,113 @@ $(document).ready(function () {
     //validando o formulario de cadastro da pagina inicial*/
 
 
-    $('.frmCadastro').submit(function () {
+    email = $('#email');
+    confEmail = $('#ConfEmail');
+    senha = $('#senha');
+    confSenha = $('#ConfSenha');
+    campo = ('#enviarCad');
+    email.blur(function () {
 
-        email = $('#email').val();
-        confEmail = $('#ConfEmail').val();
-        senha = $('#senha').val();
-        confSenha = $('#confirmarsenha').val();
-
-
-        if (email === "") {
-
+        if (email.val() === "") {
+            desabilitarCampo(campo);
             vermelho('#email');
             mensagem('.erroEmail', 'Campo não pode ficar em branco');
 
         } else {
 
-            if (email === confEmail) {
+            if (email.val() === confEmail.val()) {
 
                 voltarNormal('#ConfEmail');
                 removeMensagem('.erroConfEmail');
+                habilitarCampo(campo);
 
             } else {
                 vermelho('#ConfEmail');
                 mensagem('.erroConfEmail', 'E-mails não conferem');
+                desabilitarCampo(campo);
             }
+
+            habilitarCampo(campo);
             voltarNormal('#email');
             removeMensagem('.erroEmail');
-        }
-
-
-        if (senha.length < 6) {
-            vermelho('#senha');
-            mensagem('.erroSenha', 'Senha deve conter no minimo 6 caracteres');
-        } else {
-            voltarNormal('#senha');
-            removeMensagem('.erroSenha');
 
         }
-
-
-
 
     });
 
+    confEmail.blur(function () {
+
+        if (email.val() === confEmail.val()) {
+
+            voltarNormal('#ConfEmail');
+            removeMensagem('.erroConfEmail');
+            habilitarCampo(campo);
+
+        } else {
+            vermelho('#ConfEmail');
+            mensagem('.erroConfEmail', 'E-mails não conferem');
+            desabilitarCampo(campo);
+        }
+        //alert("Senha: "+email.val() + "ConfSenha: "+ confEmail.val());
+    });
+
+    senha.blur(function () {
+        if (senha.val().length < 6) {
+            desabilitarCampo(campo);
+            vermelho('#senha');
+            mensagem('.erroSenha', 'Senha deve conter no minimo 6 caracteres');
+        } else {
+
+            if (senha.val() === confSenha.val()) {
+
+                voltarNormal('#ConfSenha');
+                removeMensagem('.erroConfSenha');
+                habilitarCampo(campo);
+
+            } else {
+                vermelho('#ConfSenha');
+                mensagem('.erroConfSenha', 'Senhas não conferem');
+                desabilitarCampo(campo);
+            }
+            
+            voltarNormal('#senha');
+            removeMensagem('.erroSenha');
+            habilitarCampo(campo);
+        }
+
+       // alert("Senha: "+senha.val() + "ConfSenha: "+ confSenha.val());
+    });
+    
+    confSenha.blur(function(){
+        if (senha.val() === confSenha.val()) {
+
+                voltarNormal('#ConfSenha');
+                removeMensagem('.erroConfSenha');
+                habilitarCampo(campo);
+
+            } else {
+                vermelho('#ConfSenha');
+                mensagem('.erroConfSenha', 'Senhas não conferem');
+                desabilitarCampo(campo);
+            }
+    });
+
     //FIM DA VALIDAÇÃO DOS CAMPOS DA HOME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //VALIDAÇÃO DA PAGINA DE CADASTRO
@@ -58,8 +121,8 @@ $(document).ready(function () {
     cpf = $('#cpf');
     cidade = $('#cidade');
     estado = $('#estado');
-    email = $('#email');
-    senha = $('#senha');
+    emailCad = $('#email');
+    senhaCad = $('#senha');
 
 
     nome.blur(function () {
@@ -74,8 +137,8 @@ $(document).ready(function () {
             aumentaBarra('.bottomBox1', 25);
         }
     });
-    
-    
+
+
     sobreNome.blur(function () {
 
         if (sobreNome.val() === "") {
@@ -89,7 +152,7 @@ $(document).ready(function () {
         }
     });
 
-    dataNasc.blur(function(){
+    dataNasc.blur(function () {
         if (dataNasc.val() === "") {
             vermelho(dataNasc);
             mensagem('.erroNasc', 'Este campo não pode estar vazio');
@@ -102,7 +165,7 @@ $(document).ready(function () {
         }
     });
 
-    cpf.blur(function(){
+    cpf.blur(function () {
         if (cpf.val() === "") {
             vermelho(cpf);
             mensagem('.erroCPF', 'Este campo não pode estar vazio');
@@ -114,7 +177,7 @@ $(document).ready(function () {
         }
     });
 
-    cidade.blur(function(){
+    cidade.blur(function () {
         if (cidade.val() === "") {
             vermelho(cidade);
             mensagem('.erroCidade', 'Este campo não pode estar vazio');
@@ -125,11 +188,11 @@ $(document).ready(function () {
             aumentaBarra('.bottomBox2', 50);
         }
     });
-    
-    
-    estado.blur(function(){
-       
-       if (estado.val() === "") {
+
+
+    estado.blur(function () {
+
+        if (estado.val() === "") {
             vermelho(estado);
             mensagem('.erroEstado', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox2', 50);
@@ -138,30 +201,9 @@ $(document).ready(function () {
             removeMensagem('.erroEstado');
             aumentaBarra('.bottomBox2', 50);
         }
-        
-    });
-    
-    
-    $('.frmCadastroPrincipal').submit(function () {
-
-
-
-
-
-        barra1 = 0;
-
-
-
-
-        
-
-
-
-
-        
-
 
     });
+
 
 
 
@@ -201,6 +243,15 @@ $(document).ready(function () {
             barra = total;
         }
         $(obj).css('width', barra + '%');
+    }
+
+
+    function habilitarCampo(obj) {
+        $('#enviarCad').prop('disabled', false);
+    }
+    function desabilitarCampo(obj) {
+
+        $('#enviarCad').prop('disabled', true);
     }
 });
 

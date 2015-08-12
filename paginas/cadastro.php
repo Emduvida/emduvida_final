@@ -1,3 +1,8 @@
+<?php
+$email = $_SESSION['emailCadastro'];
+$senha = $_SESSION['senhaCadastro'];
+?>
+
 <section id="containerCadastro">
 
     <article class="boxForm cancelaLeft">
@@ -69,11 +74,11 @@
 
                 <label for="email" class="lblPadrao fonte">Email:</label>
                 <p class="erros"></p>
-                <input type="text" name="" id="email" class="frm-padrao input-cadastro-completo"/>  
+                <input type="text" name="" value="<?php echo $email; ?>" id="email" class="frm-padrao input-cadastro-completo"/>  
 
                 <label for="senha" class="lblPadrao fonte">Senha:</label>
                 <p class="erros"></p>
-                <input type="text" name="" id="senha" class="frm-padrao input-cadastro-completo"/>  
+                <input type="password" name="" id="senha" value="<?php echo $senha ?>" class="frm-padrao input-cadastro-completo"/>  
 
                 <h3 class="titulo-cadastro-home">Mais</h3>
                 <hr class="linha-cadastro-home"/>

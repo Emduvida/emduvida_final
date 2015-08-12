@@ -3,9 +3,7 @@ session_start();
 include_once '../admin/conexao/conect_db.php';
 include_once '../admin/funcoes.php';
 
-
-
-
+sleep(3);
 switch ($_POST['acao']) {
     case 'cad1':
         
