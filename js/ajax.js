@@ -131,8 +131,10 @@ $(document).ready(function () {
 
 //CADASTRO DE USUARIOS UTILIZANDO AJAX
 
-    var cadUsuario = $('form[name="cadastroUsuario"]');
+    var cadUsuario = $('.frmCadastroPrincipal');
+    
     cadUsuario.submit(function () {
+        
         var dados = $(this).serialize();
         var acao = "&acao=cadUsuario";
         var sender = dados + acao;
