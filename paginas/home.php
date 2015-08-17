@@ -2,6 +2,7 @@
 
 
     <article class="form-cadastro-home">
+        <?php if(!isset($_SESSION['usuarioLogado'])){ ?>
         <div id="box-form-cadastro">
             <h3 class="titulo-cadastro-home">Cadastre-se em nosso site:</h3>
             <hr class="linha-cadastro-home"/>
@@ -29,6 +30,7 @@
             
             <a href="" class="btnFaceBook">Entrar com o Facebook</a>
         </div>
+        <?php  } ?>
     </article>
     
     <article class="slide">

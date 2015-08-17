@@ -129,7 +129,6 @@
 #botoes-topo-baixo{
     width: 225px;
     height: 100%;
-    background-color: #ccc;
     float: right;
 }
 
@@ -333,9 +332,13 @@
 
 #boxLogin{
     width: 225px;
-    height: 250px;
-    background-color: #cecece;
+    height: auto;
+    background-color: #fff;
+
     float: right;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 .login{
@@ -430,10 +433,10 @@
 
 .bottom{
     width: 100%;
-        height: 10px;
-        background: #ccc;
-        position: relative;
-        bottom: 0;
+    height: 10px;
+    background: #ccc;
+    position: relative;
+    bottom: 0;
 }
 
 .bottomBox1{
@@ -454,7 +457,7 @@
 
 .conteudoBox{
     width: 100%;
-    
+
     min-height: 356px;
 }
 
@@ -521,3 +524,205 @@
 .erro{width: 100%; height: 100%; background-color: red;}
 
 .accept{width: 100%; height: 100%; background-color: green; }
+
+.frmLogin{
+    padding: 15px;
+}
+
+.inputLogin{
+    width: 95%;
+}
+
+
+//resenha-agora
+
+#container-resenha{
+    
+    margin-top: 50px;
+    background-color: red;
+}
+
+.box-resenha{
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+}
+
+
+.titulo-bolinha{
+        width: 100%;
+    height: 31px;
+}
+
+.linha-titulo{
+        float: left;
+    width: 88%;
+    float: right;
+    margin-top: 15px;
+    z-index: 2;
+    border: none;
+    height: 1px;
+}
+
+.linhaResenha{
+    background-color: #d9dada;
+}
+
+.titulo-bolinha-txt{
+    padding: 10px;
+    padding-left: 10px;
+    background-color: #d9dada;
+}
+
+.txt-titulo-resenha{
+    width: 125px;
+    color: #252943;
+}
+
+.bolinha-resenha{
+    width: 10px;
+    height: 10px;
+    margin-top: -24px;
+    background-color: #d9dada;
+}
+
+.resenha-esquerdo{
+    width: 67.5%;
+    height: auto;
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    float: left;
+    margin-top: 20px;
+}
+
+.resenha-direito{
+    width: 31.16%;
+    height: 100px;
+    background-color: blue;
+    float: right;
+    margin-top: 20px;
+}
+
+#carregamento-resenha{
+    width: 100%;
+    height: 140px;
+}
+
+.titulo-formulario{
+    width: 96%;
+    margin: 0 auto;
+    height: 27px;
+    border-bottom: 1px solid #cccccc;
+    font-size: 1.321rem;
+    color: #252943;
+}
+
+.info-gerais{
+    width: 96%;
+    height: auto;
+    margin: 10px auto;
+}
+
+.input-resenha{
+    width: 98.5%;
+}
+
+.notas{
+    width: 96%;
+    height: 50px;
+    margin: 10px auto;
+}
+.desce-titulo{
+    margin-top: 15px;
+}
+
+.input-grande{
+    padding-top: 10px;
+    height: 260px;
+}
+
+.defeitos{
+    width: 100%;
+    margin-top: 25px;
+    height: 410px;
+    background-color: white;
+        border: 1px solid #c2c2c2;
+}
+
+.semMargem{margin-top: 0;}
+
+
+.titulo-positivo-negativo{
+    font-size: 1.18rem;
+    font-weight: normal;
+    padding:7px;
+    background-color: #0d909e;
+    width: 37%;
+    color: #e5e9ea;
+}
+
+.titulo-negativo{
+    width: 39%;
+    background-color: #e73941;
+}
+
+
+
+
+
+.input-defQual{
+    width: 91.5%;
+    float: left;
+    height: 30px;
+    border-radius: 0;
+    z-index: 2;
+    float: right;
+    padding-left: 25px;
+}
+
+.box-input-defQual{
+    width: 96%;
+    display: table;
+    margin: 10px auto;
+    
+}
+
+.icone{
+    float: left;
+    position: absolute;
+    margin-left: 8px;
+    margin-top: 6px;
+    color: #0d909e;
+    font-size: 1.2rem;
+    
+}
+
+.redicone{
+    color: #e73941;
+}
+
+
+.btResenha{
+    margin-top: -30px;
+    margin-right: -2px;
+}
+
+
+.btAdicionar{
+    width: 60%;
+    margin-left: 2%;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+}
+
+
+.msgQualidades{
+    margin-left: 10px;
+}
+
+.msgDefeitos{
+    margin-left: 10px;
+}
+
+

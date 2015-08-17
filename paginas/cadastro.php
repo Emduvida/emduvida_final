@@ -13,19 +13,19 @@ $senha = $_SESSION['senhaCadastro'];
 
                 <form method="post" class="frmCadastroPrincipal">
 
-                    <label for="nome" class="lblPadrao fonte">Nome:</label>
+                    <label for="nome" class="lblPadrao fonte">Nome:*</label>
                     <p class="erros errNome"></p>
                     <input type="text" name="NOME_USUARIO" id="nome" class="frm-padrao input-cadastro-completo"/>  
 
-                    <label for="sobreNome" class="lblPadrao fonte">Sobrenome:</label>
+                    <label for="sobreNome" class="lblPadrao fonte">Sobrenome:*</label>
                     <p class="erros erroSobreNome"></p>
                     <input type="text" name="SOBRENOME" id="sobreNome" class="frm-padrao input-cadastro-completo"/>  
 
-                    <label for="data" class="lblPadrao fonte">Data de nascimento:</label>
+                    <label for="data" class="lblPadrao fonte">Data de nascimento:*</label>
                     <p class="erros erroNasc"></p>
                     <input type="text" name="DATA_NASCIMENTO" id="data" class="frm-padrao input-cadastro-completo"/>  
 
-                    <label for="cpf" class="lblPadrao fonte">CPF:</label>
+                    <label for="cpf" class="lblPadrao fonte">CPF:*</label>
                     <p class="erros erroCPF"></p>
                     <input type="text" name="CPF_USUARIO" id="cpf" class="frm-padrao input-cadastro-completo"/>  
 
@@ -47,11 +47,11 @@ $senha = $_SESSION['senhaCadastro'];
                 <hr class="linha-cadastro-home"/>
 
 
-                <label for="cidade" class="lblPadrao fonte">Cidade:</label>
+                <label for="cidade" class="lblPadrao fonte">Cidade:*</label>
                 <p class="erros erroCidade"></p>
                 <input type="text" name="CIDADE_USUARIO" id="cidade" class="frm-padrao input-cadastro-completo"/>  
 
-                <label for="estado" class="lblPadrao fonte">Estado:</label>
+                <label for="estado" class="lblPadrao fonte">Estado:*</label>
                 <p class="erros erroEstado"></p>
                 <select name="ESTADO_USUARIO" id="estado" class="frm-padrao input-cadastro-completo">
                     <option>SP</option>
@@ -82,11 +82,11 @@ $senha = $_SESSION['senhaCadastro'];
                 <hr class="linha-cadastro-home"/>
 
 
-                <label for="email" class="lblPadrao fonte">Email:</label>
+                <label for="email" class="lblPadrao fonte">Email:*</label>
                 <p class="erros"></p>
                 <input type="text" name="EMAIL_USUARIO" value="<?php echo $email; ?>" id="email" class="frm-padrao input-cadastro-completo"/>  
 
-                <label for="senha" class="lblPadrao fonte">Senha:</label>
+                <label for="senha" class="lblPadrao fonte">Senha:*</label>
                 <p class="erros"></p>
                 <input type="password" name="SENHA_USUARIO" id="senha" value="<?php echo $senha ?>" class="frm-padrao input-cadastro-completo"/>  
 
@@ -101,7 +101,7 @@ $senha = $_SESSION['senhaCadastro'];
                     <input type="checkbox">
                     Declaro que li e aceito os termos de 
                     uso do site “EM DUVIDA”.</div>
-                <input type="submit" name="" value="Cadastrar" class="btnCadastrar"/>
+                <input type="submit" name="" value="Cadastrar" class="btnCadastrar cadastrar-resenha"/>
 
                 </form>
 

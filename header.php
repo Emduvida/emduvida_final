@@ -26,8 +26,13 @@
         <div id="topo-baixo-conteudo">
 
             <div id="botoes-topo-baixo">
+                <?php if(isset($_SESSION['usuarioLogado']) && $_SESSION['usuarioLogado'] == true){
+                    
+                }else{ ?>
                 <a href="" id="btnEntrar">Entrar</a>
-                <a href="" id="btnResenha">Resenhe agora!</a>
+                <a href="login" id="btnResenha">Resenhe agora!</a>
+                <?php } ?>
+                 <a href="resenhe-agora" id="btnResenha">Resenhe agora!</a>
             </div>
             <div id="redes-sociais">
                 <img src="" alt="" class="sociais"/>
@@ -36,13 +41,13 @@
             </div>
 
         </div>
--
+
     </article>
     <div id="frmPesquisa">
         <div id="frmPesquisa-conteudo">
             <form method="post" class="frmPesquisa">
                 <input type="text" placeholder="Pesquise..." class="pesquisar"/>
-                <input type="image" src="imagens/icon-search.png" class="imgPesquisar"/>
+                <input type="image" alt="asd" src="imagens/icon-search.png" class="imgPesquisar"/>
             </form> 
         </div>
     </div>
@@ -50,7 +55,17 @@
     <div  class="login">
         <div id="login">
             <div id="boxLogin">
-
+                <form method="post" action="" class="frmLogin" name="frmLogin">
+                    <label class="lblPadrao fonte">E-mail:</label>
+                    <input type="text" name="emailLogin" class="frm-padrao inputLogin"/>
+                    
+                    <label class="lblPadrao fonte">Senha:</label>
+                    <input type="text" name="senhaLogin" class="frm-padrao inputLogin"/>
+                    
+                    <input type="submit" name="logar" value="Entrar"/>
+                    <a href="">Esqueceu sua senha?</a>
+                </form>
+                
             </div>
         </div>
 

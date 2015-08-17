@@ -9,9 +9,10 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title>aaa</title>
-        <base href="http://localhost/emduvida_final/"/>
+        <base href="http://localhost:8080/emduvida_final/"/>
 
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
         <!--<link rel="stylesheet" media="screen and (min-width: 960px) and (max-width: 1199px)" href="css/style_liquido.css"/>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->

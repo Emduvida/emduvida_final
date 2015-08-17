@@ -3,12 +3,16 @@ session_start();
 include_once '../admin/conexao/conect_db.php';
 include_once '../admin/funcoes.php';
 
-sleep(3);
+
 switch ($_POST['acao']) {
     case 'cad1':
+        unset($_SESSION['emailCadastro']);
+        unset($_SESSION['senhaCadastro']);
         
         $_SESSION['emailCadastro'] = $_POST['EMAIL_USUARIO'];
         $_SESSION['senhaCadastro'] = $_POST['SENHA_USUARIO'];
+        
+        //print_r($_SESSION);
         
         if(contarLinhas("SELECT * FROM usuario WHERE EMAIL_USUARIO = '{$_POST['EMAIL_USUARIO']}'") == 1){
             echo '1';
@@ -23,7 +27,9 @@ switch ($_POST['acao']) {
         
         $email = mysql_real_escape_string($_POST['emailLogin']);
         $senha = mysql_real_escape_string(base64_encode(md5($_POST['senhaLogin'])));
+        
         $sql = "SELECT * FROM usuario WHERE EMAIL_USUARIO = '$email' AND SENHA_USUARIO = '$senha'";
+        
         if(contarLinhas($sql) == 1){
            $rs =  selecionar("usuario", "EMAIL_USUARIO", $email);
            
