@@ -3,12 +3,12 @@ $(document).ready(function () {
     var qtdQual = 0;
     var qtdDef = 0;
     var qual = '';
-                         
+
     $('.j_qualidades').click(function () {
 
         if (qtdQual < 4) {
 
-            $('.qualidades').append('<div class="box-input-defQual"><p class="icone"><i class="fa fa-thumbs-up"></i></p><input type="text" name="qualidades[]" class="frm-padrao input-defQual inpt'+qtdQual+'"/></div>');
+            $('.qualidades').append('<div class="box-input-defQual"><p class="icone"><i class="fa fa-thumbs-up"></i></p><input type="text" name="qualidades[]" class="frm-padrao input-defQual inpt' + qtdQual + '"/></div>');
             $('.inpt' + qtdQual).focus();
 
             qtdQual++;
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         if (qtdDef < 4) {
 
-            $('.def').append('<div class="box-input-defQual"><p class="icone redicone"><i class="fa fa-thumbs-down"></i></p><input type="text" name="qualidades[]" class="frm-padrao input-defQual inptDef'+qtdDef+'"/></div>');
+            $('.def').append('<div class="box-input-defQual"><p class="icone redicone"><i class="fa fa-thumbs-down"></i></p><input type="text" name="qualidades[]" class="frm-padrao input-defQual inptDef' + qtdDef + '"/></div>');
             $('.inptDef' + qtdDef).focus();
             qtdDef++;
         } else {
@@ -32,31 +32,77 @@ $(document).ready(function () {
         }
         return  false;
     });
-    
-    
-                            
-                            
-                        
-    
-    $('.icon-search').click(function(){
-       
+
+
+
+
+
+
+    $('.icon-search').click(function () {
+
         $('#frmPesquisa').fadeIn();
         $('.pesquisar').focus();
-        
+
     });
-    
-    
-    $('.imgPesquisar').click(function(){
-       
-       $('#frmPesquisa').fadeOut();
-        
+
+
+    $('.imgPesquisar').click(function () {
+
+        $('#frmPesquisa').fadeOut();
+
     });
-    
-    $('#btnEntrar').click(function(){
-       $('.login').fadeToggle();
+
+    $('#btnEntrar').click(function () {
+        $('.login').fadeToggle();
         return false;
-       
+
     });
-    
+
+    qtd = 1;
+    $('.btnAddImage').click(function () {
+
+
+        $('.input-file').prepend("<input type='file' name='imagem[]' class='files btnFile" + qtd + "'/>");
+
+
+        $('.btnFile' + qtd).click();
+
+        $('.btnFile' + qtd).change(function () {
+
+            /*$(this).ajaxSubmit({
+                url: 'op/teste.php',
+                data: {acao: "cadastro"},
+                beforeSubmit: function () {
+
+                },
+                error: function () { /*loader.empty().text("Erro")
+                },
+                resetForm: true,
+                uploadProgress: function (evento, posicao, total, completo) {
+                },
+                success: function (resposta) {
+                },
+                complete: function () {
+
+                }
+            });*/
+
+            $('#carregamento-resenha').prepend('<div class="box-image">' + $(this).val() + '</div>');
+        });
+
+
+
+        qtd++;
+        if (qtd === 6) {
+            $(this).hide();
+        }
+
+
+        return false;
+    });
+
+
+
+
 
 });

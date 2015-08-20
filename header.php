@@ -26,13 +26,13 @@
         <div id="topo-baixo-conteudo">
 
             <div id="botoes-topo-baixo">
-                <?php if(isset($_SESSION['usuarioLogado']) && $_SESSION['usuarioLogado'] == true){
-                    
-                }else{ ?>
+                <?php if(isset($_SESSION['usuarioLogado']) && $_SESSION['usuarioLogado'] == true){?>
+                    <a href="resenhe-agora" id="btnResenha">Resenhe agora!</a>
+                <?php }else{ ?>
                 <a href="" id="btnEntrar">Entrar</a>
                 <a href="login" id="btnResenha">Resenhe agora!</a>
                 <?php } ?>
-                 <a href="resenhe-agora" id="btnResenha">Resenhe agora!</a>
+                 
             </div>
             <div id="redes-sociais">
                 <img src="" alt="" class="sociais"/>

@@ -6,14 +6,18 @@
             <h1 class="titulo-bolinha-txt txt-titulo-resenha">RESENHE AGORA</h1>
             <div class="bolinha bolinha-resenha"></div>
         </div>
-        <form method="post">
+        <form method="post" name="cadResenha">
+            <div class="loader">aa</div>
             <div class="resenha-esquerdo">
-
-
-                <div id="carregamento-resenha">
-
+                <div class="input-file">
+                    
                 </div>
 
+                <div id="carregamento-resenha">
+                    
+                    <button class="btnAddImage"><i class="fa fa-plus fa-3x"></i></button>
+                </div>
+<br/>
                 <p class="titulo-formulario">Informações Gerais</p>
                 <div class="info-gerais">
                     <label for="titulo" class="lblPadrao fonte">Titulo*</label>
@@ -33,7 +37,6 @@
                 <p class="titulo-formulario">Nota</p>
                 <div class="notas">
                     <input type="number" name="" max="5" min="-5" class="frm-padrao input-resenha" required="required"/>  
-
                 </div>
 
 

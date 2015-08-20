@@ -9,6 +9,7 @@ $(document).ready(function () {
     senha = $('#senha');
     confSenha = $('#ConfSenha');
     campo = ('#enviarCad');
+    
     email.blur(function () {
 
         if (email.val() === "") {

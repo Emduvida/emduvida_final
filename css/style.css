@@ -517,7 +517,7 @@
 
 .load{text-align: center; margin: auto; margin-top: 20%; float: none;}
 
-.carregando{width: 100%; height: 100%;position: fixed; z-index: 111;}
+.carregando{width: 100%; height: 100%;display: none; position: fixed; z-index: 111;}
 
 .msg{width: 300px; height: 200px; position: fixed; z-index: 112; float: none; left: 50%; margin-left: -150px; color: #fff;}
 
@@ -725,4 +725,23 @@
     margin-left: 10px;
 }
 
+
+.btnAddImage{
+    width: 15%;
+    height: 121.5px;
+    border: none;
+    outline: none;
+    margin: 10px;
+    cursor: pointer;
+    display: block;
+    float: left;
+}
+
+.box-image{
+    width: 15%;
+    height: 121px;
+    background-color: #ccc;
+    float: left;
+    margin: 10px;
+}
 

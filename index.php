@@ -17,7 +17,7 @@ session_start();
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
         <script src="admin/js/jquery-1.11.3.min.js"></script>
-
+        <script src="js/jquery.form.js"></script>
         <script src="js/ajax.js"></script>
         <script src="js/js.js"></script>
         <script src="js/validate.js"></script>

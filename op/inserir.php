@@ -56,7 +56,7 @@ switch ($ac) {
         //redirecionar usuario para a pagina da resenha
 
         
-
+/*
         $sql = "SELECT * FROM produtos WHERE NOME_PRODUTO = '{$_POST['produto']}'";
         $nProd = contarLinhas($sql);
 
@@ -110,7 +110,16 @@ switch ($ac) {
             $sqlDefeitos = "INSERT INTO defeitos(COD_RESENHA,DEFEITOS)VALUES('$codResenha','$defeitos')";
             mysql_query($sqlDefeitos);
         }
-
-        echo $resultado;
+*/
+        
+        print_r($_POST);
+        print_r($_FILES);
+        
+        
+        //echo $resultado;
         break;
+    
+        case 'cadFoto':
+            print_r($_FILES);
+            break;
 }
