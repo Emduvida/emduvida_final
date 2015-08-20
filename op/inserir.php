@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 //echo "<meta charset='utf-8'/>";
 include_once '../admin/funcoes.php';
@@ -55,8 +56,8 @@ switch ($ac) {
         //cadastrar defeitos
         //redirecionar usuario para a pagina da resenha
 
-        
-/*
+
+
         $sql = "SELECT * FROM produtos WHERE NOME_PRODUTO = '{$_POST['produto']}'";
         $nProd = contarLinhas($sql);
 
@@ -69,7 +70,7 @@ switch ($ac) {
             $c['NOME_PRODUTO'] = mysql_real_escape_string($_POST['produto']);
             $c['STATUS_PRODUTO'] = mysql_real_escape_string('1');
             $c['FABRICANTE'] = mysql_real_escape_string($_POST['fabricante']);
-            $c['COD_CATEGORIA'] = mysql_real_escape_string($_POST['categoria']);
+
             $campos = gerarCampos($c);
             $valores = gerarValores($c);
 
@@ -79,13 +80,14 @@ switch ($ac) {
         }
 
         $r['NOTA_PRODUTO'] = mysql_real_escape_string($_POST['NOTA_PRODUTO']);
-
-        $r['CORPO_RESENHA'] = $_POST['CORPO_RESENHA'];
+        $r['titulo_resenha'] = mysql_real_escape_string($_POST['titulo_resenha']);
+        $r['CORPO_RESENHA'] = $_POST['DESCRICAO_RESENHA'];
         $r['STATUS_RESENHA'] = '1';
         $r['QTDE_DENUNCIAS'] = 0;
         $r['COD_USUARIO'] = $_SESSION['COD_USUARIO'];
         $r['DATA_RESENHA'] = date('Y-m-d H:i:s');
 
+        //print_r($r);
         $campos = gerarCampos($r);
 
         $valores = gerarValores($r);
@@ -102,7 +104,7 @@ switch ($ac) {
 
             $sqlQualidades = "INSERT INTO qualidades(COD_RESENHA,QUALIDADES)VALUES('$codResenha','$qualidades')";
             //echo "INSERT INTO qualidades(COD_RESENHA,QUALIDADES)VALUES('$codResenha','$qualidades')";
-           mysql_query($sqlQualidades);
+            mysql_query($sqlQualidades);
         }
 
         foreach ($_POST['defeitos'] as $defeitos) {
@@ -110,16 +112,61 @@ switch ($ac) {
             $sqlDefeitos = "INSERT INTO defeitos(COD_RESENHA,DEFEITOS)VALUES('$codResenha','$defeitos')";
             mysql_query($sqlDefeitos);
         }
-*/
-        
-        print_r($_POST);
-        print_r($_FILES);
-        
-        
-        //echo $resultado;
+
+        $imagem = $_FILES['imagem'];
+
+        $ImagemArray = array();
+        $contarImagens = count($imagem['name']);
+        $file_keys = array_keys($_FILES['imagem']);
+
+
+        for ($i = 0; $i < $contarImagens; $i++) {
+            foreach ($file_keys as $key) {
+                $ImagemArray[$i][$key] = $imagem[$key][$i];
+            }
+        }
+
+        for ($i = 0; $i < count($ImagemArray); $i++) {
+
+            $extensao = strchr($ImagemArray[$i]['name'], '.');
+            $filename = md5(time() . $ImagemArray[$i]['tmp_name']) . $extensao;
+
+            $img = array('.jpg', '.jpeg', '.png', '.gif', '.JPG','.JPEG','.PNG','.GIF');
+            if (!in_array($extensao, $img)) {
+                $resultado = '4';
+            } else {
+                $resultado = '3';
+            }
+        }
+
+        if ($resultado == '3') {
+            for ($i = 0; $i < count($ImagemArray); $i++) {
+
+
+                $extensao = strchr($ImagemArray[$i]['name'], '.');
+                $filename = md5(time() . $ImagemArray[$i]['tmp_name']) . $extensao;
+
+
+
+                $pasta = '../img_resenhas/';
+
+                if (!file_exists($pasta)) {
+                    mkdir($pasta, 0755);
+                }
+
+                if (move_uploaded_file($ImagemArray[$i]['tmp_name'], $pasta . $filename)) {
+                    $caminho = $filename;
+                    $alt_imagem = gen_slug($ImagemArray[$i]['name']);
+                    $sqlImagens = "INSERT INTO imagens(COD_RESENHA,CAMINHO_IMAGEM,ALT_IMAGEM,STATUS_IMAGEM)VALUES('$codResenha','$caminho','$alt_imagem','1')";
+                    mysql_query($sqlImagens) or die(mysql_error());
+                    $resultado = 3;
+                }
+            }
+        }
+        echo $resultado;
         break;
-    
-        case 'cadFoto':
-            print_r($_FILES);
-            break;
+
+    case 'cadFoto':
+        print_r($_FILES);
+        break;
 }

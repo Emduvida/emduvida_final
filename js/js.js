@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         if (qtdDef < 4) {
 
-            $('.def').append('<div class="box-input-defQual"><p class="icone redicone"><i class="fa fa-thumbs-down"></i></p><input type="text" name="qualidades[]" class="frm-padrao input-defQual inptDef' + qtdDef + '"/></div>');
+            $('.def').append('<div class="box-input-defQual"><p class="icone redicone"><i class="fa fa-thumbs-down"></i></p><input type="text" name="defeitos[]" class="frm-padrao input-defQual inptDef' + qtdDef + '"/></div>');
             $('.inptDef' + qtdDef).focus();
             qtdDef++;
         } else {
@@ -59,49 +59,59 @@ $(document).ready(function () {
     });
 
     qtd = 1;
+    
     $('.btnAddImage').click(function () {
 
 
         $('.input-file').prepend("<input type='file' name='imagem[]' class='files btnFile" + qtd + "'/>");
 
 
-        $('.btnFile' + qtd).click();
+        $('.btnFile' + qtd).click().hide();
 
         $('.btnFile' + qtd).change(function () {
 
-            /*$(this).ajaxSubmit({
-                url: 'op/teste.php',
-                data: {acao: "cadastro"},
+            
+            $('.box-carregamento').append('<div class="box-image">'+ qtd +'</div>');
+        
+        });
+
+
+        qtd++;
+        
+        if (qtd === 6) {
+            $(this).hide();
+            
+            
+        }
+        
+        $('form[name=cadResenha]').submit(function(){
+           qtd = 1; 
+        });
+
+        return false;
+    });
+
+$('.btnFile').change(function () {
+
+            $(this).ajaxSubmit({
+                
+                url: '../op/teste.php',
                 beforeSubmit: function () {
 
                 },
-                error: function () { /*loader.empty().text("Erro")
+                error: function () { /*loader.empty().text("Erro")*/
                 },
                 resetForm: true,
                 uploadProgress: function (evento, posicao, total, completo) {
                 },
                 success: function (resposta) {
+                    alert(resposta);
                 },
                 complete: function () {
 
                 }
-            });*/
-
-            $('#carregamento-resenha').prepend('<div class="box-image">' + $(this).val() + '</div>');
+            });
         });
-
-
-
-        qtd++;
-        if (qtd === 6) {
-            $(this).hide();
-        }
-
-
-        return false;
-    });
-
-
 
 
 

@@ -25,15 +25,17 @@ $(document).ready(function () {
         carrFundo.fadeIn("fast");
         carr.empty().html('<p class="load"><img src="js/482.GIF" class="loadImg" alt="Carregando..."/></p>').fadeIn("fast");
     }
+    
+    
 
-    /*function fechaLoad(){
+    function fechaLoad(){
      setTimeout(function(){
      carr.fadeOut("fast");
      carrFundo.fadeOut("fast");
-     },300)
+     },300);
      }
      
-     */
+     
     function fechaErro(tempo) {
         setTimeout(function () {
             errmsg.fadeOut("fast");
@@ -215,7 +217,56 @@ alert('qualquer coisa');
     });
 
     var cadResenha = $('form[name="cadResenha"]');
-    cadResenha.submit(function () {
+   cadResenha.submit(function(){
+       
+      $(this).ajaxSubmit({
+          url: 'op/inserir.php',
+          data: {acao: "cadResenha"},
+          beforeSubmit: function(){
+             
+          },
+          error: function(){},
+          //resetForm: true,
+          uploadProgress: function(evento,posicao, total, completo){
+             $('#carregamento-imagem').text(completo);
+          },
+            success: function( resposta ){
+                switch (resposta){
+                    case '2':
+                        erroDados("Erro inesperado, tente novamente mais tarde!");
+                        fechaErro(2000);
+                        break;
+                    case '3':
+                        sucesso("Resenha Cadastrada com sucesso!");
+
+                        Redirecionar(1000, 'home');
+                        break;
+                    case '4':
+                        erroDados("Nós aceitamos apenas imagens! Verifique se fez realmente o upload de uma imagem, entre em contato se estivermos errados");
+                        //fechaLoad();
+                        fechaErro(1500);
+                        
+                        $('.input-file').empty();
+                        $('.box-carregamento').empty();
+                        
+                        break;
+                }
+          },
+          complete: function(){
+              //ler
+          }
+          
+          
+          
+          
+          
+       });
+       
+        return false;
+        
+   });
+    
+    /* cadResenha.submit(function () {
         var dados = $(this).serialize();
         var acao = "&acao=cadResenha";
         var sender = dados + acao;
@@ -247,10 +298,10 @@ alert('qualquer coisa');
 
             }
         });
-    });
+    });*/
 
     var produtos = $('.inputProd');
-    produtos.keydown(function () {
+    produtos.keyup(function () {
         //alert("aaa");
         var dados = $(this).serialize();
         var acao = "&acao=pesquisarProd";
@@ -272,7 +323,7 @@ alert('qualquer coisa');
                             $('#carregaBusca').fadeIn();
                             $('#carregaBusca').html(resposta);
                             $('.j_busca').click(function () {
-                                $('.COD_PRODUTO').val($(this).attr('id'));
+                                $('.inputProd').val($(this).attr('id'));
                                 $('#carregaBusca').fadeOut();
                             });
                             $('.adicionaisProduto').fadeOut();

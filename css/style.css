@@ -745,3 +745,42 @@
     margin: 10px;
 }
 
+
+
+#resultadoBusca{
+    position: absolute;
+    width: 53%;
+    height: auto;
+    background-color: #f4f4f4;
+    min-width: 620px;
+    max-width: 765px;
+    margin-left: 5px;
+    margin-top: -20px;
+}
+
+.j_busca{
+    width: 98.5%;
+    height: 25px;
+    padding-top: 5px;
+    padding-left: 10px;
+    color: #696969;
+    display: block;
+    margin-top: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.j_busca:hover{
+    background-color: white;
+}
+
+#carregaBusca{
+    list-style: none;
+    display: none;
+    border-top: none;
+    border: 1px solid #b3b3b3;
+}
+
+.adicionaisProduto{
+    display: none;
+}
