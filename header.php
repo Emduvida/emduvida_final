@@ -8,11 +8,9 @@
             <nav id="menu">
                 <ul>
                     <li class="liMenu"><a href="">inicio</a></li>
-                    <li class="liMenu"><a href="">tecnologia</a></li>
-                    <li class="liMenu"><a href="">eletrodomestico</a></li>
-                    <li class="liMenu"><a href="">cultura</a></li>
-                    <li class="liMenu"><a href="">moda</a></li>
-                    <li class="liMenu"><a href="">outros</a></li>
+                    <li class="liMenu"><a href="">ranking</a></li>
+                    <li class="liMenu"><a href="">resenhas</a></li>
+                    <li class="liMenu"><a href="">sobre nós</a></li>
                 </ul>
             </nav>
             <div id="box-logo">

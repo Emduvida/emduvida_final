@@ -1064,6 +1064,156 @@
     display: none;
     background-color: red;
 }
+
+
+#container-resenha-completa{
+    width: 100%;
+    height: auto;
+    display: table;
+    margin-top: 40px;
+}
+
+
+.titulo-resenha-view{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    color: #656667;
+}
+
+
+.box-coluna{
+    width: 49%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.direito{float: right;}
+.esquerdo{float: left;}
+
+
+.box-resenha-completa{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border: 1px solid #d3d3d3;
+}
+
+.info-usuario{
+    height: 66px;
+    
+}
+
+.img-perfil{
+    width: 70px;
+    height: 70px;
+    margin-left: 15px;
+    margin-top: 10px;
+    border-radius: 100px;
+    float: left;
+    background-color: #ccc;
+}
+.txt-postado{
+    margin-top: 20px;
+    margin-left: 10px;
+    float: left;
+    display: block;
+    width: 70%;
+}
+
+.txtNomeUsuario{
+    width: 70%;
+    height: 20px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.conteudo-resenha{
+    width: 90%;
+    text-align: justify;
+    margin: 40px auto;
+    height: auto;
+}
+
+.btnCompartilhar{
+    width: 100%;
+    height: 40px;
+    
+}
+
+.btnCompartilhe{
+    width: 30.75%;
+    margin-left: 1.4%;
+    height: 100%;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.face{
+    background-color: #425F9C;
+}
+
+.tt{
+    background-color: #55ACEE;
+}
+.gplus{
+    background-color: #D73D32;
+}
+
+.defeitos-resenha{
+    width: 48%;
+    height: auto;
+    float: left;
+    background-color: #fff;
+}
+
+#defQual{
+    float: right;
+}
+.positivo-resenha{
+    width: 50%;
+    font-size: 1.1rem;
+}
+
+
+.qualidades-resenha{
+    width: 90%;
+    height: auto;
+    padding-bottom: 10px;
+    margin: 12px;
+    margin-top: 30px;
+}
+
+.qualidade-resenha-txt{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    margin-top: 5px;
+    color: #615f5f;
+}
+
+.qualidade-resenha-txt span{
+    padding-left: 5px;
+    display: inline-block;
+    
+}
+
+.qualidade-resenha-txt i{
+    color: #0D909E;
+}
+
+.defeitos-resenha-txt{
+        width: 100%;
+    height: 30px;
+    padding: 10px;
+    margin-top: 5px;
+    color: #615f5f;
+}
+
+.defeitos-resenha-txt i{
+    color: #E73941;
+}
 /*
 .resenha:hover{
     -webkit-animation: mymove 1s ease-in-out;
