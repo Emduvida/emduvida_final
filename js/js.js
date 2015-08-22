@@ -113,6 +113,39 @@ $('.btnFile').change(function () {
             });
         });
 
-
-
+        
+        
+        $('.resenha').mouseover(function(){
+          // resenha = $('.resenha').attr('id');
+           
+           $('.'+$(this).attr('id')).fadeIn();
+            
+        });
+        
+        $('.resenha').mouseleave(function(){
+          // resenha = $('.resenha').attr('id');
+           
+           $('.'+$(this).attr('id')).fadeOut();
+            
+        });
+        
+        
+        $('.box-resenha-vistas').mouseover(function(){
+          // resenha = $('.resenha').attr('id');
+           
+           $('.r'+$(this).attr('id')).fadeIn();
+            
+        });
+        
+        $('.box-resenha-vistas').mouseleave(function(){
+          // resenha = $('.resenha').attr('id');
+           
+           $('.r'+$(this).attr('id')).fadeOut();
+            
+        });
+        
+        
+        
+        
+   
 });

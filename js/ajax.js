@@ -179,7 +179,6 @@ $(document).ready(function () {
         var dados = $(this).serialize();
         var acao = "&acao=login";
         var sender = dados + acao;
-alert('qualquer coisa');
         $.ajax({
             url: 'op/gerais.php',
             data: sender,

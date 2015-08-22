@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-//include_once './admin/conexao/conect_db.php';
+include_once './admin/conexao/conect_db.php';
+include_once './admin/funcoes.php';
 ?>   
 
 <!DOCTYPE html>

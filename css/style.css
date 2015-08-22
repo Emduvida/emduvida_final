@@ -181,11 +181,9 @@
 
 .form-cadastro-home{
     width: 25%;
-
     height: 481px;
     background-color: #fff;
     float: right;
-
     padding-left: 15px;
     border: 1px solid #dadada;
 }
@@ -381,7 +379,7 @@
 .titulo-home{
     width: 136px;
     height: 26px;
-    background-color: #d36b17;
+    background-color: #432472;
     font-size: 1rem;
     font-weight: normal;
     color: #fff;
@@ -398,13 +396,13 @@
     z-index: 2;
     border: none;
     height: 1px;
-    background-color: #d36b17;
+    background-color: #432472;
 }
 
 .bolinha{
     width: 25px;
     height: 25px;
-    background-color: #d36b17;
+    background-color: #432472;
     float: right;
     border-radius: 15px;
     margin-top: -28px;
@@ -784,3 +782,308 @@
 .adicionaisProduto{
     display: none;
 }
+
+
+#preview-perfil{
+    width: 105%;
+    height: 100%;
+    margin-left: -15px;
+}
+
+.cabecalho-preview-perfil{
+    width: 100%;
+    height: 144px;
+    background-color: #fff;
+    
+}
+
+.img-preview-perfil{
+    width: 40%;
+    height: 90%;
+    border-radius: 100px;
+    margin: 05px;
+    margin-left: 15px;
+    float: left;
+    background-color: yellow;
+    background-size: cover;
+}
+
+.cabecalho-preview-perfil hr{
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+    height: 2px;
+    margin-top: 5px;
+    background-color: #f2f2f2;
+}
+
+.pad-preview{
+    width: 40%;
+    height: auto;
+    margin-left: 8px;
+    float: left;
+    display: block;
+    color: #989696;
+}
+
+.nome-usuario-preview{
+    margin-top: 12%;
+    
+}
+
+.emailUsuarioPreview{
+    font-size: 0.75rem;
+}
+.cidade-preview{
+    font-size: 0.72rem;
+}
+
+.btnEditPerfil{
+    float: right;
+    height: 30px;
+    margin-right: 10px;
+    width: 28%;
+    font-size: 0.75rem;
+    padding: 5px;
+    margin-top: 15px;
+    border: none;
+    background-color: #0d909e;
+    outline: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#corpo-preview-perfil{
+    width: 100%;
+    height: auto;
+}
+
+.titulo-preview{
+    width: 133px;
+    height: 30px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: #176f78;
+    color: #ebebeb;
+}
+
+.box-resenha-preview{
+    width: 234px;
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 12px;
+}
+
+.imagem-resenha-box{
+    width: 23%;
+    border-radius: 100px;
+    float: left;
+    margin: 3px;
+    background-size: cover;
+    background-position: center;
+    height: 90%;
+    background-color: yellow;
+}
+.titulo-resenha-box{
+    margin-top: 12px;
+    float: left;
+    border-bottom: 1px solid #ccc;
+    padding-right: 20px;
+    font-size: 0.850rem;
+    margin-left: 10px;
+    text-transform: uppercase;
+    color: #908c91;
+    font-weight: 600;
+    padding-bottom: 4px;
+}
+
+
+.avaliacao-resenha{
+    float: right;
+    margin-top: 10px;
+    
+}
+
+.box-ranking-resenha{
+    width: 24.083%;
+    height: auto;
+    background-color: #fff;
+    margin-top: 25px;
+    float: left;
+}
+
+.titulo-box-ranking{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: normal;
+    padding-top: 12px;
+    color: #908c91;
+}
+
+.titulo-top-ranking{
+    width: 25%;
+    height: 20px;
+    background-color: #ccc;
+    text-align: right;
+    font-size: 0.8rem;
+    padding-top: 5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #fff;
+    background-color: #244a72;
+    padding-right: 15px;
+}
+
+.ulRanking{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.liRanking img{
+    
+    float: right;
+}
+
+.liRanking{
+    list-style:none;
+    list-style-image:url(bolinha.png);
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #7e7e7e;
+}
+
+.linkVejaMais{
+    color: #c7c0c0;
+    float: right;
+    font-size: 0.8rem;
+    text-decoration: none;
+    margin-right: 5px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+.azulClaro{
+    background-color: #389ebc;
+}
+
+.liMarcas{
+    list-style:none;
+    list-style-image:url(bolinha2.png);
+}
+
+.box-resenha-top{
+    height: 261px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.sem-margem{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.resenha{
+    width: 48%;
+    height: 100%;
+    background-color: red;
+    float: left;
+    background-size: cover;
+    background-position: center;
+    transition: 1s all;
+}
+
+.right{
+    float: right;
+}
+
+.margem-resenha{
+    margin-left: 1%;
+}
+
+.topo-box{
+    width: 100%;
+    height: 160px;
+}
+
+.rdp-box{
+    width: 100%;
+    height: 101px;
+    background-color: red;
+    display: none;
+}
+
+.titulo-resenha-txt{
+    font-size: 1rem;
+    padding-left: 4px;
+}
+
+.resumo-resenha-txt{
+    padding: 4px;
+    font-size: 0.75rem;
+}
+
+.maisVistas{
+    width: 100%;
+    height:  auto;
+    display: table;
+    float: left;
+    margin-top: 30px;
+}
+
+.resenhasMaisVistas{
+    margin-left: -1.5%;
+    height: auto;
+    background-color: red;
+    margin-top: 40px;
+}
+
+.box-resenha-vistas{
+    width: 24%;
+    height: 289px;
+    background-color: black;
+    float: left;
+    margin-left: 1%;
+    background-size: cover;
+    background-position: center;
+    margin-top: 15px;
+}
+
+.topo-box-maisvista{
+    width: 100%;
+    height: 170px;
+}
+
+.rdp-box-masivista{
+    width: 100%;
+    height: 120px;
+    display: none;
+    background-color: red;
+}
+/*
+.resenha:hover{
+    -webkit-animation: mymove 1s ease-in-out;
+    -moz-animation: mymove 1s ease-in-out;
+    animation: mymove 1s ease-in-out;
+}
+
+
+
+@-webkit-keyframes mymove{
+    0%{}
+    /*10%{background-size: 292%;}
+    20%{background-size: 294%;}
+    30%{background-size: 296%;}
+    40%{background-size: 298%;}
+    50%{background-size: 300%;}
+    60%{background-size: 302%;}
+    70%{background-size: 304%;}
+    80%{background-size: 306%;}
+    90%{background-size: 308%;}
+    100%{background-position-x:40%;}
+}
+*/
