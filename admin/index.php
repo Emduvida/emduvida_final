@@ -1,50 +1,66 @@
+<?php
+session_start();
+
+include_once 'conexao/conect_db.php';
+include_once 'funcoes.php';
+
+if(!isset($_SESSION['admLogado'])){
+    redireciona('frmLogin.php');
+}
+?>   
+
 <!DOCTYPE html>
-
-<html lang="pt-br">
-
+<html>
     <head>
+        <meta charset="UTF-8">
+        <title>Em duvida</title>
+        <base href="http://localhost/emduvida_final/"/>
 
-        <meta charset="utf-8"/>
-
-        <title>Em Duvida - administração</title>
-
-        <link rel="stylesheet" type="text/css" href="css/style.css"/>
-
-
-
-        <script src="js/jscolor/jscolor.js"></script>
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-
-
-
+        <link rel="stylesheet" type="text/css" href="css/style.css"> 
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+        <script src="admin/js/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/ajax.js"></script>
         <script src="js/js.js"></script>
+        <script src="js/validate.js"></script>
 
-
-
+        <script>
+        </script>
     </head>
-
     <body>
+        <div id="carregando">
+            <div id="carFundo"></div>
+            <div class="carregando"></div>
+        </div>
+        <div class="msg"></div>
+        <section id="todo">
+
+            <?php include_once 'header.php'; ?>
+
+            <section id="conteudo">
+
+                <?php
+                include_once './config.inc';
+                $url[1] = (empty($url[1])) ? null : $url[1];
+
+                if ($url[0] != 'index') {
+                    if (file_exists('paginas' . '/' . $url[0] . '.php')) {
+                        include_once 'paginas' . '/' . $url[0] . '.php';
+                    } else {
+                        include_once 'paginas' . '/404.php';
+                    }
+                } else {
+                    include_once 'paginas' . '/home.php';
+                }
+
+                echo $url[1];
+                ?>
+
+            </section>
+
+            <?php //include_once 'footer.php' ?>
 
 
-
-        <form method="post" action="" id="logAdmin">
-
-                <label for="email">E-mail:</label>
-
-                <input type="email" name="email" class="input" id="email"/>
-
-                <label for="senha">Senha:</label>
-
-                <input type="password" name="senha" class="input" id="senha"/>
-
-                <input type="submit" value="Entrar" name="logar"/>
-
-            </form>
-
-
-
-
+        </section>
     </body>
-
 </html>

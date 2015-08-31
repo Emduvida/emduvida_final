@@ -9,8 +9,8 @@ include_once './admin/funcoes.php';
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>aaa</title>
-        <base href="http://localhost:8080/emduvida_final/"/>
+        <title>Em duvida</title>
+        <base href="http://localhost/emduvida_final/"/>
 
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>

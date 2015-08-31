@@ -1,0 +1,12 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+#RewriteBase /
+
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1
+
+
+php_value upload_max_filesize 10000M
+php_value post_max_size 10000M
