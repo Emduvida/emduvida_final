@@ -40,7 +40,7 @@
 
             <article id="preview-perfil">
                 <div class="cabecalho-preview-perfil">
-                    <p class="img-preview-perfil" style="background-image: url(imagens/Pirates4JackSparrowPosterCropped.jpg)"></p>
+                    <p class="img-preview-perfil" style="background-image: url(imagens_usuarios/<?php echo $rs['IMAGEM_PERFIL'] ?>)"></p>
                     <p class="nome-usuario-preview pad-preview"><?php echo $rs['NOME_USUARIO']; ?></p>
                     <p class="emailUsuarioPreview pad-preview"><?php echo $rs['EMAIL_USUARIO']; ?></p>
                     <p class="cidade-preview pad-preview"><?php echo $rs['CIDADE_USUARIO'] . ' - ' . $rs['UF_USUARIO'] ?></p>

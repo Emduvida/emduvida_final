@@ -8,10 +8,14 @@ $ac = $_POST['acao'];
 
 switch ($ac) {
     case 'cadUsuario':
+        $data = $_POST['DATA_NASCIMENTO'];
+        $dt = explode('/', $data);
+
+        $dtFInal = $dt[2] . '-' . $dt[1] . '-' . $dt[0];
 
         $c['NOME_USUARIO'] = mysql_real_escape_string($_POST['NOME_USUARIO']);
         $c['IMAGEM_PERFIL'] = mysql_real_escape_string($_POST['txtImagemUsuario']);
-        $c['DATA_NASCIMENTO'] = mysql_real_escape_string($_POST['DATA_NASCIMENTO']);
+        $c['DATA_NASCIMENTO'] = mysql_real_escape_string($dtFInal);
         $c['CPF_USUARIO'] = mysql_real_escape_string($_POST['CPF_USUARIO']);
         $c['EMAIL_USUARIO'] = mysql_real_escape_string($_POST['EMAIL_USUARIO']);
         $c['SENHA_USUARIO'] = mysql_real_escape_string(base64_encode(md5($_POST['SENHA_USUARIO'])));
@@ -32,13 +36,14 @@ switch ($ac) {
             if ($nEmail > 0) {
                 echo '2';
             } else {
-                
+
                 $campos = gerarCampos($c);
                 $valores = gerarValores($c);
-
-                if (inserir('usuario', $campos, $valores)) {
-                    echo '3';
-                }
+                
+                  if (inserir('usuario', $campos, $valores)) {
+                  echo '3';
+                  }
+                 
             }
         }
 
@@ -131,7 +136,7 @@ switch ($ac) {
             $extensao = strchr($ImagemArray[$i]['name'], '.');
             $filename = md5(time() . $ImagemArray[$i]['tmp_name']) . $extensao;
 
-            $img = array('.jpg', '.jpeg', '.png', '.gif', '.JPG','.JPEG','.PNG','.GIF');
+            $img = array('.jpg', '.jpeg', '.png', '.gif', '.JPG', '.JPEG', '.PNG', '.GIF');
             if (!in_array($extensao, $img)) {
                 $resultado = '4';
             } else {

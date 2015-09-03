@@ -124,18 +124,20 @@ $(document).ready(function () {
     estado = $('#estado');
     emailCad = $('#email');
     senhaCad = $('#senha');
-
-
+    campo = $('#enviarResenha');
+    
     nome.blur(function () {
         if (nome.val() === "") {
             vermelho(nome);
             mensagem('.errNome', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox1', 25);
+            desabilitarCampo(campo);
 
         } else {
             voltarNormal(nome);
             removeMensagem('.errNome');
             aumentaBarra('.bottomBox1', 25);
+            habilitarCampo(campo);
         }
     });
 
@@ -146,10 +148,12 @@ $(document).ready(function () {
             vermelho(sobreNome);
             mensagem('.erroSobreNome', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox1', 25);
+            desabilitarCampo(campo);
         } else {
             voltarNormal(sobreNome);
             removeMensagem('.erroSobreNome');
             aumentaBarra('.bottomBox1', 25);
+            habilitarCampo(campo);
         }
     });
 
@@ -158,11 +162,12 @@ $(document).ready(function () {
             vermelho(dataNasc);
             mensagem('.erroNasc', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox1', 25);
+            desabilitarCampo(campo);
         } else {
             voltarNormal(dataNasc);
             removeMensagem('.erroNasc');
             aumentaBarra('.bottomBox1', 25);
-
+            habilitarCampo(campo);
         }
     });
 
@@ -171,10 +176,12 @@ $(document).ready(function () {
             vermelho(cpf);
             mensagem('.erroCPF', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox1', 25);
+            desabilitarCampo(campo);
         } else {
             voltarNormal(cpf);
             removeMensagem('.erroCPF');
             aumentaBarra('.bottomBox1', 25);
+            habilitarCampo(campo);
         }
     });
 
@@ -183,10 +190,12 @@ $(document).ready(function () {
             vermelho(cidade);
             mensagem('.erroCidade', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox2', 50);
+            desabilitarCampo(campo);
         } else {
             voltarNormal(cidade);
             removeMensagem('.erroCidade');
             aumentaBarra('.bottomBox2', 50);
+            habilitarCampo(campo);
         }
     });
 
@@ -197,13 +206,19 @@ $(document).ready(function () {
             vermelho(estado);
             mensagem('.erroEstado', 'Este campo não pode estar vazio');
             diminuiBarra('.bottomBox2', 50);
+            desabilitarCampo(campo);
         } else {
             voltarNormal(estado);
             removeMensagem('.erroEstado');
             aumentaBarra('.bottomBox2', 50);
+            habilitarCampo(campo);
         }
 
     });
+
+
+
+
 
 
 
@@ -247,12 +262,13 @@ $(document).ready(function () {
     }
 
 
+    
     function habilitarCampo(obj) {
-        $('#enviarCad').prop('disabled', false);
+        $(obj).prop('disabled', false);
     }
     function desabilitarCampo(obj) {
 
-        $('#enviarCad').prop('disabled', true);
+        $(obj).prop('disabled', true);
     }
 });
 

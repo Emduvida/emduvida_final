@@ -11,7 +11,7 @@ $senha = $_SESSION['senhaCadastro'];
                 <h3 class="titulo-cadastro-home">Dados Pessoais</h3>
                 <hr class="linha-cadastro-home"/>
 
-                <form method="post" class="frmCadastroPrincipal">
+                <form method="post" id="frmCadastroPrincipal" class="frmCadastroPrincipal">
 
                     <label for="nome" class="lblPadrao fonte">Nome:*</label>
                     <p class="erros errNome"></p>
@@ -118,7 +118,7 @@ $senha = $_SESSION['senhaCadastro'];
                     <input type="checkbox">
                     Declaro que li e aceito os termos de 
                     uso do site “EM DUVIDA”.</div>
-                <input type="submit" name="" value="Cadastrar" class="btnCadastrar cadastrar-resenha"/>
+                <input type="submit" name="" value="Cadastrar" id="enviarResenha" class="btnCadastrar cadastrar-resenha"/>
 
                 </form>
 
