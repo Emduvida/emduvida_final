@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include_once 'conexao/conect_db.php';
 include_once 'funcoes.php';
 
@@ -14,15 +13,11 @@ if(!isset($_SESSION['admLogado'])){
     <head>
         <meta charset="UTF-8">
         <title>Em duvida</title>
-        <base href="http://localhost/emduvida_final/"/>
-
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
         <script src="admin/js/jquery-1.11.3.min.js"></script>
         <script src="js/jquery.form.js"></script>
         <script src="js/ajax.js"></script>
-        <script src="js/js.js"></script>
-        <script src="js/validate.js"></script>
 
         <script>
         </script>
@@ -33,6 +28,7 @@ if(!isset($_SESSION['admLogado'])){
             <div class="carregando"></div>
         </div>
         <div class="msg"></div>
+        
         <section id="todo">
 
             <?php include_once 'header.php'; ?>

@@ -55,10 +55,10 @@
             <div id="boxLogin">
                 <form method="post" action="" class="frmLogin" name="frmLogin">
                     <label class="lblPadrao fonte">E-mail:</label>
-                    <input type="text" name="emailLogin" class="frm-padrao inputLogin"/>
+                    <input type="email" name="emailLogin" class="frm-padrao inputLogin"/>
                     
                     <label class="lblPadrao fonte">Senha:</label>
-                    <input type="text" name="senhaLogin" class="frm-padrao inputLogin"/>
+                    <input type="password" name="senhaLogin" class="frm-padrao inputLogin"/>
                     
                     <input type="submit" name="logar" value="Entrar"/>
                     <a href="">Esqueceu sua senha?</a>
@@ -68,5 +68,6 @@
         </div>
 
     </div>
+    
 
 </header>

@@ -148,6 +148,36 @@ function upMultiplasImagens($imagem) {
 }
 
 
+function upImagem($imagem, $diretorio){
+    
+     $extensao = strchr($imagem['name'], '.');
+        $filename = md5(time() . $imagem['tmp_name']) . $extensao;
+
+        $img = array('.jpg', '.jpeg', '.png', '.gif');
+
+        if (!in_array($extensao, $img)) {
+            
+            $resultado = '2';
+            
+        } else {
+            
+            $pasta = $diretorio;
+
+            if (!file_exists($pasta)) {
+                
+                mkdir($pasta, 0755);
+                
+            }
+
+            if (move_uploaded_file($imagem['tmp_name'], $pasta . $filename)) {
+
+                return $filename;
+                
+            }
+        }
+}
+
+
 
 function gen_slug($str) {
     # special accents

@@ -36,9 +36,11 @@ switch ($_POST['acao']) {
            if($rs['STATUS_USUARIO'] == '0'){
                echo '1';
            }else{
+               
                 $_SESSION['COD_USUARIO'] = $rs['COD_USUARIO'];
                 $_SESSION['NOME_USUARIO'] = $rs['NOME_USUARIO'];
                 $_SESSION['EMAIL_USUARIO'] = $rs['EMAIL_USUARIO'];
+                
                 $_SESSION['usuarioLogado'] = true;
                 echo '3';
            }
@@ -52,6 +54,12 @@ switch ($_POST['acao']) {
          * 1 - retorna que o usuario é inativo
          * 2 - retorna que os dados digitados foram incorretos
          * 3 - retorna sucesso         */
+        
+        break;
+        
+    case 'upImagemUsuario':
+        $imagem = $_FILES['imagemUsuario'];
+        echo upImagem($imagem, '../imagens_usuarios/');
         
         break;
 }

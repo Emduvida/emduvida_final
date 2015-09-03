@@ -54,16 +54,33 @@ $senha = $_SESSION['senhaCadastro'];
                 <label for="estado" class="lblPadrao fonte">Estado:*</label>
                 <p class="erros erroEstado"></p>
                 <select name="ESTADO_USUARIO" id="estado" class="frm-padrao input-cadastro-completo">
-                    <option>SP</option>
-                    <option>RO</option>
-                    <option>DF</option>
-                    <option>RJ</option>
-                    <option>CE</option>
-                    <option>RS</option>
-                    <option>RN</option>
-                    <option>MG</option>
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AP</option>
+                    <option>AM</option>
                     <option>BA</option>
-
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MT</option>
+                    <option>MS</option>
+                    <option>MG</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PR</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RS</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>SC</option>
+                    <option>SP</option>
+                    <option>SE</option>
+                    <option>TO</option>
                 </select>
 
             </div>
@@ -93,7 +110,7 @@ $senha = $_SESSION['senhaCadastro'];
                 <h3 class="titulo-cadastro-home">Mais</h3>
                 <hr class="linha-cadastro-home"/>
 
-
+                <input type="text" name="txtImagemUsuario" class="textImagemUsuario"/>
                 <div id="carregaImagem"></div>
 
 
@@ -110,3 +127,9 @@ $senha = $_SESSION['senhaCadastro'];
         <div id="bottomBox3" class="bottom"></div>
     </article>
 </section>
+
+<form method="post" class="frmImagem">
+
+    <input type="file" name="imagemUsuario" style="display: none;" class="imgUsuarioUp"/>
+
+</form>

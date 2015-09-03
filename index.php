@@ -10,21 +10,15 @@ include_once './admin/funcoes.php';
     <head>
         <meta charset="UTF-8">
         <title>Em duvida</title>
-        <base href="http://localhost/emduvida_final/"/>
-
-        <link rel="stylesheet" type="text/css" href="css/style.css"> 
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-        <!--<link rel="stylesheet" media="screen and (min-width: 960px) and (max-width: 1199px)" href="css/style_liquido.css"/>
-
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
-        <script src="admin/js/jquery-1.11.3.min.js"></script>
-        <script src="js/jquery.form.js"></script>
-        <script src="js/ajax.js"></script>
-        <script src="js/js.js"></script>
-        <script src="js/validate.js"></script>
-
-        <script>
-        </script>
+        <base href="http://localhost:8080/emduvida_final/"/><!-- aqui é especificado a url base do site-->
+        <link rel="stylesheet" type="text/css" href="css/style.css"> <!--importando o css geral do site-->
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/><!--importando o fontawesome que é do caralho!-->
+        <script src="admin/js/jquery-1.11.3.min.js"></script><!--importando o jquery local-->
+        <script src="js/jquery.form.js"></script><!--importando a biblioteca jquery form para usar ajax lindo-->
+        <script src="js/ajax.js"></script><!--importando o arquivo que esta fazendo os ajaxs lindos e maravilhosos-->
+        <script src="js/js.js"></script><!--importando o js.js-->
+        <script src="js/validate.js"></script><!--importando o arquivo de validação -->
+        <script src="js/jquery.maskedinput.min.js"></script>
     </head>
     <body>
         <div id="carregando">
@@ -32,6 +26,8 @@ include_once './admin/funcoes.php';
             <div class="carregando"></div>
         </div>
         <div class="msg"></div>
+        
+        
         <section id="todo">
 
             <?php include_once 'header.php'; ?>

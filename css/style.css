@@ -1214,6 +1214,10 @@
 .defeitos-resenha-txt i{
     color: #E73941;
 }
+
+#carregaImagem{
+    background-size: cover;
+}
 /*
 .resenha:hover{
     -webkit-animation: mymove 1s ease-in-out;

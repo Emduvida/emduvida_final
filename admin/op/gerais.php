@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include_once '../funcoes.php';
 include_once '../conexao/conect_db.php';
 $ac = $_POST['acao'];
@@ -13,33 +14,57 @@ if (isset($ac)) {
 
             $sql = "SELECT * FROM usuario WHERE EMAIL_USUARIO = '{$c['EMAIL_USUARIO']}' AND SENHA_USUARIO = '{$c['SENHA_USUARIO']}'";
             $exec = mysql_query($sql);
-            
+
             $n = contarLinhas($sql);
 
             if ($n == 1) {
 
                 $rs = mysql_fetch_assoc($exec);
-                
+
                 if ($rs['STATUS_USUARIO'] == 1) {
 
                     if ($rs['COD_TIPO'] == 1) {
-                        echo 'Você não tem acesso lindo!';
+                        echo '3';
                     } else {
 
                         if ($rs['COD_TIPO'] == 2) {
-                            echo "Seja bem vindo Administrador";
-                        }else{
-                            echo "Seja bem vindo Master";
+
+                            $_SESSION['admLogado'] = 2;
+                            echo "4";
+                        } else {
+
+                            $_SESSION['admLogado'] = 3;
+
+                            echo "5";
                         }
-                        
-                        //redireciona('admin/home');
+
+
+                        $_SESSION['nomeAdm']    = $rs['NOME_USUARIO'];
+                        $_SESSION['codigoAdm']  = $rs['COD_USUARIO'];
+                        $_SESSION['emailAdm']   = $rs['EMAIL_USUARIO'];
                     }
                 } else {
-                    echo 'Usuario bloqueado';
+
+                    echo '2';
                 }
             } else {
-                echo "Usuario não encontrado";
+
+                echo "1";
             }
+
+
+            //FALLBACK
+            //
+            // 1 - Usuario não encontrado!
+            // 2 - Usuario bloqueado
+            // 3 - tipo não tem acesso
+            // 4 - Administrador comum
+            // 5 - Administrador Master
             break;
     }
-}
+}   
+ 
+ 
+            
+
+

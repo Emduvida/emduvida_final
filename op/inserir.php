@@ -10,7 +10,7 @@ switch ($ac) {
     case 'cadUsuario':
 
         $c['NOME_USUARIO'] = mysql_real_escape_string($_POST['NOME_USUARIO']);
-        $c['IMAGEM_PERFIL'] = mysql_real_escape_string("aham");
+        $c['IMAGEM_PERFIL'] = mysql_real_escape_string($_POST['txtImagemUsuario']);
         $c['DATA_NASCIMENTO'] = mysql_real_escape_string($_POST['DATA_NASCIMENTO']);
         $c['CPF_USUARIO'] = mysql_real_escape_string($_POST['CPF_USUARIO']);
         $c['EMAIL_USUARIO'] = mysql_real_escape_string($_POST['EMAIL_USUARIO']);
@@ -32,7 +32,7 @@ switch ($ac) {
             if ($nEmail > 0) {
                 echo '2';
             } else {
-
+                
                 $campos = gerarCampos($c);
                 $valores = gerarValores($c);
 

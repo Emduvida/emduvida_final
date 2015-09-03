@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    
+$(document).ready(function () {
+
     var carr = $('.carregando');
     var carrFundo = $('#carregando');
     var errmsg = $('.msg');
@@ -25,17 +25,17 @@ $(document).ready(function(){
         carrFundo.fadeIn("fast");
         carr.empty().html('<p class="load"><img src="js/482.GIF" class="loadImg" alt="Carregando..."/></p>').fadeIn("fast");
     }
-    
-    
 
-    function fechaLoad(){
-     setTimeout(function(){
-     carr.fadeOut("fast");
-     carrFundo.fadeOut("fast");
-     },300);
-     }
-     
-     
+
+
+    function fechaLoad() {
+        setTimeout(function () {
+            carr.fadeOut("fast");
+            carrFundo.fadeOut("fast");
+        }, 300);
+    }
+
+
     function fechaErro(tempo) {
         setTimeout(function () {
             errmsg.fadeOut("fast");
@@ -80,30 +80,53 @@ $(document).ready(function(){
     });
 
     var loginAdm = $('form[name="loginAdm"]');
-   loginAdm.submit(function(){
-       
-      $(this).ajaxSubmit({
-          
-          url: 'op/gerais.php',
-          data: {acao: "loginAdm"},
-          beforeSubmit: function(){
-             
-          },
-          error: function(){alert('erro')},
-          //resetForm: true,
-          success: function( resposta ){
-                   $('.retorno').html(resposta);
-                
-          },
-          complete: function(resposta){
-              
-          }
-       });
-       
-       
+    loginAdm.submit(function () {
+
+        $(this).ajaxSubmit({
+            url: 'op/gerais.php',
+            data: {acao: "loginAdm"},
+            beforeSubmit: function () {
+
+            },
+            error: function () {
+                alert('erro')
+            },
+            //resetForm: true,
+            success: function (resposta) {
+                switch (resposta) {
+                    case '1':
+                        erroDados("Verifique se digitou os dados corretamente!");
+                        fechaErro(1500);
+                        break;
+                    case '2':
+                        erroDados("Seu usuário está bloqueado, por favor procure a administração");
+                        fechaErro(1500);
+                        break;
+                    case '3':
+                        erroDados("Esta área é restrita apenas a administradores");
+                        fechaErro(1500);
+                        break;
+                    case '4':
+                        sucesso("Seja bem vindo administrador!");
+                        location.href='home';
+                        break;
+                    case '5':
+                        sucesso("Seja bem vindo Master!");
+                        location.href='home';
+                        break;
+                }
+                $('.retorno').html(resposta);
+
+            },
+            complete: function (resposta) {
+
+            }
+        });
+
+
         return false;
-        
-   });
-    
+
+    });
+
 
 });

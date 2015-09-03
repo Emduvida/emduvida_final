@@ -1,1 +1,2 @@
-aaa
+
+Seja bem vindo <?php echo $_SESSION['nomeAdm'] ?>
