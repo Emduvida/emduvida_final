@@ -142,6 +142,7 @@
     text-decoration: none;
     text-align: center;
     padding-top: 13px;
+    float: left;
 }
 
 #btnResenha{
@@ -1241,3 +1242,138 @@
     100%{background-position-x:40%;}
 }
 */
+
+
+#conteudo-ranking{
+     width: 100%;
+    height: auto;
+    margin-top: 35px;
+    //background-color: red;
+}
+
+.ranking{
+    width: 32.5%;
+    height: auto;
+    float: left;
+    border: 1px solid #cccccc;
+    background-color: white;
+    display:inline;
+    
+
+    
+}
+
+.ranking-right{
+    width: 32.5%;
+    height: auto;
+    float: left;
+    border: 1px solid #cccccc;
+    background-color: white;
+    margin-left: 0.916%;
+    display: inline;
+    
+    
+}
+.area-titulo{
+    width:100%;
+    height: 33px;
+    margin-top: 10px;
+        
+}
+
+#titulo-ranking-produtos{
+    width: 60%;
+    background-color: #244a72;
+    margin-left: 20%;
+    font-size: 1rem;
+    color: #d7d4d4;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;  
+}
+
+#titulo-ranking-marcas{
+    width: 60%;
+    background-color: #b82a6d;
+    margin-left: 20%;
+    font-size: 1rem;
+    color: #d7d4d4;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;  
+}
+
+#titulo-ranking-usuarios{
+    width: 60%;
+    background-color: #389ebc;
+    margin-left: 20%;
+    font-size: 1rem;
+    color: #d7d4d4;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;  
+}
+
+
+.colocacoes{
+    width: 100%;
+    height: auto;
+    margin-top: 7px;
+    
+}
+
+.elemento-ranking{
+    width: 100%;
+    height: 98px;
+    margin-top: 3px;
+    
+    
+}
+.elemento-ranking:hover{
+    background-color: #f1f1f1;
+}
+
+.img-ranking{
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-left: 7.179%;
+    background-color: yellow;
+    background-size: cover;
+}
+
+.titulo-elemento-ranking{
+    width: 61.538%;
+    height: 20px;
+    float: left;
+    margin-top: 28px;
+    margin-left: 20px;
+    border-bottom: 1px solid #d5d4d4;
+    font-size: 1rem;
+    font-weight:bolder;
+    margin-left: 10px;
+    text-transform: uppercase;
+    color: #908c91;
+    padding-bottom: 5px;
+}
+
+.avaliacao-ranking{
+    float: right;
+    margin-top: 2px;
+    float: right;
+    margin-right: 29px;
+    
+    
+}
+
+.divisao-ranking{
+    width: 89.7%;
+    height: 4px;
+    margin-top: 3px;
+    margin-left: 20px;
+    background-color: #f0f1f1;
+    border: none;
+    
+}

@@ -1,18 +1,17 @@
 <?php
 
-  /*  //casa 
+    //casa 
     $host = 'localhost';
     $db = 'emduvidabd';
     $user = 'root';
-    $password = '';
+    $password = '123456';
     
-    
-*/
+    /*
     //servidor
     $host = '179.188.16.43';
     $db = 'emduvida';
     $user = 'emduvida';
-    $password = 'emduvidabd123';
+    $password = 'emduvidabd123';*/
    
 
 
