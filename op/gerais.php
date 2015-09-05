@@ -62,4 +62,10 @@ switch ($_POST['acao']) {
         echo upImagem($imagem, '../imagens_usuarios/');
         
         break;
+    
+    case 'upImagemResenha':
+        $imagem = $_FILES['imagem'];
+        echo upImagem($imagem, '../img_resenhas/');
+        
+        break;
 }

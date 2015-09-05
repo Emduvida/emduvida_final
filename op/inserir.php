@@ -91,7 +91,8 @@ switch ($ac) {
         $r['QTDE_DENUNCIAS'] = 0;
         $r['COD_USUARIO'] = $_SESSION['COD_USUARIO'];
         $r['DATA_RESENHA'] = date('Y-m-d H:i:s');
-
+        $r['slugfy'] = gen_slug($r['titulo_resenha']);
+        
         //print_r($r);
         $campos = gerarCampos($r);
 

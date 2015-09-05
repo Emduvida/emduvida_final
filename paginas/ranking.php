@@ -101,7 +101,7 @@
             <div class="elemento-ranking">
                 <p class="img-ranking" style="background-image: url(imagens/Pirates4JackSparrowPosterCropped.jpg)"></p>
                 <p class="titulo-elemento-ranking">Moto G 2</p>
-                <p class="avaliacao-ranking"><img src="imagens/avaliacao-ranking.png"</p>
+                <p class="avaliacao-ranking"><img src="imagens/avaliacao-ranking.png"/></p>
             </div>
             
             <hr class="divisao-ranking">

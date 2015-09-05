@@ -49,30 +49,18 @@
                 </div>
                 <div id="corpo-preview-perfil">
                     <p class="titulo-preview">Minhas Publicações</p>
+                    <?php
+                    $exec = listarLimite('resenha', 4, " WHERE COD_USUARIO  = '{$rs['COD_USUARIO']}' ORDER BY COD_RESENHA DESC");
+                    while ($res = mysql_fetch_assoc($exec)){
+                        
+                        $resImg = selecionar('imagens', 'COD_RESENHA', $res['COD_RESENHA']); 
+                    ?>
                     <div class="box-resenha-preview">
-                        <p class="imagem-resenha-box" style="background-image: url(imagens/moto-g-handson-6-853.png);"></p>
-                        <p class="titulo-resenha-box">Moto G 2</p>
+                        <p class="imagem-resenha-box" style="background-image: url(img_resenhas/<?php echo (empty($resImg['CAMINHO_IMAGEM'])) ? 'no-image.jpg' : $resImg['CAMINHO_IMAGEM']  ?>);"></p>
+                        <p class="titulo-resenha-box"><?php echo $res['titulo_resenha'] ?></p>
                         <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
                     </div>
-
-                    <div class="box-resenha-preview">
-                        <p class="imagem-resenha-box" style="background-image: url(imagens/playstation-4.png);"></p>
-                        <p class="titulo-resenha-box">Playstations 4</p>
-                        <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
-                    </div>
-
-                    <div class="box-resenha-preview">
-                        <p class="imagem-resenha-box" style="background-image: url(imagens/geladeira_samsung_4.jpg);"></p>
-                        <p class="titulo-resenha-box">Ta cheia!!!</p>
-                        <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
-                    </div>
-
-                    <div class="box-resenha-preview">
-                        <p class="imagem-resenha-box" style="background-image: url(imagens/impressora-hp-officejet-pro-8100-cabeca-queimada-office-jet-746501-MLB20345294863_072015-F.jpg);"></p>
-                        <p class="titulo-resenha-box">HP queimada!</p>
-                        <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
-                    </div>
-
+                    <?php } ?>
                 </div>
             </article>
 
@@ -186,45 +174,47 @@
 
 
         <article class="resenhasMaisVistas">
-            <div class="box-resenha-vistas" style="background-image: url(imagens/moto-g-handson-6-853.png);" id="4">
+
+            <?php
+            $exec = listarLimite('resenha', 12, " ORDER BY VISUALIZACOES_RESENHA DESC");
+            while ($rs = mysql_fetch_assoc($exec)) {
                 
-                <div class="topo-box-maisvista"></div>
-                <div class="rdp-box-masivista r4">
-                    <p class="titulo-resenha-txt">
-                        Moto G
-                    </p>
-                    <p class="resumo-resenha-txt">
-                        O iPhone 5c é inovador, o designer é lindo...
-                    </p>
-                </div>
-            </div>
+                $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']); 
+                ?>
+                <a href="ver-resenha/<?php echo $rs['COD_RESENHA'] ?>/<?php echo $rs['slugfy'] ?>">
 
-            <div class="box-resenha-vistas">
+                    <div class="box-resenha-vistas" style="background-image: url(img_resenhas/<?php echo (empty($resImg['CAMINHO_IMAGEM'])) ? 'no-image.jpg' : $resImg['CAMINHO_IMAGEM'] ?>);" id="<?php echo $rs['COD_RESENHA'] ?>">
 
-            </div>
+                        <div class="rdp-box-masivista r<?php echo $rs['COD_RESENHA'] ?>">
+                            <div class="topo-box-vistas">
+                                <?php
+                                $res = selecionar('usuario', "COD_USUARIO", $rs['COD_USUARIO']);
+                                ?>
+                                <div class="dados-usuarios"><p class="fotoUsuario" style="background-image: url(imagens_usuarios/<?php echo $res['IMAGEM_PERFIL'] ?>)"></p><span><?php echo resumo($res['NOME_USUARIO'], 10) ?></span></div>
+                                <p class="views"><i class="fa fa-eye"></i><?php echo $rs['VISUALIZACOES_RESENHA'] ?></p>
+                            </div>
+                            <div class="corpo-box-maisvistas">
+                                <p class="titulo-resenha-txt">
+                                    <?php echo resumo($rs['titulo_resenha'], 10) ?>
+                                </p>
+                                <p class="resumo-resenha-txt">
+                                    <?php echo resumo($rs['CORPO_RESENHA'], 1500) ?>
+                                </p>
+                            </div>
 
-            <div class="box-resenha-vistas">
+                            <!--<div class="fundo-box-maisvistas"></div>-->
 
-            </div>
-            <div class="box-resenha-vistas">
+                            <!--<div class="topo-box-maisvista"></div>-->
 
-            </div>
 
-            <div class="box-resenha-vistas">
 
-            </div>
+                        </div>
+                    </div>
 
-            <div class="box-resenha-vistas">
-
-            </div>
-
-            <div class="box-resenha-vistas">
-
-            </div>
-
-            <div class="box-resenha-vistas">
-
-            </div>
+                </a>
+                <?php
+            }
+            ?>
         </article>
     </article>
 </section>

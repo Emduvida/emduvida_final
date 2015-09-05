@@ -147,37 +147,56 @@ function upMultiplasImagens($imagem) {
     }
 }
 
+function listarLimite($tabela, $limite, $order = "", $campo = "", $valor = "") {
 
-function upImagem($imagem, $diretorio){
-    
-     $extensao = strchr($imagem['name'], '.');
-        $filename = md5(time() . $imagem['tmp_name']) . $extensao;
+    if ($campo == "" && $valor == "") {
+        $sql = "SELECT * FROM {$tabela} $order LIMIT $limite ";
+    } else {
+        $sql = "SELECT * FROM {$tabela} WHERE {$campo} = '{$valor}' $order LIMIT $limite ";
+    }
 
-        $img = array('.jpg', '.jpeg', '.png', '.gif');
 
-        if (!in_array($extensao, $img)) {
-            
-            $resultado = '2';
-            
-        } else {
-            
-            $pasta = $diretorio;
 
-            if (!file_exists($pasta)) {
-                
-                mkdir($pasta, 0755);
-                
-            }
-
-            if (move_uploaded_file($imagem['tmp_name'], $pasta . $filename)) {
-
-                return $filename;
-                
-            }
-        }
+    $exec = mysql_query($sql) or die(mysql_error());
+    return $exec;
 }
 
+function resumo($string, $chars) {
+    if (strlen($string) > $chars) {
+        while (substr($string, $chars, 1) <> ' ' && ($chars < strlen($string))) {
+            $chars++;
+        };
+    };
+    return substr($string, 0, $chars);
+}
 
+;
+
+function upImagem($imagem, $diretorio) {
+
+    $extensao = strchr($imagem['name'], '.');
+    $filename = md5(time() . $imagem['tmp_name']) . $extensao;
+
+    $img = array('.jpg', '.jpeg', '.png', '.gif');
+
+    if (!in_array($extensao, $img)) {
+
+        $resultado = '2';
+    } else {
+
+        $pasta = $diretorio;
+
+        if (!file_exists($pasta)) {
+
+            mkdir($pasta, 0755);
+        }
+
+        if (move_uploaded_file($imagem['tmp_name'], $pasta . $filename)) {
+
+            return $filename;
+        }
+    }
+}
 
 function gen_slug($str) {
     # special accents
