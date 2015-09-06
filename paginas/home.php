@@ -57,7 +57,7 @@
                     ?>
                     <div class="box-resenha-preview">
                         <p class="imagem-resenha-box" style="background-image: url(img_resenhas/<?php echo (empty($resImg['CAMINHO_IMAGEM'])) ? 'no-image.jpg' : $resImg['CAMINHO_IMAGEM']  ?>);"></p>
-                        <p class="titulo-resenha-box"><?php echo $res['titulo_resenha'] ?></p>
+                        <p class="titulo-resenha-box"><?php echo resumo($res['titulo_resenha'],6) ?></p>
                         <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
                     </div>
                     <?php } ?>
@@ -195,10 +195,13 @@
                             </div>
                             <div class="corpo-box-maisvistas">
                                 <p class="titulo-resenha-txt">
-                                    <?php echo resumo($rs['titulo_resenha'], 10) ?>
+                                    <?php echo resumo($rs['titulo_resenha'], 10)?>
+                                    <?php $prod = selecionar('produtos', 'COD_PRODUTO', $rs['COD_PRODUTO']); ?>
+                                <span><?php echo $prod['NOME_PRODUTO']; ?></span>
                                 </p>
+                                
                                 <p class="resumo-resenha-txt">
-                                    <?php echo resumo($rs['CORPO_RESENHA'], 1500) ?>
+                                    <?php echo resumo($rs['CORPO_RESENHA'], 100) ?>
                                 </p>
                             </div>
 

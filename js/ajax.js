@@ -232,6 +232,57 @@ $(document).ready(function () {
         });
         return false;
     });
+
+    var cadCOmentario = $('form[name="frmComentario"]');
+
+    cadCOmentario.submit(function () {
+
+
+        $(this).ajaxSubmit({
+            url: 'op/inserir.php',
+            data: {acao: "cadCOmentario"},
+            beforeSubmit: function () {
+
+            },
+            beforeSend: function(){
+                $('.loadCOment').fadeIn();
+            },
+            error: function () {
+            },
+            success: function (resposta) {
+                switch (resposta){
+                    case '1':
+                        sucesso("Obrigado por dar sua opnião!");
+                        fechaErro(1500);
+                        location.reload();
+                        break;
+                        
+                    case '2':
+                        erroDados("Erro inesperado, favor contate o administrador");
+                        fechaErro(1500);
+                        break;
+                    
+                    case '3':
+                        erroDados("Por favor preencha todos os campos");
+                        fechaErro(1500);
+                        break;
+                    
+                    default :
+                        
+                            break;
+                        
+                }
+            },
+            resetForm: true,
+            complete: function () {
+                $('.loadCOment').fadeOut();
+                $('.frmComentario').slideUp();
+            }
+
+        });
+
+
+    });
     /* cadResenha.submit(function () {
      var dados = $(this).serialize();
      var acao = "&acao=cadResenha";
@@ -306,26 +357,31 @@ $(document).ready(function () {
             }
         });
     });
+
+    //função para fazer upload de imagem do usuario...
     $('.imgUsuarioUp').change(function () {
         alert('change');
-        
+
         $('.frmImagem').ajaxSubmit({
             url: 'op/gerais.php',
             beforeSend: '',
             data: {acao: "upImagemUsuario"},
             uploadProgress: function (evento, posicao, total, completo) {
-                $('#carregaImagem').html("<p class='carregandoTxt'>"+completo+"%</p>");
+                $('#carregaImagem').html("<p class='carregandoTxt'>" + completo + "%</p>");
             },
             success: function (resposta) {
                 $('#carregaImagem').empty();
-                $('#carregaImagem').css('background-image','url(imagens_usuarios/'+resposta+')');
+                $('#carregaImagem').css('background-image', 'url(imagens_usuarios/' + resposta + ')');
                 $('.textImagemUsuario').val(resposta);
             },
             complete: function (resposta) {
-                
+
             }
 
         });
 
     });
+
+
+
 });

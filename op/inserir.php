@@ -1,8 +1,8 @@
 <?php
-
 session_start();
 //echo "<meta charset='utf-8'/>";
 include_once '../admin/funcoes.php';
+date_default_timezone_set('America/Sao_Paulo');
 $ac = $_POST['acao'];
 
 
@@ -39,11 +39,10 @@ switch ($ac) {
 
                 $campos = gerarCampos($c);
                 $valores = gerarValores($c);
-                
-                  if (inserir('usuario', $campos, $valores)) {
-                  echo '3';
-                  }
-                 
+
+                if (inserir('usuario', $campos, $valores)) {
+                    echo '3';
+                }
             }
         }
 
@@ -92,7 +91,7 @@ switch ($ac) {
         $r['COD_USUARIO'] = $_SESSION['COD_USUARIO'];
         $r['DATA_RESENHA'] = date('Y-m-d H:i:s');
         $r['slugfy'] = gen_slug($r['titulo_resenha']);
-        
+
         //print_r($r);
         $campos = gerarCampos($r);
 
@@ -172,7 +171,33 @@ switch ($ac) {
         echo $resultado;
         break;
 
-    case 'cadFoto':
-        print_r($_FILES);
+    case 'cadCOmentario':
+
+        $c['TEXTO_COMENTARIO'] = mysql_real_escape_string($_POST['texto_comentario']);
+        $c['NOTA_COMENTARIO'] = mysql_real_escape_string($_POST['notaResenha']);
+        $c['COD_RESENHA'] = mysql_real_escape_string($_POST['cod_resenha']);
+        $c['COD_USUARIO'] = mysql_real_escape_string($_SESSION['COD_USUARIO']);
+        $c['DATAHORA_COMENTARIO'] = mysql_real_escape_string(date("Y-m-d H:i:s"));
+
+
+        if ($c['TEXTO_COMENTARIO'] == "" or $c['NOTA_COMENTARIO'] == "") {
+            echo '3';
+        } else {
+            
+            $campos = gerarCampos($c);
+            $valores = gerarValores($c);
+            
+            if (inserir('comentarios', $campos, $valores)) {
+
+                echo '1';
+            } else {
+
+                echo '2';
+            }
+        }
+
+        //1 - sucesso
+        //2 - erro inesperado
+        //3 - campos em branco
         break;
 }

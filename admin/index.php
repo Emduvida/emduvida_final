@@ -4,7 +4,9 @@ include_once 'conexao/conect_db.php';
 include_once 'funcoes.php';
 
 if(!isset($_SESSION['admLogado'])){
+    
     redireciona('frmLogin.php');
+    
 }
 ?>   
 
@@ -15,7 +17,7 @@ if(!isset($_SESSION['admLogado'])){
         <title>Em duvida</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-        <script src="admin/js/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/jquery.form.js"></script>
         <script src="js/ajax.js"></script>
 

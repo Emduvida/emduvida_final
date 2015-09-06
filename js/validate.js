@@ -9,7 +9,7 @@ $(document).ready(function () {
     senha = $('#senha');
     confSenha = $('#ConfSenha');
     campo = ('#enviarCad');
-    
+
     email.blur(function () {
 
         if (email.val() === "") {
@@ -73,27 +73,27 @@ $(document).ready(function () {
                 mensagem('.erroConfSenha', 'Senhas não conferem');
                 desabilitarCampo(campo);
             }
-            
+
             voltarNormal('#senha');
             removeMensagem('.erroSenha');
             habilitarCampo(campo);
         }
 
-       // alert("Senha: "+senha.val() + "ConfSenha: "+ confSenha.val());
+        // alert("Senha: "+senha.val() + "ConfSenha: "+ confSenha.val());
     });
-    
-    confSenha.blur(function(){
+
+    confSenha.blur(function () {
         if (senha.val() === confSenha.val()) {
 
-                voltarNormal('#ConfSenha');
-                removeMensagem('.erroConfSenha');
-                habilitarCampo(campo);
+            voltarNormal('#ConfSenha');
+            removeMensagem('.erroConfSenha');
+            habilitarCampo(campo);
 
-            } else {
-                vermelho('#ConfSenha');
-                mensagem('.erroConfSenha', 'Senhas não conferem');
-                desabilitarCampo(campo);
-            }
+        } else {
+            vermelho('#ConfSenha');
+            mensagem('.erroConfSenha', 'Senhas não conferem');
+            desabilitarCampo(campo);
+        }
     });
 
     //FIM DA VALIDAÇÃO DOS CAMPOS DA HOME
@@ -125,7 +125,7 @@ $(document).ready(function () {
     emailCad = $('#email');
     senhaCad = $('#senha');
     campo = $('#enviarResenha');
-    
+
     nome.blur(function () {
         if (nome.val() === "") {
             vermelho(nome);
@@ -220,6 +220,37 @@ $(document).ready(function () {
 
 
 
+    //validando o comentario
+
+    var txtComent = $('.caixaComentario');
+    var txtNota = $('.frmNotaComent');
+    var btnComentar = $('.btnComentar');
+
+    desabilitarCampo(btnComentar);
+    
+    txtComent.blur(function () {
+        if (txtComent.val() === "") {
+            vermelho(txtComent);
+            txtComent.attr('placeholder', 'Este campo não pode ficar vazio...');
+            desabilitarCampo(btnComentar);
+        } else {
+            voltarNormal(txtComent);
+            habilitarCampo(btnComentar);
+        }
+    });
+
+    txtNota.blur(function () {
+        if (txtNota.val() === "") {
+            vermelho(txtNota);
+            txtNota.attr('placeholder', 'Este campo não pode ficar vazio...');
+            desabilitarCampo(btnComentar);
+        } else {
+            voltarNormal(txtNota);
+            habilitarCampo(btnComentar);
+        }
+    });
+
+
 
 
 
@@ -262,7 +293,7 @@ $(document).ready(function () {
     }
 
 
-    
+
     function habilitarCampo(obj) {
         $(obj).prop('disabled', false);
     }

@@ -1,5 +1,5 @@
 <?php
-
+sleep(3);
 session_start();
 include_once '../funcoes.php';
 include_once '../conexao/conect_db.php';

@@ -1,13 +1,247 @@
-*{margin: 0; padding: 0;}
+*{margin: 0; padding: 0;     font-family: "Trebuchet MS";}
 
 body{
     //background-color: blue;
 }
 
-.lblPadrao{
+body,html{
+    width: 100%;
+    height: 100%;
+
+}
+
+#containerLogin{
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;    
+}
+#box-login{
+    height: 340px;
+    width: 387px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    border: 1px solid #c2c2c2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -170px;
+    margin-left: -193.5px;
+}
+
+.titulo-form-login{
+    width: 85%;
+    height: 18px;
+    margin: 25px auto;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    color: #989898;
+    font-weight: 300;
+}
+
+.formulario-login-adm{
+    width: 85%;
+    height: 210px;
+    margin: 40px auto;
+}
+
+.lblLogin{
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 10px;
+    color: #989898;
+}
+
+.inputLogin{
+    width: 100%;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid #cbc6c6;
+    outline: none;
+    margin-bottom: 30px;
+    padding-left: 10px;
+
+}
+
+.inputENtrar{
+    float: right;
+    width: 71px;
+    height: 33px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: #0d909e;
+    color: #fff;
+    text-transform: uppercase;
+    margin-right: -10px;
+}
+
+
+.cabecalho-login{
+    width: 100%;
+    height: 97px;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+}
+.cabecalho-login img{
+    margin-top: 20px;
+    margin-left: 4%;
+    float: left;
+}
+
+.link-sociais{
+    width: 29px;
+    height: 23px;
+    border-radius: 14.5px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    margin-left: 10px;
+    padding-top: 6px;
+}
+
+.sociais{
+    float: right;
+    margin-right: 4%;
+    position: relative;
+    top: 50%;
+    margin-top: -14.5px;
+}
+
+.face{
+    background-color: #45619D;
+
+}
+
+.tt{
+    background-color: #55ACEE;
+}
+
+.gplus{
+    background-color: #DB4437;
+}
+
+.rodape-login{
+    width: 100%;
+    height: 68px;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.content-rodape{
+    width: 100%;
+    height: 41px;
+    background-color: #bdbdbd;
+}
+
+.box-logo-rodape{
+    width: 100%;
+    height: 27px;
+
+}
+
+.linha-rodape{
+    width: 100%;
+    height: 2px;
+    border: none;
+    background-color: #bdbdbd;
+    margin-top: 10px;
+    float: left;
+    z-index: 5;
+}
+
+.logo-authentic{
+    width: 100px;
+    float: right;
+    margin-top: -35px;
+    margin-right: 4%;
+    background-color: #efefef;
+    z-index: 10;
+}
+
+
+.msg{
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    border-radius: 5px;
+    margin-left: -210px;
+    margin-top: 60px;
+    z-index: 100;
+    -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.44);
+    -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.44);
+    box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.44);
+}
+
+.accept{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
+    background-color: #67BA5B;
+}
+
+.accept i{
+    font-size: 1.8rem;
+    color: #87f477;
+    padding-right: 10px;
     display: block;
 }
 
-.inputPadrao{
+.accept span{
+    margin-top: 10px;
     display: block;
+}
+
+.erro i{
+        font-size: 1.8rem;
+    color: #ff6462;
+    padding-right: 10px;
+    display: block;
+}
+.erro span{
+    margin-top: 10px;
+    display: block;
+}
+.erro{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
+    background-color: #D35351;
+}
+
+
+
+.load{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f39c12;
+    text-align: center;
+}
+
+.load i{
+    font-size: 1.8rem;
+    display: block;
+    color: #fff;
+    
+}
+
+.load span{
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    color: #fff;
 }

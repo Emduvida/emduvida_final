@@ -52,12 +52,18 @@ function contarLinhas($sql) {
     return mysql_num_rows($exec);
 }
 
-function alterar($tabela, $camposVal, $campo, $valor, $vaiPara) {
+function alterar($tabela, $camposVal, $campo, $valor) {
     $sql = "UPDATE $tabela SET $camposVal WHERE $campo = '$valor'";
     if (mysql_query($sql)) {
-        echo "<script>alert('Dados alterados com sucesso!'); location.href='$vaiPara'</script>";
+
+        //echo "<script>alert('Dados alterados com sucesso!'); location.href='$vaiPara'</script>";
+    
+        
     } else {
+        
         echo mysql_error();
+    
+        
     }
 }
 

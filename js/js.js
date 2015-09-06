@@ -235,5 +235,14 @@ $(document).ready(function () {
             }
         }
     }
+    
+    
+    //fim do slider da resenha
+    
+    
+    
+    $('.btnFazerComentario').click(function(){
+        $('.frmComentario').slideDown();
+    });
 
 });

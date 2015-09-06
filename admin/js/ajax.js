@@ -1,3 +1,4 @@
+$('.msg').hide();
 $(document).ready(function () {
 
     var carr = $('.carregando');
@@ -23,7 +24,7 @@ $(document).ready(function () {
 
     function carregando() {
         carrFundo.fadeIn("fast");
-        carr.empty().html('<p class="load"><img src="js/482.GIF" class="loadImg" alt="Carregando..."/></p>').fadeIn("fast");
+        errmsg.empty().html('<p class="load"><i class="fa fa-spinner fa-pulse"></i><span>Aguarde um momento</span></p>').fadeIn("fast");
     }
 
 
@@ -52,7 +53,7 @@ $(document).ready(function () {
     function errosend() {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="erro"><strong>Erro inesperado: </strong>Favor contate o admin!</p>').fadeIn("fast");
+        errmsg.empty().html('<p class="erro"><i class="fa fa-times-circle"></i><span>Erro inesperado: </strong>Favor contate o admin!</span></p>').fadeIn("fast");
     }
 
 
@@ -61,14 +62,14 @@ $(document).ready(function () {
     function erroDados(mensagem) {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="erro">' + mensagem + '</p>').fadeIn("fast");
+        errmsg.empty().html('<p class="erro"><i class="fa fa-times-circle"></i><span>'+mensagem+'</span></p>').fadeIn("fast");
 
     }
 
     function sucesso(mensagem) {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="accept">' + mensagem + '</p>').fadeIn("fast");
+        errmsg.empty().html('<p class="accept"><i class="fa fa-check-circle"></i><span>'+mensagem+'</span></p>').fadeIn("fast");
 
     }
 
@@ -108,14 +109,14 @@ $(document).ready(function () {
                         break;
                     case '4':
                         sucesso("Seja bem vindo administrador!");
-                        location.href='home';
+                        Redirecionar(1500,'home');
                         break;
                     case '5':
                         sucesso("Seja bem vindo Master!");
-                        location.href='home';
+                        Redirecionar(1500,'home');
                         break;
                 }
-                $('.retorno').html(resposta);
+                //$('.retorno').html(resposta);
 
             },
             complete: function (resposta) {

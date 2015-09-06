@@ -1,17 +1,21 @@
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id))
-            return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=1414871152062562";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 <?php
+
 $codigo = $url[1];
 
+
+    $res1 = selecionar('resenha', 'COD_RESENHA', $codigo);
+    $visitas = $res1['VISUALIZACOES_RESENHA'] + 1;
+    
+    
+    $u['VISUALIZACOES_RESENHA'] = mysql_real_escape_string($visitas);
+    $camposVal = gerarCamposAlteracao($u);
+    alterar('resenha', $camposVal, "COD_RESENHA", $codigo);
+ 
+
 $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
+
+
+
 ?>
 <section id="container-resenha-completa" >
 
@@ -23,11 +27,12 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
     <article class="esquerdo box-coluna">
 
         <ul class="slide-resenha">
-
-            <li class="img" style="background-image: url(img_resenhas/9e5920b2ca01b5b162f8369b5e3492f4.jpg)"></li>
-            <li class="img" style="background-image: url(img_resenhas/no-image.jpg)"></li>
-            <li class="img" style="background-image: url(img_resenhas/Samsung-Galaxy-S5.jpg)"></li>
-            <li class="img" style="background-image: url(img_resenhas/9e5920b2ca01b5b162f8369b5e3492f4.jpg)"></li>
+            <?php
+            $exec = listarLimite('imagens', 5, " ORDER BY COD_IMAGEM DESC ", 'COD_RESENHA', $codigo);
+            while ($resImagens = mysql_fetch_assoc($exec)) {
+                ?>
+                <li class="img" style="background-image: url(img_resenhas/<?php echo $resImagens['CAMINHO_IMAGEM'] ?>)"></li>
+            <?php } ?>
         </ul>
         <div class="controle-slide-resenha">
             <button class="btnAnterior btnPrevNext"> <i class="fa fa-chevron-left"></i> Anterior</button>
@@ -35,8 +40,8 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
         </div>
     </article>
 
-    <article class="direito box-coluna">
-        <div class="box-resenha-completa">
+    <article class="direito box-coluna box-resenha">
+        <article class="box-resenha-completa">
             <div class="info-usuario">
                 <?php
                 $resUser = selecionar('usuario', 'COD_USUARIO', $rs['COD_USUARIO']);
@@ -58,7 +63,7 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
                 <button class="btnCompartilhe tt">Compartilhar <i class="fa fa-twitter"></i></button>
                 <button class="btnCompartilhe gplus">Compartilhar <i class="fa fa-google-plus"></i></button>
             </div>
-        </div>
+        </article>
     </article>
 
     <article class="esquerdo box-coluna">
@@ -96,14 +101,43 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
         </div>
     </article>
 
-    <article class="direito box-coluna">
-        <form method="post" class="frmComentario">
-            <textarea placeholder="Digite aqui seu comentario..." class="caixaComentario frm-padrao"></textarea>
-            <label class="lblPadrao lblComentario">Dê uma nota para esta resenha: </label><input type="number" class="frm-padrao frmNotaComent" placeholder="De 0 a 5" max="5"/>
-            <input type="hidden" name="cod_resenha" value="<?php echo $rs['COD_RESENHA']; ?>"/>
-            <input type="submit" name="comentar" value="Comentar" class="btnComentar"/><i class="fa fa-spinner fa-pulse"></i>
+    <article class="direito box-coluna box-comentarios">
+        <?php $qtd = contarLinhas("SELECT * FROM comentarios WHERE COD_RESENHA = '$codigo'"); ?>
+        <h1 class="titulo-comentarios"><i class="fa fa-comments-o"></i> <?php echo $qtd ?> Comentarios</h1><button class="btnFazerComentario">Fazer Comentario</button>
+
+        <form method="post" class="frmComentario" name="frmComentario">
+            <?php
+            if (isset($_SESSION['usuarioLogado'])) {
+                ?>
+                <textarea name="texto_comentario" placeholder="Digite aqui seu comentario..." class="caixaComentario frm-padrao"></textarea>
+                <label class="lblPadrao lblComentario">Dê uma nota para esta resenha: </label>
+                <input type="number" class="frm-padrao frmNotaComent" name="notaResenha" placeholder="De 0 a 5" max="5"/>
+                <input type="hidden" name="cod_resenha" value="<?php echo $rs['COD_RESENHA']; ?>"/>
+                <input type="submit" name="comentar" value="Comentar" class="btnComentar"/><i style="display: none;" class="fa fa-spinner fa-pulse loadCOment"></i>
+            <?php } else {
+                ?>
+                Você precisa estar logado para comentar.
+            <?php }
+            ?>
         </form>
-        
+        <article class="box-comentarios-lista">
+
+            <?php
+            $exec = listarLimite('comentarios', 100000, " ORDER BY COD_COMENTARIO DESC", 'COD_RESENHA', $codigo);
+
+            while ($rsComentario = mysql_fetch_assoc($exec)) {
+                ?>
+                <div class="box-comentario">
+                    <?php $rsUsuario = selecionar('usuario', "COD_USUARIO", $rsComentario['COD_USUARIO']); ?>
+                    <p class="imagem_perfil_comentario" style="background-image: url(imagens_usuarios/<?php echo $rsUsuario['IMAGEM_PERFIL']; ?>)"></p>
+
+                    <p class="txt_postado_comentario"><?php echo $rsUsuario['NOME_USUARIO']; ?> <span><?php echo date("m/d/y", strtotime($rsComentario['DATAHORA_COMENTARIO'])) ?> ás <?php echo date("H:i", strtotime($rsComentario['DATAHORA_COMENTARIO'])); ?></span></p> 
+                    <p class="txt_comentario"><?php echo $rsComentario['TEXTO_COMENTARIO'] ?></p>
+
+                </div>
+            <?php } ?>
+
+        </article>
     </article>
 
 </section>

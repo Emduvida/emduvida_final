@@ -1,10 +1,11 @@
 
 <header>
-            <nav>
-                <ul>
-                    
-                </ul>
+    <nav>
+        <ul>
 
-                <a href="logout.php"> Sair </a>
-            </nav>
+        </ul>
 
+        <a href="op/logout.php"> Sair </a>
+    </nav>
+
+</header>
