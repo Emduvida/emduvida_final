@@ -3,8 +3,8 @@
 <article class="content-usuario">
     <div class="col-esquerda">
         <h2 class="titulo-tabela">Restritos</h2>
-        <a href="">Ativos</a>
-        <a href="">Inativos</a>
+        <a href="usuarios/">Ativos</a>
+        <a href="usuarios/inativos">Inativos</a>
         <table cellspacing="0" class="tbl_usuario tbl_comuns">
             <thead>
                 <tr>
@@ -17,7 +17,9 @@
             </thead>
             <tbody>
                 <?php
-                $status = (empty($url[1]) ? '1' : $url[1]);
+                $status = (empty($url[1]) ? '1' : '0');
+                
+                
                 $exec = listarLimite('usuario', 10, " AND COD_TIPO = '1' ORDER BY COD_USUARIO DESC", "STATUS_USUARIO", $status);
                 while ($rs = mysql_fetch_assoc($exec)) {
                     ?>
@@ -28,7 +30,7 @@
                         <td class="tdVerPerfil">
                             <p class="icones">
                                 
-                                    <?php echo ($rs['STATUS_USUARIO'] == 1) ? '<a href=""><i class="fa fa-times"></i></a>' : '<a href=""><i class="fa fa-check"></i></a>'; ?>
+                                    <?php echo ($rs['STATUS_USUARIO'] == 1) ? '<a href="" class="inativarUser" id="'.$rs['COD_USUARIO'].'"><i class="fa fa-times"></i></a>' : '<a href="" class="ativarUser" id="'.$rs['COD_USUARIO'].'"><i class="fa fa-check"></i></a>'; ?>
                                 
                             </p>
                         </td>
@@ -115,9 +117,9 @@
                         </td>
                         <td class="tdAzulClaro">
                             <p class="icones">
-                                <a href="">
-                                   <?php echo ($rs['COD_TIPO'] == 1) ? '<i class="fa fa-arrow-up"></i>' : '<i class="fa fa-arrow-down"></i>'; ?> 
-                                </a>
+                                
+                                   <?php echo ($rs['COD_TIPO'] == 1) ? '<a href="" class="transformaAdm" id="'.$rs['COD_USUARIO'].'"><i class="fa fa-arrow-up"></i></a>' : '<a href="" class="transformaComum" id="'.$rs['COD_USUARIO'].'"><i class="fa fa-arrow-down"></i></a>'; ?> 
+                                
                             </p>
                         </td>
                         <td class="tdVerPerfil"><p class="txtVerPerfil" id="<?php echo $rs['COD_USUARIO']; ?>" style="cursor: pointer">ver perfil</p></td>

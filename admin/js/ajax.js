@@ -1,5 +1,5 @@
 $('.msg').hide();
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     var carr = $('.carregando');
@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     botao.attr("type", "submit");
 
-    forms.submit(function () {
+    forms.submit(function() {
         errmsg.fadeOut("fast");
         return false;
     });
@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 
     function fechaLoad() {
-        setTimeout(function () {
+        setTimeout(function() {
             carr.fadeOut("fast");
             carrFundo.fadeOut("fast");
         }, 300);
@@ -39,13 +39,13 @@ $(document).ready(function () {
 
 
     function fechaErro(tempo) {
-        setTimeout(function () {
+        setTimeout(function() {
             errmsg.fadeOut("fast");
         }, tempo);
     }
 
     function Redirecionar(tempo, local) {
-        setTimeout(function () {
+        setTimeout(function() {
             location.href = local;
         }, tempo);
     }
@@ -82,19 +82,19 @@ $(document).ready(function () {
     });
 
     var loginAdm = $('form[name="loginAdm"]');
-    loginAdm.submit(function () {
+    loginAdm.submit(function() {
 
         $(this).ajaxSubmit({
             url: 'op/gerais.php',
             data: {acao: "loginAdm"},
-            beforeSubmit: function () {
+            beforeSubmit: function() {
 
             },
-            error: function () {
+            error: function() {
                 alert('erro')
             },
             //resetForm: true,
-            success: function (resposta) {
+            success: function(resposta) {
                 switch (resposta) {
                     case '1':
                         erroDados("Verifique se digitou os dados corretamente!");
@@ -120,7 +120,7 @@ $(document).ready(function () {
                 //$('.retorno').html(resposta);
 
             },
-            complete: function (resposta) {
+            complete: function(resposta) {
 
             }
         });
@@ -131,19 +131,19 @@ $(document).ready(function () {
     });
 
     var alterarUsuario = $('form[name="alteraUsuario"]');
-    alterarUsuario.submit(function () {
+    alterarUsuario.submit(function() {
 
         $(this).ajaxSubmit({
             url: 'op/alterar.php',
             data: {acao: "altUsuario"},
-            beforeSubmit: function () {
+            beforeSubmit: function() {
 
             },
-            error: function () {
+            error: function() {
                 alert('erro');
             },
             //resetForm: true,
-            success: function (resposta) {
+            success: function(resposta) {
 
                 switch (resposta) {
                     case '1':
@@ -161,7 +161,7 @@ $(document).ready(function () {
                 }
 
             },
-            complete: function (resposta) {
+            complete: function(resposta) {
 
             }
         });
@@ -172,57 +172,204 @@ $(document).ready(function () {
     });
 
 
-    $('.transformaAdm').click(function () {
+    $('.transformaAdm').click(function() {
 
         $.ajax({
             url: 'op/alterar.php',
-            data: "&acao=toAdm&cod="+$(this).attr('id'),
+            data: "&acao=toAdm&cod=" + $(this).attr('id'),
             type: "GET",
-            beforeSubmit: function () {
+            beforeSubmit: function() {
 
             },
-            error: function () {
-            
+            error: function() {
+
             },
-            success: function (resposta) {
-                
-                alert(resposta);
-                
+            success: function(resposta) {
+
+                switch (resposta) {
+                    case '1':
+                        sucesso("Usuario transformado em admin");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        break;
+                    case '2':
+                        
+                        erroDados("Erro ao alterar, contate o desenvolvedor");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        
+                        break;
+                    default :
+                        erroDados("");
+                        break;
+                }
+
             },
-            complete: function (resposta) {
+            complete: function(resposta) {
 
             }
 
         });
-        
         return false;
-
     });
 
+$('.transformaComum').click(function() {
+        $.ajax({
+            url: 'op/alterar.php',
+            data: "&acao=toComum&cod=" + $(this).attr('id'),
+            type: "GET",
+            beforeSubmit: function() {
 
+            },
+            error: function() {
+
+            },
+            success: function(resposta) {
+                switch (resposta) {
+                    case '1':
+                        
+                        sucesso("Usuario transformado em admin");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        
+                        break;
+                    case '2':
+                        
+                        erroDados("Erro ao alterar, contate o desenvolvedor");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        
+                        break;
+                    default :
+                        erroDados("");
+                        break;
+                }
+            },
+            complete: function(resposta) {
+                
+            }
+        });
+        return false;
+    });
+
+    $('.ativarUser').click(function() {
+        $.ajax({
+            url: 'op/alterar.php',
+            data: "&acao=toAtivo&cod=" + $(this).attr('id'),
+            type: "GET",
+            beforeSubmit: function() {
+
+            },
+            error: function() {
+
+            },
+            success: function(resposta) {
+                switch (resposta) {
+                    case '1':
+                        
+                        sucesso("Usuario ativado com sucesso");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        
+                        break;
+                    case '2':
+                        
+                        erroDados("Erro ao alterar, contate o desenvolvedor");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        
+                        break;
+                    default :
+                        erroDados("");
+                        break;
+                }
+            },
+            complete: function(resposta) {
+                
+            }
+        });
+        return false;
+    });
+    
+    $('.inativarUser').click(function() {
+        $.ajax({
+            url: 'op/alterar.php',
+            data: "&acao=toInativo&cod=" + $(this).attr('id'),
+            type: "GET",
+            beforeSubmit: function() {
+
+            },
+            error: function() {
+
+            },
+            success: function(resposta) {
+                switch (resposta) {
+                    case '1':
+                        
+                        sucesso("Usuario desativado com sucesso");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/inativo');
+                        
+                        break;
+                    case '2':
+                        
+                        erroDados("Erro ao alterar, contate o desenvolvedor");
+                        
+                        fechaErro(1500);
+                        
+                        Redirecionar(1000,'usuarios/');
+                        
+                        break;
+                    default :
+                        erroDados("");
+                        break;
+                }
+            },
+            complete: function(resposta) {
+                
+            }
+        });
+        return false;
+    });
+
+    
 
     function listarUsuario(status, tipo, elemento) {
 
 
 
         $.ajax({
-            beforeSend: function (xhr) {
+            beforeSend: function(xhr) {
 
             },
             type: "GET",
             url: 'op/listar.php',
             data: "&acao=listarUsuario&status=" + status + "&tipo=" + tipo,
-            beforeSubmit: function () {
+            beforeSubmit: function() {
 
             },
-            error: function () {
+            error: function() {
                 alert('erro');
             },
-            success: function (resposta) {
+            success: function(resposta) {
                 $(elemento).html(resposta);
 
             },
-            complete: function (resposta) {
+            complete: function(resposta) {
 
             }
 

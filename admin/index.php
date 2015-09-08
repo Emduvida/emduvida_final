@@ -12,6 +12,7 @@ if (!isset($_SESSION['admLogado'])) {
 <!DOCTYPE html>
 <html>
     <head>
+        <base href="http://localhost/emduvida_final/admin/"/>
         <meta charset="UTF-8">
         <title>Em duvida</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
@@ -54,7 +55,7 @@ if (!isset($_SESSION['admLogado'])) {
                         include_once 'paginas' . '/home.php';
                     }
 
-                    echo $url[1];
+                    //echo $url[1];
                     ?>
                 </article>
             </section>

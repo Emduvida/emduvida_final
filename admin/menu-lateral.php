@@ -3,8 +3,8 @@
     <div class="navegacao">
         <a href="">inicio</a>
         <a href="usuarios">Usuários</a>
-        <a href="">resenhas</a>
-        <a href="">produtos</a>
+        <a href="resenhas">resenhas</a>
+        <a href="produtos">produtos</a>
         <a href="">banners</a>
         <a href="">comentarios</a>
     </div>

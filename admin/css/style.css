@@ -409,6 +409,14 @@ body,html{
     float: left;
 }
 
+.tituloProd{
+    height: 40px;
+    border-radius: 20px;
+    background-size: cover;
+    margin: 10px;
+    float: left;
+}
+
 .nomeUsuario{
     padding-left: 10px;
     padding-right: 10px;
@@ -535,3 +543,30 @@ body,html{
 .box-direito-perfil form{
     margin-bottom: 20px;
 }
+
+.inputAdmin{
+    display: block;
+    border-radius: 5px;
+    border: 1px solid #E1E1E1;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.inputProd{
+    width: 70%;
+}
+
+.inputFab{
+    width: 70%;
+}
+
+.inputCadastrar{
+    border: none;
+    float: right;
+    margin-right: 30%;
+    background-color: #0d909e;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
