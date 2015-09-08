@@ -1,8 +1,9 @@
 <?php
 
-echo "<meta charset='utf-8'/>";
+//echo "<meta charset='utf-8'/>";
 
 include_once '../funcoes.php';
+
 $ac = $_POST['acao'];
 
 
@@ -42,10 +43,17 @@ if (isset($ac)) {
         $u['COD_USUARIO'] = mysql_real_escape_string($_POST['cod']);
         $c['STATUS_USUARIO'] = mysql_real_escape_string($_POST['STATUS_USUARIO']);
         $c['COD_TIPO'] = mysql_real_escape_string($_POST['COD_TIPO']);
-
-        $camposVal = gerarCamposAlteracao($c);
+        //print_r($c);
+       $camposVal = gerarCamposAlteracao($c);
         
-        alterar('usuario', $camposVal, 'COD_USUARIO', $u['COD_USUARIO'], "../index.php?link=3");
+        if(alterar('usuario', $camposVal, 'COD_USUARIO', $u['COD_USUARIO'])){
+            echo '1';
+        }else{
+            echo '2';
+        }
         
     }
+    
+    
+    
 }

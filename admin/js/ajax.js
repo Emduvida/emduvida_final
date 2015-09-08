@@ -1,6 +1,7 @@
 $('.msg').hide();
 $(document).ready(function () {
 
+
     var carr = $('.carregando');
     var carrFundo = $('#carregando');
     var errmsg = $('.msg');
@@ -62,14 +63,14 @@ $(document).ready(function () {
     function erroDados(mensagem) {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="erro"><i class="fa fa-times-circle"></i><span>'+mensagem+'</span></p>').fadeIn("fast");
+        errmsg.empty().html('<p class="erro"><i class="fa fa-times-circle"></i><span>' + mensagem + '</span></p>').fadeIn("fast");
 
     }
 
     function sucesso(mensagem) {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="accept"><i class="fa fa-check-circle"></i><span>'+mensagem+'</span></p>').fadeIn("fast");
+        errmsg.empty().html('<p class="accept"><i class="fa fa-check-circle"></i><span>' + mensagem + '</span></p>').fadeIn("fast");
 
     }
 
@@ -109,11 +110,11 @@ $(document).ready(function () {
                         break;
                     case '4':
                         sucesso("Seja bem vindo administrador!");
-                        Redirecionar(1500,'home');
+                        Redirecionar(1500, 'home');
                         break;
                     case '5':
                         sucesso("Seja bem vindo Master!");
-                        Redirecionar(1500,'home');
+                        Redirecionar(1500, 'home');
                         break;
                 }
                 //$('.retorno').html(resposta);
@@ -129,5 +130,104 @@ $(document).ready(function () {
 
     });
 
+    var alterarUsuario = $('form[name="alteraUsuario"]');
+    alterarUsuario.submit(function () {
 
+        $(this).ajaxSubmit({
+            url: 'op/alterar.php',
+            data: {acao: "altUsuario"},
+            beforeSubmit: function () {
+
+            },
+            error: function () {
+                alert('erro');
+            },
+            //resetForm: true,
+            success: function (resposta) {
+
+                switch (resposta) {
+                    case '1':
+                        sucesso("Usuario alterado com sucesso!");
+                        fechaErro(1500);
+                        location.reload();
+                        break;
+                    case '2':
+                        erroDados("Erro ao alterar o usuario, contate o desenvolvedor!");
+                        fechaErro(1500);
+                        break;
+                    default :
+                        alert(resposta);
+                        break;
+                }
+
+            },
+            complete: function (resposta) {
+
+            }
+        });
+
+
+        return false;
+
+    });
+
+
+    $('.transformaAdm').click(function () {
+
+        $.ajax({
+            url: 'op/alterar.php',
+            data: "&acao=toAdm&cod="+$(this).attr('id'),
+            type: "GET",
+            beforeSubmit: function () {
+
+            },
+            error: function () {
+            
+            },
+            success: function (resposta) {
+                
+                alert(resposta);
+                
+            },
+            complete: function (resposta) {
+
+            }
+
+        });
+        
+        return false;
+
+    });
+
+
+
+    function listarUsuario(status, tipo, elemento) {
+
+
+
+        $.ajax({
+            beforeSend: function (xhr) {
+
+            },
+            type: "GET",
+            url: 'op/listar.php',
+            data: "&acao=listarUsuario&status=" + status + "&tipo=" + tipo,
+            beforeSubmit: function () {
+
+            },
+            error: function () {
+                alert('erro');
+            },
+            success: function (resposta) {
+                $(elemento).html(resposta);
+
+            },
+            complete: function (resposta) {
+
+            }
+
+        });
+
+
+    }
 });

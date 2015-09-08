@@ -1,8 +1,16 @@
-$(document).ready(function(){
-    
-    $('.btAlterar').click(function(){
-        var id = $(this).attr('id');
-        $('.'+id).fadeToggle('slow');
+$(document).ready(function () {
+
+
+
+    $('.txtVerPerfil').click(function () {
+        
+        id = $(this).attr('id');
+        
+        $('.dados').slideUp();
+        
+        $('.' + id).slideToggle()();
+        
+
     });
-    
+
 });

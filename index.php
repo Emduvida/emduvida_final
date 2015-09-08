@@ -10,7 +10,7 @@ include_once './admin/funcoes.php';
     <head>
         <meta charset="UTF-8">
         <title>Em duvida</title>
-        <base href="http://www.emduvida.net/"/><!-- aqui é especificado a url base do site-->
+        <base href="http://localhost:8080/emduvida_final/"/><!-- aqui é especificado a url base do site-->
         <link rel="stylesheet" type="text/css" href="css/style.css"> <!--importando o css geral do site-->
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/><!--importando o fontawesome que é do caralho!-->
         <script src="admin/js/jquery-1.11.3.min.js"></script><!--importando o jquery local-->

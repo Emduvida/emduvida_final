@@ -1,2 +1,2 @@
 
-Seja bem vindo <?php echo $_SESSION['nomeAdm'] ?>
+Seja bem vindo <?php echo $_SESSION['nomeAdm'] ?><br/>
