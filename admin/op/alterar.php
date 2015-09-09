@@ -27,7 +27,6 @@ if (isset($ac)) {
 
         $c['NOME_PRODUTO'] = $_POST['nomeProduto'];
         $c['FABRICANTE'] = $_POST['nomeFabricante'];
-        $c['COD_CATEGORIA'] = $_POST['categoria'];
         $c['STATUS_PRODUTO'] = $_POST['status'];
         $cod = $_POST['cod'];
 
@@ -35,7 +34,12 @@ if (isset($ac)) {
 
         $camposVal = gerarCamposAlteracao($c);
 
-        alterar('produtos', $camposVal, "COD_PRODUTO", $cod, "../index.php?link=2&l&pagina=1");
+        if(alterar('produtos', $camposVal, "COD_PRODUTO", $cod)){
+            echo '1';
+        }else{
+            echo '2';
+        }
+        
     }
 
     if ($ac == 'altUsuario') {
@@ -52,6 +56,7 @@ if (isset($ac)) {
             echo '2';
         }
     }
+    
 }
 
 if (isset($_GET['acao'])) {

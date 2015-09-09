@@ -2,9 +2,9 @@
 
     <div class="navegacao">
         <a href="">inicio</a>
-        <a href="usuarios">Usuários</a>
-        <a href="resenhas">resenhas</a>
-        <a href="produtos">produtos</a>
+        <a href="usuarios/1">Usuários</a>
+        <a href="resenhas/1">resenhas</a>
+        <a href="produtos/1">produtos</a>
         <a href="">banners</a>
         <a href="">comentarios</a>
     </div>

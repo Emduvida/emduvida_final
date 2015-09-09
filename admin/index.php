@@ -2,7 +2,7 @@
 session_start();
 include_once 'conexao/conect_db.php';
 include_once 'funcoes.php';
-
+include_once './paginacao.php';
 if (!isset($_SESSION['admLogado'])) {
 
     redireciona('frmLogin.php');
@@ -12,7 +12,7 @@ if (!isset($_SESSION['admLogado'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <base href="http://localhost/emduvida_final/admin/"/>
+        <base href="http://localhost:8080/emduvida_final/admin/"/>
         <meta charset="UTF-8">
         <title>Em duvida</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"> 
@@ -21,6 +21,7 @@ if (!isset($_SESSION['admLogado'])) {
         <script src="js/jquery.form.js"></script>
         <script src="js/ajax.js"></script>
         <script src="js/js.js"></script>
+        <script src="js/validate.js"></script>
         <style>
             body{
                 overflow: hidden;

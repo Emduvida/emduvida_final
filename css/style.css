@@ -2024,3 +2024,23 @@ ul.slide-resenha li{
     font-size: 2.2rem;
 }
 
+.cancelaMargem{
+    width: 102%;
+    height: 200px;
+    display: table;
+    margin-left: -10px;
+}
+
+.box-resenha-usuario{
+    color: #fff;
+}
+
+.opcoes{
+    width: 90%;
+    margin: 10px auto;
+    font-size: 1.2rem;
+}
+
+.delete{
+    float: right;
+}

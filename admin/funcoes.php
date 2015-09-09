@@ -176,7 +176,9 @@ function resumo($string, $chars) {
     return substr($string, 0, $chars);
 }
 
-;
+function cortar($string,$tamanho){
+    return substr($string,0, $tamanho);
+}
 
 function upImagem($imagem, $diretorio) {
 
@@ -214,7 +216,6 @@ function gen_slug($str) {
 
 function listarPaginador($tabela, $order, $inicio, $maximo,$where = ""){
     $sql = "SELECT * FROM $tabela $where $order LIMIT $inicio,$maximo";
-    
     $exec = mysql_query($sql) or die(mysql_error());
     
     return $exec;

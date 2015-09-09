@@ -232,7 +232,57 @@ $(document).ready(function () {
         });
         return false;
     });
+        
+        
+        var alterResenha = $('form[name="alterarResenha"]');
+    alterResenha.submit(function () {
 
+        $(this).ajaxSubmit({
+            url: 'op/alterar.php',
+            data: {acao: "AlterarResenha"},
+            beforeSubmit: function () {
+
+            },
+            error: function () {
+            },
+            //resetForm: true,
+            uploadProgress: function (evento, posicao, total, completo) {
+                $('#carregamento-imagem').text(completo);
+            },
+            success: function (resposta) {
+                
+                alert(resposta);
+                /*switch (resposta) {
+                    case '2':
+                        erroDados("Erro inesperado, tente novamente mais tarde!");
+                        fechaErro(2000);
+                        break;
+                    case '3':
+                        sucesso("Resenha Cadastrada com sucesso!");
+                        Redirecionar(1000, 'home');
+                        break;
+                    case '4':
+                        erroDados("Nós aceitamos apenas imagens! Verifique se fez realmente o upload de uma imagem, entre em contato se estivermos errados");
+                        //fechaLoad();
+                        fechaErro(1500);
+                        $('.input-file').empty();
+                        $('.box-carregamento').empty();
+                        break;
+                }*/
+            },
+            complete: function () {
+                //ler
+            }
+
+
+
+
+
+        });
+        return false;
+    });
+
+        
     var cadCOmentario = $('form[name="frmComentario"]');
 
     cadCOmentario.submit(function () {

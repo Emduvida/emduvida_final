@@ -50,7 +50,7 @@
                         <p id="icone-logout"><i class="fa fa-sign-out"></i></p>
                     </button>
                     
-                    <button class="btnEditPerfil">MEU PERFIL</button>
+                    <a href="meuperfil/<?php echo $rs['COD_USUARIO'] ?>/<?php echo gen_slug($rs['NOME_USUARIO']) ?>"><button class="btnEditPerfil">MEU PERFIL</button></a>
                     
                     
                 </div>

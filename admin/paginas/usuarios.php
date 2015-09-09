@@ -3,8 +3,8 @@
 <article class="content-usuario">
     <div class="col-esquerda">
         <h2 class="titulo-tabela">Restritos</h2>
-        <a href="usuarios/">Ativos</a>
-        <a href="usuarios/inativos">Inativos</a>
+        <a href="usuarios/1">Ativos</a>
+        <a href="usuarios/1/inativos">Inativos</a>
         <table cellspacing="0" class="tbl_usuario tbl_comuns">
             <thead>
                 <tr>
@@ -16,17 +16,35 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $status = (empty($url[1]) ? '1' : '0');
-                
-                
-                $exec = listarLimite('usuario', 10, " AND COD_TIPO = '1' ORDER BY COD_USUARIO DESC", "STATUS_USUARIO", $status);
+                 <?php
+                $maximo = 5;
+
+                if (empty($url[1])) {
+
+                    $pc = '1';
+                } else {
+                    $pc = $url[1];
+                }
+
+                $inicio = ($pc - 1) * $maximo;
+                //$exec = listarLimite('produtos', 5, "", 'STATUS_PRODUTO', '1');
+                if (isset($url[2]) && $url[2] == "inativos") {
+                    $exec = listarPaginador('usuario', 'ORDER BY COD_USUARIO DESC', $inicio, $maximo, " WHERE STATUS_USUARIO = '0' AND COD_TIPO = '1'");
+
+                    $n = contarLinhas("SELECT * FROM usuario WHERE STATUS_USUARIO = '0'");
+                } else {
+                    $exec = listarPaginador('usuario', 'ORDER BY COD_USUARIO DESC', $inicio, $maximo, " WHERE STATUS_USUARIO = '1' AND COD_TIPO = '1'");
+                    
+                    $n = contarLinhas("SELECT * FROM usuario WHERE STATUS_USUARIO = '1'");
+                }
+
+
                 while ($rs = mysql_fetch_assoc($exec)) {
                     ?>
                     <tr class="trUsuario">
                         <td class="tdComum"><p class="foto-listagem" style="background-image: url(../imagens_usuarios/<?php echo $rs['IMAGEM_PERFIL'] ?>)"></p></td>
                         <td class="tdComum"><p class="nomeUsuario"><?php echo resumo($rs['NOME_USUARIO'], 5); ?></p></td>
-                        <td class="tdComum"><p class="txtAtivo">Ativo</p></td>
+                        <td class="tdComum"><p class="txtAtivo"><?php echo ($rs['STATUS_USUARIO'] == 1) ? 'Ativo' : 'Inativo' ?></p></td>
                         <td class="tdVerPerfil">
                             <p class="icones">
                                 
@@ -83,6 +101,53 @@
                 <?php } ?>
             </tbody>
         </table>
+        <article class="paginacao">
+            <?php
+            
+            $qtdPaginas = $n / 5;
+            if (gettype($qtdPaginas) == "double") {
+                $qtdPaginas = intval($n / 5) + 1;
+            } else {
+                $qtdPaginas = $n / 5;
+            }
+
+            $pagAtual = $url[1];
+            
+            if(isset($url[2]) && $url[2] == "inativos"){
+                
+                $pag2 = $url[2];
+                
+            }else{
+                $pag2 = null;
+            }
+            $pagina = "usuarios";
+            for ($i = 1; $i <= $qtdPaginas; $i++) {
+
+                if ($i == 1) {
+                    if ($i != $pagAtual) {
+                        echo "<a href='$pagina/$i/$pag2'><i class='fa fa-angle-double-left'></i></a>";
+                    } else {
+                        
+                    }
+                } else {
+                    if ($i == $qtdPaginas) {
+                        if ($i == $pagAtual) {
+                            
+                        } else {
+                            echo "<a href='$pagina/$i/$pag2'><i class='fa fa-angle-double-right'></i></a>";
+                        }
+                    } else {
+
+                        if ($i == $pagAtual) {
+                            echo "<span>" . $i . "</span>";
+                        } else {
+                            echo "<a href='$pagina/$i/$pag2'>" . $i . "</a>";
+                        }
+                    }
+                }
+            }
+            ?>
+        </article>
     </div>
 
     <div class="col-direita">
