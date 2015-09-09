@@ -76,7 +76,7 @@
             </article>
 
         <?php } ?>
-    </article>
+    </article> 
 
     <article class="slide">
         <div id="imagem">
