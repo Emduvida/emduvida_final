@@ -44,22 +44,33 @@
                     <p class="nome-usuario-preview pad-preview"><?php echo $rs['NOME_USUARIO']; ?></p>
                     <p class="emailUsuarioPreview pad-preview"><?php echo $rs['EMAIL_USUARIO']; ?></p>
                     <p class="cidade-preview pad-preview"><?php echo $rs['CIDADE_USUARIO'] . ' - ' . $rs['UF_USUARIO'] ?></p>
-                    <button class="btnEditPerfil">Editar Perfil</button>
-                    <hr/>
+                    
+                    
+                    <button id="btnlogout" >
+                        <p id="icone-logout"><i class="fa fa-sign-out"></i></p>
+                    </button>
+                    
+                    <button class="btnEditPerfil">MEU PERFIL</button>
+                    
+                    
                 </div>
+                
                 <div id="corpo-preview-perfil">
-                    <p class="titulo-preview">Minhas Publicações</p>
+                    <p class="titulo-preview">Últimas Publicações</p>
                     <?php
-                    $exec = listarLimite('resenha', 4, " WHERE COD_USUARIO  = '{$rs['COD_USUARIO']}' ORDER BY COD_RESENHA DESC");
+                    $exec = listarLimite('resenha', 3, " WHERE COD_USUARIO  = '{$rs['COD_USUARIO']}' ORDER BY COD_RESENHA DESC");
                     while ($res = mysql_fetch_assoc($exec)){
                         
                         $resImg = selecionar('imagens', 'COD_RESENHA', $res['COD_RESENHA']); 
                     ?>
+                    
+                    
+                    
                     <div class="box-resenha-preview">
                         <p class="imagem-resenha-box" style="background-image: url(img_resenhas/<?php echo (empty($resImg['CAMINHO_IMAGEM'])) ? 'no-image.jpg' : $resImg['CAMINHO_IMAGEM']  ?>);"></p>
                         <p class="titulo-resenha-box"><?php echo resumo($res['titulo_resenha'],6) ?></p>
                         <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
-                    </div>
+                    </div> 
                     <?php } ?>
                 </div>
             </article>
@@ -96,7 +107,7 @@
             <li class="liRanking">Asus 2     <img src="imagens/estrelas.png" alt="a"/></li>
         </ul>
 
-        <a href="" class="linkVejaMais">Veja Mais</a>
+        <a href="ranking" class="linkVejaMais">Veja Mais</a>
     </article>
 
     <article class="box-ranking-resenha box-resenha-top">
@@ -161,7 +172,7 @@
             <li class="liRanking liMarcas">Asus 2     <img src="imagens/estrelas.png" alt="a"/></li>
         </ul>
 
-        <a href="" class="linkVejaMais">Veja Mais</a>
+        <a href="ranking" class="linkVejaMais">Veja Mais</a>
     </article>
 
     <article class="maisVistas">
@@ -176,7 +187,7 @@
         <article class="resenhasMaisVistas">
 
             <?php
-            $exec = listarLimite('resenha', 12, " ORDER BY VISUALIZACOES_RESENHA DESC");
+            $exec = listarLimite('resenha', 20, " ORDER BY VISUALIZACOES_RESENHA DESC");
             while ($rs = mysql_fetch_assoc($exec)) {
                 
                 $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']); 

@@ -60,8 +60,8 @@
                     <label class="lblPadrao fonte">Senha:</label>
                     <input type="password" name="senhaLogin" class="frm-padrao inputLogin"/>
                     
-                    <input type="submit" name="logar" value="Entrar"/>
-                    <a href="">Esqueceu sua senha?</a>
+                    <input type="submit" id="btnEntrar2" name="logar" value="Entrar"/>
+                    <a href="" class="texto-esqueceusenha">Esqueceu sua senha?</a>
                 </form>
                 
             </div>

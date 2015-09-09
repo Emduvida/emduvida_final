@@ -110,7 +110,7 @@ $senha = $_SESSION['senhaCadastro'];
                 <h3 class="titulo-cadastro-home">Mais</h3>
                 <hr class="linha-cadastro-home"/>
 
-                <input type="text" name="txtImagemUsuario" class="textImagemUsuario"/>
+               <!--<input type="text" name="txtImagemUsuario" class="textImagemUsuario"/> -->
                 <div id="carregaImagem"></div>
 
 

@@ -12,6 +12,29 @@
 
 
 
+#rodape{
+    
+    margin-bottom: 0px;
+    width: 100%;
+    height: 71px;
+    background-color: #0d909e;
+    float: right;
+   margin-top: 80px;
+    
+}
+
+
+
+#link{
+    font-size: 1.5rem;
+    font-style:inherit;
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-right: 5.6%;
+    float: right;
+}
+
 #todo{
     width: 100%; 
     height: auto;
@@ -144,6 +167,27 @@
     padding-top: 13px;
     float: left;
 }
+
+#btnEntrar2{
+    width: 30%;
+   height: 30px;
+   background-color: #0D909E;
+   color: white;
+   border: none;
+   float: right;
+   
+}
+
+.texto-esqueceusenha{
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: lightslategrey;
+    margin-top: -5px;
+    
+}
+
+
 
 #btnResenha{
     width: 149px;
@@ -380,7 +424,7 @@
 .titulo-home{
     width: 136px;
     height: 26px;
-    background-color: #432472;
+    background-color: #0d909e;
     font-size: 1rem;
     font-weight: normal;
     color: #fff;
@@ -397,16 +441,16 @@
     z-index: 2;
     border: none;
     height: 1px;
-    background-color: #432472;
+    background-color: #0d909e;
 }
 
 .bolinha{
-    width: 25px;
-    height: 25px;
-    background-color: #432472;
+    width: 15px;
+    height: 15px;
+    background-color: #0d909e;
     float: right;
     border-radius: 15px;
-    margin-top: -28px;
+    margin-top: -24px;
 }
 
 .erros{
@@ -423,6 +467,7 @@
     width: 32%;
     height: auto;
     background-color: #fff;
+    display: inline-block;
     float: left;
     border: 1px solid #b3b3b3;
     border-bottom: none;
@@ -545,6 +590,8 @@
     width: 100%;
     height: 200px;
     margin-top: 50px;
+    
+    
 }
 
 
@@ -658,6 +705,7 @@
     background-color: #0d909e;
     width: 37%;
     color: #e5e9ea;
+    white-space:nowrap;
 }
 
 .titulo-negativo{
@@ -803,7 +851,9 @@
     height: 90%;
     border-radius: 100px;
     margin: 05px;
-    margin-left: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     float: left;
     background-color: yellow;
     background-size: cover;
@@ -842,17 +892,37 @@
 .btnEditPerfil{
     float: right;
     height: 30px;
-    margin-right: 10px;
     width: 28%;
     font-size: 0.75rem;
     padding: 5px;
-    margin-top: 15px;
+    margin-top: 34px;
     border: none;
     background-color: #0d909e;
     outline: none;
     color: #fff;
     font-weight: 600;
     cursor: pointer;
+}
+
+#btnlogout{
+    width: 10%;
+    height: 30px;
+    margin-top: 34px;
+    margin-right: 10px;
+    float: right;
+    background-color: #176f78;
+    border: none;
+    color: white;
+    
+    
+    
+    
+}
+
+#icone-logout{
+    font-size: 17px;
+    text-align: center;
+    
 }
 
 #corpo-preview-perfil{
@@ -862,7 +932,9 @@
 
 .titulo-preview{
     width: 133px;
-    height: 30px;
+    height: 25px;
+    margin-top: 6px;
+    margin-left: 10px;
     padding-top: 10px;
     text-align: center;
     font-size: 0.9rem;
@@ -871,44 +943,52 @@
 }
 
 .box-resenha-preview{
-    width: 234px;
-    height: 60px;
-    margin: 0 auto;
-    margin-top: 12px;
+    width: 100%;
+    height: 94px;
+    margin-top: 4px;
 }
 
+.box-resenha-preview:hover{
+    background-color: #f1f1f1;
+}
+
+
+
 .imagem-resenha-box{
-    width: 23%;
-    border-radius: 100px;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
     float: left;
-    margin: 3px;
-    background-size: cover;
-    background-position: center;
-    height: 90%;
+    margin-top: 10px;
+    margin-left: 3.5%;
     background-color: yellow;
+    background-size: cover;
 }
 .titulo-resenha-box{
-    margin-top: 12px;
+   width: 66%;
+    height: 20px;
     float: left;
-    border-bottom: 1px solid #ccc;
-    padding-right: 20px;
-    font-size: 0.850rem;
+    margin-top: 28px;
+    margin-left: 20px;
+    border-bottom: 1px solid #d5d4d4;
+    font-size: 1rem;
+    font-weight:bolder;
     margin-left: 10px;
     text-transform: uppercase;
     color: #908c91;
-    font-weight: 600;
-    padding-bottom: 4px;
+    padding-bottom: 5px;
 }
 
 
 .avaliacao-resenha{
     float: right;
-    margin-top: 10px;
+    margin-top: 7px;
+    margin-right: 5%;
 
 }
 
 .box-ranking-resenha{
-    width: 24.083%;
+    width: 24.25%;
     height: auto;
     background-color: #fff;
     margin-top: 25px;
@@ -1178,7 +1258,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
     width: 100%;
     height: auto;
     display: table;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 
@@ -1186,31 +1266,40 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
     text-transform: uppercase;
     font-size: 1.3rem;
     color: #656667;
+    margin-top: 20px;
+    
 }
 
 
 .box-coluna{
-    width: 49%;
+    width: 46%;
     height: 400px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .direito{float: right;}
 .esquerdo{float: left;}
 
 
+.marginajust{
+    margin-top: 60px;
+}
 .box-resenha-completa{
     width: 100%;
     height: auto;
     max-height: 400px;
     background-color: white;
     border: 1px solid #d3d3d3;
+    
+
 }
+
 
 
 .box-comentarios{
     height: 816px;
     background-color: #fff;
+   border: 1px solid #d5d4d4;
 }
 
 .info-usuario{
@@ -1253,25 +1342,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 
 .btnCompartilhar{
     width: 100%;
-    height: 40px;
+    height: 30px;
 
 }
 
 .btnCompartilhe{
-    width: 30.75%;
-    margin-left: 1.4%;
+    width: 33.333%;
+   // margin-left: 1.4%;
     height: 100%;
     border: none;
     color: #fff;
     cursor: pointer;
+    float: left;
 }
 
+.icones_resenha{
+    font-size: 1rem;
+}
 .face{
     background-color: #425F9C;
 }
 
 .tt{
     background-color: #55ACEE;
+   
 }
 .gplus{
     background-color: #D73D32;
@@ -1282,6 +1376,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
     height: auto;
     float: left;
     background-color: #fff;
+    border: 1px solid #ccc;
 }
 
 #defQual{
@@ -1307,6 +1402,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
     padding: 10px;
     margin-top: 5px;
     color: #615f5f;
+    white-space:nowrap;
 }
 
 .qualidade-resenha-txt span{
@@ -1362,7 +1458,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 #conteudo-ranking{
     width: 100%;
     height: auto;
-    margin-top: 35px;
+    margin-top: 65px;
     //background-color: red;
 }
 
@@ -1478,7 +1574,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
     float: right;
     margin-top: 2px;
     float: right;
-    margin-right: 29px;
+    margin-right: 10px;
 
 
 }
@@ -1634,6 +1730,7 @@ ul.slide-resenha li{
     padding: 10px;
     max-width: 95%;
     max-height: 100px;
+    resize:none;
 }
 
 
@@ -1648,7 +1745,7 @@ ul.slide-resenha li{
 .btnComentar{
     float: right;
     margin-top: 15px;
-    height: 30px;
+    height: 33px;
     padding-left: 10px;
     padding-right: 10px;
     border: none;
@@ -1662,7 +1759,7 @@ ul.slide-resenha li{
 .titulo-comentarios{
     font-size: 1.2rem;
     color: #656667;
-    margin-top: 5px;
+    margin-top: 9px;
     margin-left:20px;
     float: left;
 }
@@ -1670,12 +1767,260 @@ ul.slide-resenha li{
 .btnFazerComentario{
     padding-left: 10px;
     padding-right: 10px;
-    height: 30px;
+    height: 40px;
     border: none;
     background-color: #0d909e;
-    float: right;
+    float: left;
     margin-left: 5%;
     color: #fff;
     cursor: pointer;
     outline: none;
 }
+
+
+
+/* Meu perfil */
+
+#container_meuperfil-completo{
+    width: 100%;
+    height: auto;
+    margin-top: 43px;
+    
+    
+}
+
+#box-imagem-nome{
+    width: 100%;
+    height: 187px;
+   
+}
+
+#img-meuperfil{
+    width: 127px;
+    height: 127px;
+    border-radius: 100%;
+    float: left;
+    margin-left: 44.75%;
+    background-color: black;
+    background-size: cover;
+    
+    
+}
+
+.frase-meuperfil{
+    width: 100%;
+    height: 30px;
+     margin-top: 27px;
+    display:inline-block;
+    font-size: 1.3rem;
+    text-align: center; 
+    color: #615f5f;
+    white-space: nowrap;
+    
+}
+
+#box-dadosusuario{
+    width: 100%;
+    height: 278px;
+    margin-left: 0;
+    margin-top: 55px;
+    
+    //background-color: lightsteelblue;
+}
+
+.barra-lateral{
+    width: 7.625%;
+    height: 100%;
+    background-color: #297f88;
+    display: inline-block;
+    float: left;
+}
+
+#box-dadosgerais{
+    width: 48.083%;
+    height: 225px;
+    float: left;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #d5d4d4;
+    
+}
+
+.box-lateral{
+    width: 48.083%;
+    height: 101px;
+    display: table-column-group;
+    margin-left: 3.5%;
+    margin-top: 0px;
+    float: left;
+    background-color: white;
+    border: 1px solid #d5d4d4;
+    
+}
+
+.modificacao-boxlateral{
+    margin-top: 23px;
+   
+    
+}
+
+.modificacoes-icone i{
+    margin-left: 25%;
+    margin-top: 65%;
+    color: white;
+    font-size: 2.3rem;
+    
+}
+
+.modificacoes2-icone i{
+    margin-left: 15.235%;
+    margin-top: 85px;
+    color: white;
+    font-size: 2.3rem;
+    
+}
+
+#campo_titulo{
+    width: 29.345%;
+    height: 145px;
+    display: inline-block;
+    float: left;
+    margin-top: 35px;
+    margin-left: 5.607%;
+    //background-color: red;
+}
+
+
+
+.titulo-meuperfil{
+    font-size: 1.04rem;
+    float: right; 
+    padding-bottom: 20px;
+    color: #615f5f;
+    white-space: nowrap;
+    
+    
+}
+
+.paddingajust{
+    display: block;
+    padding-left: 100%;
+    
+    
+    
+}
+
+#dados_user{
+    width: 56.424%;
+    height: 145px;
+    display: inline-block;
+    margin-top: 35px;
+    float: right;
+   //background-color: blue;
+}
+
+.dadosuser-meuperfil{
+    font-size: 1.04rem;
+    text-align: center; 
+    padding-bottom: 20px;
+    color: #989797;
+    
+    
+}
+
+.campo_titulo-box-lateral{
+    width: 29.345%;
+    height: 52px;
+    display: inline-block;
+    float: left;
+    margin-top: 26px;
+    margin-left: 5.607%;
+    //background-color: red;
+}
+
+.boxlateral{
+    padding-bottom: 10px;
+}
+
+#boxlateral{
+    width: 56.424%;
+    height: 145px;
+    margin-top: 26px;
+    float: right;
+   
+   //background-color: blue;
+    
+   
+}
+
+#box-listagemresenhas{
+    width: 100%;
+    height: 300px;
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid #d5d4d4;
+        
+}
+
+.box-resenha-usuario{
+    width: 19.2%;
+    height: 220px;
+    background-color: black;
+    float: left;
+    margin-left: 1%;
+    background-size: cover;
+    background-position: center;
+    margin-top: 13px;
+}
+
+.primeira{
+    margin-left: 0px;
+}
+
+#botao-Editar-perfil{
+    width: 10%;
+    height: 35px;
+    background-color: #0D909E;
+    float: right;
+    margin-top: 10px;
+    margin-right: 2px;
+    border: none;
+    
+}
+
+#peditarperfil{
+    font-size: 0.8rem;
+    color: white;
+    text-align: center;
+}
+
+
+ // PÁGINA 404 //
+
+
+
+
+#box_mensagem_404{
+    width: 100%;
+    height: 305px;
+    margin-top: 100px;
+    
+    
+}
+
+.texto_mensagem404{
+    text-transform:uppercase;
+    font-size: 1.4375rem;
+    color:  #7ca8ac;
+    text-align: center;
+    
+}
+
+.mudatamanho{
+    font-size: 11.2475rem;
+}
+
+.mudatamanho2{
+    font-size: 2.2rem;
+}
+

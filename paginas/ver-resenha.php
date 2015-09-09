@@ -59,14 +59,14 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
             </div>
 
             <div class="btnCompartilhar">
-                <button class="btnCompartilhe face">Compartilhar <i class="fa fa-facebook"></i></button>
-                <button class="btnCompartilhe tt">Compartilhar <i class="fa fa-twitter"></i></button>
-                <button class="btnCompartilhe gplus">Compartilhar <i class="fa fa-google-plus"></i></button>
+                <button class="btnCompartilhe face"><p class="icones_resenha"><i class="fa fa-facebook"></i></button>
+                <button class="btnCompartilhe tt"><p class="icones_resenha"> <i class="fa fa-twitter"></i></button>
+                <button class="btnCompartilhe gplus"><p class="icones_resenha"><i class="fa fa-google-plus"></i></p></button>
             </div>
         </article>
     </article>
 
-    <article class="esquerdo box-coluna">
+    <article class="esquerdo box-coluna  marginajust">
         <div class="defeitos-resenha">
 
             <h2 class="titulo-positivo-negativo positivo-resenha">Pontos positivos</h2>
@@ -101,9 +101,9 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
         </div>
     </article>
 
-    <article class="direito box-coluna box-comentarios">
+    <article class="direito box-coluna box-comentarios marginajust">
         <?php $qtd = contarLinhas("SELECT * FROM comentarios WHERE COD_RESENHA = '$codigo'"); ?>
-        <h1 class="titulo-comentarios"><i class="fa fa-comments-o"></i> <?php echo $qtd ?> Comentarios</h1><button class="btnFazerComentario">Fazer Comentario</button>
+        <h1 class="titulo-comentarios"><i class="fa fa-comments-o"></i> <?php echo $qtd ?> Comentarios</h1><button class="btnFazerComentario"> COMENTAR</button>
 
         <form method="post" class="frmComentario" name="frmComentario">
             <?php
@@ -113,7 +113,7 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
                 <label class="lblPadrao lblComentario">Dê uma nota para esta resenha: </label>
                 <input type="number" class="frm-padrao frmNotaComent" name="notaResenha" placeholder="De 0 a 5" max="5"/>
                 <input type="hidden" name="cod_resenha" value="<?php echo $rs['COD_RESENHA']; ?>"/>
-                <input type="submit" name="comentar" value="Comentar" class="btnComentar"/><i style="display: none;" class="fa fa-spinner fa-pulse loadCOment"></i>
+                <input type="submit" name="comentar" value="Enviar" class="btnComentar"/><i style="display: none;" class="fa fa-spinner fa-pulse loadCOment"></i>
             <?php } else {
                 ?>
                 Você precisa estar logado para comentar.
