@@ -10,7 +10,7 @@
                     <li class="liMenu"><a href="">inicio</a></li>
                     <li class="liMenu"><a href="ranking">ranking</a></li>
                     <li class="liMenu"><a href="">resenhas</a></li>
-                    <li class="liMenu"><a href="">sobre nós</a></li>
+                    <li class="liMenu"><a href="sobrenos">sobre nós</a></li>
                 </ul>
             </nav>
             <div id="box-logo">

@@ -9,7 +9,7 @@ if ($_SESSION['COD_USUARIO'] == $url[1]) {
 ?>
 <section id="container_meuperfil-completo">
     <article id="box-imagem-nome">
-        <p id="img-meuperfil" style="background-image: url(../imagens/logo.png)"></p>
+        <p id="img-meuperfil" style="background-image: url(imagens_usuarios/<?php echo $rs['IMAGEM_PERFIL'] ?>)"></p>
         <p class="frase-meuperfil">Seja bem vindo(a), <?php echo $rs['NOME_USUARIO']; ?></p>
 
     </article>

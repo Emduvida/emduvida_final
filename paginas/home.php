@@ -74,6 +74,7 @@
                     <?php } ?>
                 </div>
             </article>
+        
 
         <?php } ?>
     </article> 

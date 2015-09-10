@@ -117,7 +117,7 @@ $senha = $_SESSION['senhaCadastro'];
                 <div id="msgTermos">
                     <input type="checkbox">
                     Declaro que li e aceito os termos de 
-                    uso do site “EM DUVIDA”.</div>
+                    uso do site “EM DUVIDA”.*</div>
                 <input type="submit" name="" value="Cadastrar" id="enviarResenha" class="btnCadastrar cadastrar-resenha"/>
 
                 </form>

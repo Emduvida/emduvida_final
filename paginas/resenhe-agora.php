@@ -46,13 +46,13 @@
                     </div>
                 </div>
 
-                <p class="titulo-formulario">Nota</p>
+                <p class="titulo-formulario">Nota*</p>
                 <div class="notas">
                     <input type="number" name="NOTA_PRODUTO" max="5" min="-5" class="frm-padrao input-resenha" required="required"/>  
                 </div>
 
 
-                <p class="titulo-formulario desce-titulo">Descreva sua experiencia com o produto</p>
+                <p class="titulo-formulario desce-titulo">Descreva sua experiencia com o produto*</p>
                 <div class="info-gerais">
                     <textarea class="frm-padrao input-resenha input-grande" name="DESCRICAO_RESENHA" required="required"></textarea>  
 
