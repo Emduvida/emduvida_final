@@ -30,6 +30,7 @@ if (isset($ac)) {
                         if ($rs['COD_TIPO'] == 2) {
 
                             $_SESSION['admLogado'] = 2;
+                            
                             echo "4";
                         } else {
 
@@ -42,6 +43,7 @@ if (isset($ac)) {
                         $_SESSION['nomeAdm']    = $rs['NOME_USUARIO'];
                         $_SESSION['codigoAdm']  = $rs['COD_USUARIO'];
                         $_SESSION['emailAdm']   = $rs['EMAIL_USUARIO'];
+                        $_SESSION['fotoAdm'] = $rs['IMAGEM_PERFIL'];
                     }
                 } else {
 

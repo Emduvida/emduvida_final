@@ -77,9 +77,11 @@ if ($_SESSION['COD_USUARIO'] == $url[1]) {
 
             </div>
         </section>
-        <button id="botao-Editar-perfil">
-            <p id="peditarperfil">editar perfil</p>
-        </button>
+        <a href="alterar-perfil/<?php echo $rs['COD_USUARIO'] ?>">
+            <button id="botao-Editar-perfil">
+                <p id="peditarperfil">editar perfil</p>
+            </button>
+        </a>
 
 
 
@@ -122,15 +124,16 @@ if ($_SESSION['COD_USUARIO'] == $url[1]) {
                 $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']);
                 ?>
 
-                <div class="box-resenha-usuario">
+                <div class="box-resenha-usuario" style="background-image: url(img_resenhas/<?php echo $resImg['CAMINHO_IMAGEM']; ?>)">
                     <div class="opcoes">
-                        <a href="editar-resenha/<?php echo $rs['COD_RESENHA'] ?>/<?php echo $rs['slugfy'] ?>"><i class="fa fa-pencil edit"></i></a>
-                        <a href=""><i class="fa fa-times delete"></i></a>
+                        <a href="editar-resenha/<?php echo $rs['COD_RESENHA'] ?>/<?php echo $rs['slugfy'] ?>" class="iconesPerfilUser"><i class="fa fa-pencil edit"></i></a>
+                        <a href="" id="<?php echo $rs['COD_RESENHA'] ?>" class="desativarResenha iconesPerfilUser"><i class="fa fa-times delete"></i></a>
                     </div>
                 </div>
 
-            
+
             <?php } ?>
+
         </div>
         <article class="paginacao paginacao_resenha">
             <?php

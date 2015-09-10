@@ -597,20 +597,6 @@
 
 
 
-#carFundo{width: 100%; height: 100%; background-color: black; position: fixed; z-index: 110; opacity: .4}
-
-.loadImg{margin: 0 auto; display: block; float: none;}
-
-.load{text-align: center; margin: auto; margin-top: 20%; float: none;}
-
-.carregando{width: 100%; height: 100%;display: none; position: fixed; z-index: 111;}
-
-.msg{width: 300px; height: 200px; position: fixed; z-index: 112; float: none; left: 50%; margin-left: -150px; color: #fff;}
-
-.erro{width: 100%; height: 100%; background-color: red;}
-
-.accept{width: 100%; height: 100%; background-color: green; }
-
 .frmLogin{
     padding: 15px;
 }
@@ -955,7 +941,7 @@
     background-color: #176f78;
     border: none;
     color: white;
-    
+    cursor: pointer;
     
     
     
@@ -1998,15 +1984,13 @@ ul.slide-resenha li{
 
 #box-listagemresenhas{
     width: 100%;
-    height: 300px;
+    height: auto;
     margin-top: 40px;
-    background-color: white;
-    border: 1px solid #d5d4d4;
-        
+    
 }
 
 .box-resenha-usuario{
-    width: 19.2%;
+    width: 18.667%;
     height: 220px;
     background-color: black;
     float: left;
@@ -2085,9 +2069,19 @@ ul.slide-resenha li{
 }
 
 .opcoes{
-    width: 90%;
-    margin: 10px auto;
+    width: 91.5%;
+    margin: 0px auto;
+    padding: 10px;
     font-size: 1.2rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,7db9e8+100&amp;0.8+0,0+100 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(125,185,232,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(125,185,232,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+
 }
 
 .delete{
@@ -2215,3 +2209,96 @@ ul.slide-resenha li{
     text-align: center;
     margin-top: 5px;
 }
+
+
+.iconesPerfilUser{
+    color: #fff;
+}
+
+
+
+
+.msg{
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    border-radius: 5px;
+    margin-left: -210px;
+    margin-top: 60px;
+    z-index: 100;
+    -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.44);
+    -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.44);
+    box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.44);
+}
+
+.accept{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
+    background-color: #67BA5B;
+}
+
+.accept i{
+    font-size: 1.8rem;
+    color: #87f477;
+    padding-right: 10px;
+    display: block;
+}
+
+.accept span{
+    margin-top: 10px;
+    display: block;
+}
+
+.erro i{
+    font-size: 1.8rem;
+    color: #ff6462;
+    padding-right: 10px;
+    display: block;
+}
+.erro span{
+    margin-top: 10px;
+    display: block;
+}
+.erro{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
+    background-color: #D35351;
+}
+
+
+
+.load{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f39c12;
+    text-align: center;
+}
+
+.load i{
+    font-size: 1.8rem;
+    display: block;
+    color: #fff;
+
+}
+
+.load span{
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    color: #fff;
+}
+

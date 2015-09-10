@@ -14,7 +14,7 @@
                 <p class="content-li">
 
                     <i class="fa fa-user fa-2x"></i>
-
+                    <?php $n = contarLinhas("SELECT * FROM usuario WHERE STATUS_USUARIO = '1'") ?>
                     <span class="txtGrande">3.5000</span>
                     <span class="txtPequeno">usuários</span>
 
@@ -34,15 +34,15 @@
     </div>
 
     <div class="box-usuario">
-        <p class="foto-perfil" style="background-image: url(../imagens_usuarios/319d021932aab20b65293790d9512c6b.jpg)">
+        <p class="foto-perfil" style="background-image: url(../imagens_usuarios/<?php echo $_SESSION['fotoAdm']; ?>)">
             
         </p>
         <p class="nome-usuario">
-            Igor Carlos
+            <?php echo $_SESSION['nomeAdm']; ?>
         </p>
         
         
         
     </div>
-    <button class="btnSair">sair</button>
+    <a href="logoff.php"><button class="btnSair">sair</button></a>
 </nav>

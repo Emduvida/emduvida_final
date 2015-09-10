@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     function carregando() {
         carrFundo.fadeIn("fast");
-        carr.empty().html('<p class="load"><img src="js/482.GIF" class="loadImg" alt="Carregando..."/></p>').fadeIn("fast");
+        carr.empty().html('<p class="load"><i class="fa fa-spinner fa-pulse"></i><span>Aguarde um momento</span></p>').fadeIn("fast");
     }
 
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
     function errosend() {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="erro"><strong>Erro inesperado: </strong>Favor contate o admin!</p>').fadeIn("fast");
+        errmsg.empty().html('<p class="erro"><i class="fa fa-times-circle"></i><span>Erro inesperado: </strong>Favor contate o admin!</span></p>').fadeIn("fast");
     }
 
 
@@ -55,13 +55,13 @@ $(document).ready(function () {
     function erroDados(mensagem) {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="erro">' + mensagem + '</p>').fadeIn("fast");
+        errmsg.empty().html('<p class="erro"><i class="fa fa-times-circle"></i><span>' + mensagem + '</span></p>').fadeIn("fast");
     }
 
     function sucesso(mensagem) {
         carrFundo.hide();
         carr.hide();
-        errmsg.empty().html('<p class="accept">' + mensagem + '</p>').fadeIn("fast");
+        errmsg.empty().html('<p class="accept"><i class="fa fa-check-circle"></i><span>' + mensagem + '</span></p>').fadeIn("fast");
     }
 
     $.ajaxSetup({
@@ -141,6 +141,46 @@ $(document).ready(function () {
                 }
 
                 //sucesso('<pre>'+resposta+'</pre>');
+            },
+            complete: function () {
+
+                //location.href='home';
+
+            }
+        });
+    });
+
+
+    var alterarUsuario = $('.frmAlterarDados');
+    alterarUsuario.submit(function () {
+
+        var dados = $(this).serialize();
+        var acao = "&acao=alterarUsuario";
+        var sender = dados + acao;
+        $.ajax({
+            url: 'op/alterar.php',
+            data: sender,
+            success: function (resposta) {
+                switch (resposta) {
+                    case '1':
+                        erroDados("Este email já esta em uso");
+                        fechaErro(1500);
+                        break;
+                    case '2':
+                        erroDados("Este CPF já esta em uso");
+                        fechaErro(1500);
+                        break;
+                    case '3':
+                        sucesso("Dados alterados com sucesso");
+                        setTimeout(function(){
+                            location.reload();
+                        },1500);
+                        break;
+                    default :
+                        alert(resposta);
+                        break;
+                }
+                //alert(resposta);
             },
             complete: function () {
 
@@ -232,57 +272,56 @@ $(document).ready(function () {
         });
         return false;
     });
-        
-        
-        var alterResenha = $('form[name="alterarResenha"]');
-    alterResenha.submit(function () {
-
-        $(this).ajaxSubmit({
-            url: 'op/alterar.php',
-            data: {acao: "AlterarResenha"},
-            beforeSubmit: function () {
-
-            },
-            error: function () {
-            },
-            //resetForm: true,
-            uploadProgress: function (evento, posicao, total, completo) {
-                $('#carregamento-imagem').text(completo);
-            },
-            success: function (resposta) {
-                
-                alert(resposta);
-                /*switch (resposta) {
-                    case '2':
-                        erroDados("Erro inesperado, tente novamente mais tarde!");
-                        fechaErro(2000);
-                        break;
-                    case '3':
-                        sucesso("Resenha Cadastrada com sucesso!");
-                        Redirecionar(1000, 'home');
-                        break;
-                    case '4':
-                        erroDados("Nós aceitamos apenas imagens! Verifique se fez realmente o upload de uma imagem, entre em contato se estivermos errados");
-                        //fechaLoad();
-                        fechaErro(1500);
-                        $('.input-file').empty();
-                        $('.box-carregamento').empty();
-                        break;
-                }*/
-            },
-            complete: function () {
-                //ler
-            }
 
 
-
-
-
-        });
-        return false;
-    });
-
-        
+    /*var alterResenha = $('form[name="alterarResenha"]');
+     alterResenha.submit(function () {
+     
+     $(this).ajaxSubmit({
+     url: 'op/alterar.php',
+     data: {acao: "AlterarResenha"},
+     beforeSubmit: function () {
+     
+     },
+     error: function () {
+     },
+     //resetForm: true,
+     uploadProgress: function (evento, posicao, total, completo) {
+     $('#carregamento-imagem').text(completo);
+     },
+     success: function (resposta) {
+     
+     alert(resposta);
+     /*switch (resposta) {
+     case '2':
+     erroDados("Erro inesperado, tente novamente mais tarde!");
+     fechaErro(2000);
+     break;
+     case '3':
+     sucesso("Resenha Cadastrada com sucesso!");
+     Redirecionar(1000, 'home');
+     break;
+     case '4':
+     erroDados("Nós aceitamos apenas imagens! Verifique se fez realmente o upload de uma imagem, entre em contato se estivermos errados");
+     //fechaLoad();
+     fechaErro(1500);
+     $('.input-file').empty();
+     $('.box-carregamento').empty();
+     break;
+     }
+     },
+     complete: function () {
+     //ler
+     }
+     
+     
+     
+     
+     
+     });
+     return false;
+     });
+     */
     var cadCOmentario = $('form[name="frmComentario"]');
 
     cadCOmentario.submit(function () {
@@ -294,33 +333,33 @@ $(document).ready(function () {
             beforeSubmit: function () {
 
             },
-            beforeSend: function(){
+            beforeSend: function () {
                 $('.loadCOment').fadeIn();
             },
             error: function () {
             },
             success: function (resposta) {
-                switch (resposta){
+                switch (resposta) {
                     case '1':
                         sucesso("Obrigado por dar sua opnião!");
                         fechaErro(1500);
                         location.reload();
                         break;
-                        
+
                     case '2':
                         erroDados("Erro inesperado, favor contate o administrador");
                         fechaErro(1500);
                         break;
-                    
+
                     case '3':
                         erroDados("Por favor preencha todos os campos");
                         fechaErro(1500);
                         break;
-                    
+
                     default :
-                        
-                            break;
-                        
+
+                        break;
+
                 }
             },
             resetForm: true,
@@ -410,7 +449,7 @@ $(document).ready(function () {
 
     //função para fazer upload de imagem do usuario...
     $('.imgUsuarioUp').change(function () {
-        alert('change');
+        //alert('change');
 
         $('.frmImagem').ajaxSubmit({
             url: 'op/gerais.php',
@@ -433,5 +472,46 @@ $(document).ready(function () {
     });
 
 
+    $('.desativarResenha').click(function () {
+
+        $.ajax({
+            url: 'op/gerais.php',
+            data: "&acao=desativarResenha&cod=" + $(this).attr('id'),
+            type: "GET",
+            beforeSubmit: function () {
+
+            },
+            error: function () {
+
+            },
+            success: function (resposta) {
+                switch (resposta) {
+                    case '1':
+                        sucesso("Resenha apagada com sucesso.");
+                        fechaErro(1500);
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                        break;
+                    case '2':
+                        erroDados("Erro ao apagar resenha");
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+
+                        break;
+                    default :
+                        alert(resposta);
+                        break;
+                }
+
+            },
+            complete: function (resposta) {
+
+            }
+
+        });
+        return false;
+    });
 
 });

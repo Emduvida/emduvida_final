@@ -37,9 +37,10 @@ $rs = selecionar('resenha', 'COD_RESENHA', $codigo);
 
                     <label for="Produto" class="lblPadrao fonte">Produto*</label>
                     <p class="erros"></p>
-                    <input type="text" name="produto" id="Produto" value="<?php $rsProd = selecionar('produtos', 'COD_PRODUTO', $rs['COD_PRODUTO']);
-echo $rsProd['NOME_PRODUTO'];
-?>" disabled="disabled" class="frm-padrao input-resenha inputProd" required="required"/>  
+                    <input type="text" name="produto" id="Produto" value="<?php
+                    $rsProd = selecionar('produtos', 'COD_PRODUTO', $rs['COD_PRODUTO']);
+                    echo $rsProd['NOME_PRODUTO'];
+                    ?>" disabled="disabled" class="frm-padrao input-resenha inputProd" required="required"/>  
 
                     <div id="resultadoBusca">
                         <ul id="carregaBusca">
@@ -80,9 +81,9 @@ echo $rsProd['NOME_PRODUTO'];
                             <div class="box-input-defQual">
 
                                 <p class="icone"><i class="fa fa-thumbs-up"></i></p>
-                                <input type="hiden" name="cod_qualidade[]" value="<?php echo $resQual['COD_DEFEITO'] ?>"/>
+                                <!--<input type="hiden" name="cod_qualidade[]" value="<?php echo $resQual['COD_DEFEITO'] ?>"/>-->
 
-                                <input type="text" name="qualidades[]" value="<?php echo $resQual['QUALIDADES'] ?>" class="frm-padrao input-defQual"/>
+                                <input type="text" name="qualidades[]" disabled="disabled" value="<?php echo $resQual['QUALIDADES'] ?>" class="frm-padrao input-defQual"/>
 
                             </div>
                             <?php
@@ -101,17 +102,17 @@ echo $rsProd['NOME_PRODUTO'];
                 <div class="defeitos">
                     <h2 class="titulo-positivo-negativo titulo-negativo">Pontos negativos</h2>
                     <div class="def">
-<?php
-$execDef = listarLimite('defeitos', 5, "", 'COD_RESENHA', $url[1]);
-$i = 0;
-while ($resDef = mysql_fetch_assoc($execDef)) {
-    $i++;
-    ?>
+                        <?php
+                        $execDef = listarLimite('defeitos', 5, "", 'COD_RESENHA', $url[1]);
+                        $i = 0;
+                        while ($resDef = mysql_fetch_assoc($execDef)) {
+                            $i++;
+                            ?>
                             <div class="box-input-defQual">
 
                                 <p class="icone redicone"><i class="fa fa-thumbs-down"></i></p>
 
-                                <input type="text" value="<?php echo $resDef['DEFEITOS'] ?>" id="<?php echo $i ?>" name="defeitos[]" class="frm-padrao input-defQual"/>
+                                <input type="text" value="<?php echo $resDef['DEFEITOS'] ?>" disabled="disabled" id="<?php echo $i ?>" name="defeitos[]" class="frm-padrao input-defQual"/>
 
                             </div>
 <?php } ?>

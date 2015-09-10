@@ -54,7 +54,7 @@ Tenha bom proveito, pois o Em Dúvida foi feito totalmente para você! <br/>
                 </div>
                     
                     <div class="elemento">
-                        <p class="imagemintegrante"  style="background-image: url(imagens/integrantes/jonathan2.png)"></p>
+                        <p class="imagemintegrante"  style="background-image: url(imagens/integrantes/jonathan2.PNG)"></p>
                         <p class="nomeintegrante">Jonathan Wilson </p>
                         <p class="idadeareaintegrante">Front-end</p>
                         <p class="idadeareaintegrante">17 anos </p>

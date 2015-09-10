@@ -4,7 +4,7 @@ include_once '../admin/conexao/conect_db.php';
 include_once '../admin/funcoes.php';
 
 
-switch ($_POST['acao']) {
+switch (@$_POST['acao']) {
     case 'cad1':
         unset($_SESSION['emailCadastro']);
         unset($_SESSION['senhaCadastro']);
@@ -66,6 +66,23 @@ switch ($_POST['acao']) {
     case 'upImagemResenha':
         $imagem = $_FILES['imagem'];
         echo upImagem($imagem, '../img_resenhas/');
+        
+        break;
+}
+
+
+switch (@$_GET['acao']){
+    case 'desativarResenha':
+        
+        $c['STATUS_RESENHA'] = 0;
+        
+        $camposVal = gerarCamposAlteracao($c);
+        
+        if(alterar('resenha', $camposVal, "COD_RESENHA", $_GET['cod'])){
+            echo '1';
+        }else{
+            echo '2';
+        }
         
         break;
 }

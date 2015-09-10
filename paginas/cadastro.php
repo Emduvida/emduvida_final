@@ -1,6 +1,12 @@
 <?php
+if(!isset($_SESSION['emailCadastro']) or !isset($_SESSION['senhaCadastro'])){
+    redireciona('home');
+}else{
+    
 $email = $_SESSION['emailCadastro'];
 $senha = $_SESSION['senhaCadastro'];
+
+}
 ?>
 
 <section id="containerCadastro">
@@ -110,14 +116,12 @@ $senha = $_SESSION['senhaCadastro'];
                 <h3 class="titulo-cadastro-home">Mais</h3>
                 <hr class="linha-cadastro-home"/>
 
-               <!--<input type="text" name="txtImagemUsuario" class="textImagemUsuario"/> -->
+                <input type="text" name="txtImagemUsuario" style="display: none;" class="textImagemUsuario"/>
                 <div id="carregaImagem"></div>
 
-
+                
                 <div id="msgTermos">
-                    <input type="checkbox">
-                    Declaro que li e aceito os termos de 
-                    uso do site “EM DUVIDA”.*</div>
+                    Ao clicar em cadastrar estara aceitando os <a href="">Termos de uso</a>.</div>
                 <input type="submit" name="" value="Cadastrar" id="enviarResenha" class="btnCadastrar cadastrar-resenha"/>
 
                 </form>

@@ -14,6 +14,7 @@ switch ($ac) {
         $dtFInal = $dt[2] . '-' . $dt[1] . '-' . $dt[0];
 
         $c['NOME_USUARIO'] = mysql_real_escape_string($_POST['NOME_USUARIO']);
+        $c['SOBRENOME_USUARIO'] = $_POST['SOBRENOME'];
         $c['IMAGEM_PERFIL'] = mysql_real_escape_string($_POST['txtImagemUsuario']);
         $c['DATA_NASCIMENTO'] = mysql_real_escape_string($dtFInal);
         $c['CPF_USUARIO'] = mysql_real_escape_string($_POST['CPF_USUARIO']);
@@ -42,6 +43,8 @@ switch ($ac) {
 
                 if (inserir('usuario', $campos, $valores)) {
                     echo '3';
+                    unset($_SESSION['emailCadastro']);
+                    unset($_SESSION['senhaCadastro']);
                 }
             }
         }

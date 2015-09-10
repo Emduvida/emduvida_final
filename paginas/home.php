@@ -44,37 +44,39 @@
                     <p class="nome-usuario-preview pad-preview"><?php echo $rs['NOME_USUARIO']; ?></p>
                     <p class="emailUsuarioPreview pad-preview"><?php echo $rs['EMAIL_USUARIO']; ?></p>
                     <p class="cidade-preview pad-preview"><?php echo $rs['CIDADE_USUARIO'] . ' - ' . $rs['UF_USUARIO'] ?></p>
-                    
-                    
-                    <button id="btnlogout" >
-                        <p id="icone-logout"><i class="fa fa-sign-out"></i></p>
-                    </button>
-                    
+
+
+                    <a href="logoff.php">
+                        <button id="btnlogout" >
+                            <p id="icone-logout"><i class="fa fa-sign-out"></i></p>
+                        </button>
+                    </a>
+
                     <a href="meuperfil/<?php echo $rs['COD_USUARIO'] ?>/<?php echo gen_slug($rs['NOME_USUARIO']) ?>"><button class="btnEditPerfil">MEU PERFIL</button></a>
-                    
-                    
+
+
                 </div>
-                
+
                 <div id="corpo-preview-perfil">
                     <p class="titulo-preview">Últimas Publicações</p>
                     <?php
-                    $exec = listarLimite('resenha', 3, " WHERE COD_USUARIO  = '{$rs['COD_USUARIO']}' ORDER BY COD_RESENHA DESC");
-                    while ($res = mysql_fetch_assoc($exec)){
-                        
-                        $resImg = selecionar('imagens', 'COD_RESENHA', $res['COD_RESENHA']); 
-                    ?>
-                    
-                    
-                    
-                    <div class="box-resenha-preview">
-                        <p class="imagem-resenha-box" style="background-image: url(img_resenhas/<?php echo (empty($resImg['CAMINHO_IMAGEM'])) ? 'no-image.jpg' : $resImg['CAMINHO_IMAGEM']  ?>);"></p>
-                        <p class="titulo-resenha-box"><?php echo resumo($res['titulo_resenha'],6) ?></p>
-                        <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
-                    </div> 
+                    $exec = listarLimite('resenha', 3, " WHERE COD_USUARIO  = '{$rs['COD_USUARIO']}' AND STATUS_RESENHA = '1'  ORDER BY COD_RESENHA DESC");
+                    while ($res = mysql_fetch_assoc($exec)) {
+
+                        $resImg = selecionar('imagens', 'COD_RESENHA', $res['COD_RESENHA']);
+                        ?>
+
+
+
+                        <div class="box-resenha-preview">
+                            <p class="imagem-resenha-box" style="background-image: url(img_resenhas/<?php echo (empty($resImg['CAMINHO_IMAGEM'])) ? 'no-image.jpg' : $resImg['CAMINHO_IMAGEM'] ?>);"></p>
+                            <a href="ver-resenha/<?php echo $res['COD_RESENHA'] ?>/<?php echo $res['slugfy'] ?>"><p class="titulo-resenha-box"><?php echo resumo($res['titulo_resenha'], 6) ?></p><a/>
+                            <p class="avaliacao-resenha"><img src="imagens/estrelas.png" alt="a" /></p>
+                        </div> 
                     <?php } ?>
                 </div>
             </article>
-        
+
 
         <?php } ?>
     </article> 
@@ -101,64 +103,43 @@
         <p class="titulo-top-ranking">top 5</p>
 
         <ul class="ulRanking">
-            <li class="liRanking">Moto G    <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking">Iphone 6  <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking">Galaxy s5  <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking">Asus 5     <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking">Asus 2     <img src="imagens/estrelas.png" alt="a"/></li>
+            <?php
+            $exec3 = mysql_query("SELECT *,count(*) as NrVezes FROM resenha group by COD_PRODUTO ORDER BY NrVezes DESC LIMIT 5");
+            while ($rs = mysql_fetch_assoc($exec3)) {
+                $resProd = selecionar('produtos', "COD_PRODUTO", $rs['COD_PRODUTO']);
+                ?>
+                <li class="liRanking"><?php echo $resProd['NOME_PRODUTO'] ?>     <img src="imagens/estrelas.png" alt="a"/></li>
+            <?php } ?>
         </ul>
 
         <a href="ranking" class="linkVejaMais">Veja Mais</a>
     </article>
 
     <article class="box-ranking-resenha box-resenha-top">
-        <div class="resenha" id="1" style="background-image: url(imagens/moto-g-handson-6-853.png)">
-            <div class="topo-box"></div>
-            <div class="rdp-box 1" >
-                <p class="titulo-resenha-txt">
-                    Moto G
-                </p>
-                <p class="resumo-resenha-txt">
-                    O iPhone 5c é inovador, o designer é lindo...
-                </p>
+        <?php
+        $exec3 = mysql_query("SELECT *,count(*) as NrVezes FROM resenha group by COD_PRODUTO ORDER BY NrVezes DESC LIMIT 2");
+        while ($rs = mysql_fetch_assoc($exec3)) {
+            $resProd = selecionar('produtos', "COD_PRODUTO", $rs['COD_PRODUTO']);
+            ?>
+            <div class="resenha" id="1" style="background-image: url(img_resenhas/<?php echo $resImg['CAMINHO_IMAGEM'] ?>); margin-left: 5px;">
+                <?php echo $resProd['NOME_PRODUTO']; ?>
             </div>
-        </div>
-        <div class="resenha right" id="2" style="background-image: url(imagens/534A1583.jpg)">
-            <div class="topo-box"></div>
-            <div class="rdp-box 2" >
-                <p class="titulo-resenha-txt">
-                    Moto G
-                </p>
-                <p class="resumo-resenha-txt">
-                    O iPhone 5c é inovador, o designer é lindo...
-                </p>
-            </div>
-        </div>
+        <?php } ?>
+
     </article>
 
     <article class="box-ranking-resenha box-resenha-top sem-margem">
-        <div class="resenha" id="3" style="background-image: url(imagens/Samsung-Galaxy-S5.jpg)">
-            <div class="topo-box"></div>
-            <div class="rdp-box 3">
-                <p class="titulo-resenha-txt">
-                    Moto G
-                </p>
-                <p class="resumo-resenha-txt">
-                    O iPhone 5c é inovador, o designer é lindo...
-                </p>
+        <?php
+        $exec4 = mysql_query("SELECT *,count(*) as NrVezes FROM resenha group by COD_PRODUTO ORDER BY NrVezes DESC LIMIT 2 offset 4");
+        while ($rs = mysql_fetch_assoc($exec4)) {
+            $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']);
+
+            $resProd = selecionar('produtos', "COD_PRODUTO", $rs['COD_PRODUTO']);
+            ?>
+            <div class="resenha" id="1" style="background-image: url(img_resenhas/<?php echo $resImg['CAMINHO_IMAGEM'] ?>); margin-left: 5px;">
+                <?php echo $resProd['NOME_PRODUTO']; ?>
             </div>
-        </div>
-        <div class="resenha right" id="4" style="background-image: url(imagens/thumb-98432-zenfone-resized.jpg)">
-            <div class="topo-box"></div>
-            <div class="rdp-box 4">
-                <p class="titulo-resenha-txt">
-                    Moto G
-                </p>
-                <p class="resumo-resenha-txt">
-                    O iPhone 5c é inovador, o designer é lindo...
-                </p>
-            </div>
-        </div>
+        <?php } ?>
     </article>
 
     <article class="box-ranking-resenha margem-resenha">
@@ -166,11 +147,31 @@
         <p class="titulo-top-ranking azulClaro">top 5</p>
 
         <ul class="ulRanking">
-            <li class="liRanking liMarcas">Moto G    <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking liMarcas">Iphone 6  <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking liMarcas">Galaxy s5  <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking liMarcas">Asus 5     <img src="imagens/estrelas.png" alt="a"/></li>
-            <li class="liRanking liMarcas">Asus 2     <img src="imagens/estrelas.png" alt="a"/></li>
+            <?php
+            $exec2 = mysql_query("SELECT *,count(*) as NrVezes FROM resenha group by COD_PRODUTO ORDER BY NrVezes DESC LIMIT 5");
+            $codProd = array();
+            $i = 0;
+            while ($rs = mysql_fetch_assoc($exec2)) {
+                $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']);
+                $resProd = selecionar('produtos', 'COD_PRODUTO', $rs['COD_PRODUTO']);
+                $codProd[$i] = $rs['COD_PRODUTO'];
+                $i++;
+                ?>
+                <?php
+            }
+
+            $produtos = implode(',', $codProd);
+            ?>
+
+            <?php
+            $execFab = mysql_query("SELECT distinct(FABRICANTE),COD_PRODUTO FROM emduvida.produtos WHERE COD_PRODUTO in($produtos)");
+
+            while ($rs = mysql_fetch_assoc($execFab)) {
+                $resenha = selecionar('resenha', 'COD_PRODUTO', $rs['COD_PRODUTO']);
+                $imagem = selecionar('imagens', 'COD_RESENHA', $resenha['COD_RESENHA']);
+                ?>
+                <li class="liRanking liMarcas"><?php echo $rs['FABRICANTE'] ?>    <img src="imagens/estrelas.png" alt="a"/></li>
+            <?php } ?>
         </ul>
 
         <a href="ranking" class="linkVejaMais">Veja Mais</a>
@@ -188,10 +189,10 @@
         <article class="resenhasMaisVistas">
 
             <?php
-            $exec = listarLimite('resenha', 20, " ORDER BY VISUALIZACOES_RESENHA DESC");
+            $exec = listarLimite('resenha', 20, " WHERE STATUS_RESENHA = '1' ORDER BY VISUALIZACOES_RESENHA DESC");
             while ($rs = mysql_fetch_assoc($exec)) {
-                
-                $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']); 
+
+                $resImg = selecionar('imagens', 'COD_RESENHA', $rs['COD_RESENHA']);
                 ?>
                 <a href="ver-resenha/<?php echo $rs['COD_RESENHA'] ?>/<?php echo $rs['slugfy'] ?>">
 
@@ -207,11 +208,11 @@
                             </div>
                             <div class="corpo-box-maisvistas">
                                 <p class="titulo-resenha-txt">
-                                    <?php echo resumo($rs['titulo_resenha'], 10)?>
+                                    <?php echo resumo($rs['titulo_resenha'], 10) ?>
                                     <?php $prod = selecionar('produtos', 'COD_PRODUTO', $rs['COD_PRODUTO']); ?>
-                                <span><?php echo $prod['NOME_PRODUTO']; ?></span>
+                                    <span><?php echo $prod['NOME_PRODUTO']; ?></span>
                                 </p>
-                                
+
                                 <p class="resumo-resenha-txt">
                                     <?php echo resumo($rs['CORPO_RESENHA'], 100) ?>
                                 </p>
